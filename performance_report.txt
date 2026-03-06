@@ -1,0 +1,37 @@
+================================================================================
+📊 PERFORMANCE REPORT
+Generated: 2026-03-07 00:55:45
+================================================================================
+
+📈 CLOSED POSITIONS:
+----------------------------------------
+Total Trades: 0
+Win Rate: 0%
+Total Pnl: 0%
+Avg Pnl Per Trade: 0%
+Best Trade: 0%
+Worst Trade: 0%
+Avg Hold Hours: 0
+Max Drawdown: 0.0%
+Current Drawdown: 0.0%
+
+📊 OPEN POSITIONS:
+----------------------------------------
+
+CL=F (BUY):
+  Entry: $87.53
+  Stop: $79.45
+  Target: $111.78
+  Days Open: 0.2
+  Max Run-up: 1.2%
+  Max Drawdown: 0.0%
+  Status: OPEN
+
+CL=F (BUY):
+  Entry: $88.62
+  Stop: $80.54
+  Target: $112.87
+  Days Open: 0.2
+  Max Run-up: 0.0%
+  Max Drawdown: 0.0%
+  Status: OPEN
