@@ -1,13 +1,13 @@
 {
   "timestamp": "2026-03-06 17:30:00",
   "closed_positions": {
-    "total_trades": 0,
-    "win_rate": "0%",
-    "total_pnl": "0%",
-    "avg_pnl_per_trade": "0%",
-    "best_trade": "0%",
-    "worst_trade": "0%",
-    "avg_hold_hours": 0,
+    "total_trades": 29,
+    "win_rate": "17.2%",
+    "total_pnl": "0.00%",
+    "avg_pnl_per_trade": "0.00%",
+    "best_trade": "0.00%",
+    "worst_trade": "0.00%",
+    "avg_hold_hours": 1.4,
     "max_drawdown": "0.0%",
     "current_drawdown": "0.0%"
   },

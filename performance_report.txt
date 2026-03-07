@@ -5,13 +5,13 @@ Generated: 2026-03-06 17:30:00
 
 📈 CLOSED POSITIONS:
 ----------------------------------------
-Total Trades: 0
-Win Rate: 0%
-Total Pnl: 0%
-Avg Pnl Per Trade: 0%
-Best Trade: 0%
-Worst Trade: 0%
-Avg Hold Hours: 0
+Total Trades: 29
+Win Rate: 17.2%
+Total Pnl: 0.00%
+Avg Pnl Per Trade: 0.00%
+Best Trade: 0.00%
+Worst Trade: 0.00%
+Avg Hold Hours: 1.4
 Max Drawdown: 0.0%
 Current Drawdown: 0.0%
 
