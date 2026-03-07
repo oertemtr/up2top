@@ -70,6 +70,7 @@
         }
         .badge-buy { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
         .badge-sell { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+        .badge-neutral { background: rgba(148, 163, 184, 0.2); color: var(--text-muted); border: 1px solid var(--text-muted); }
         .stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -99,6 +100,14 @@
             overflow: hidden;
             margin-top: 1rem;
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chart-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .empty-state {
             grid-column: 1 / -1;
@@ -108,12 +117,11 @@
             font-size: 1.2rem;
         }
     </style>
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 </head>
 <body>
     <div class="header">
         <h1>Triple-Brain Trading Signals</h1>
-        <p>Live signals generated at: 2026-03-07 00:59:46</p>
+        <p>Live signals generated at: 2026-03-07 11:19:41</p>
         <p style="color: var(--text-muted);">Strict Simultaneous Rules Enforced • Dynamic MDD Constraints</p>
     </div>
     
@@ -147,7 +155,9 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_0"></div>
+                <div class="chart-container">
+                    <img src="assets/CL_F.png" alt="CL=F chart">
+                </div>
             </div>
             
             <div class="card">
@@ -178,7 +188,9 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_1"></div>
+                <div class="chart-container">
+                    <img src="assets/CL_F.png" alt="CL=F chart">
+                </div>
             </div>
             
             <div class="card">
@@ -209,13 +221,15 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_2"></div>
+                <div class="chart-container">
+                    <img src="assets/AEFES_IS.png" alt="AEFES.IS chart">
+                </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
                     <span class="symbol">YKBNK.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
                 </div>
                 <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
                     Score: 0.0% | 🇹🇷 Stock (3-layer)
@@ -240,13 +254,15 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_3"></div>
+                <div class="chart-container">
+                    <img src="assets/YKBNK_IS.png" alt="YKBNK.IS chart">
+                </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
                     <span class="symbol">BIMAS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
                 </div>
                 <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
                     Score: 0.0% | 🇹🇷 Stock (3-layer)
@@ -271,13 +287,15 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_4"></div>
+                <div class="chart-container">
+                    <img src="assets/BIMAS_IS.png" alt="BIMAS.IS chart">
+                </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
                     <span class="symbol">MGROS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
                 </div>
                 <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
                     Score: 0.0% | 🇹🇷 Stock (3-layer)
@@ -302,13 +320,15 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_5"></div>
+                <div class="chart-container">
+                    <img src="assets/MGROS_IS.png" alt="MGROS.IS chart">
+                </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
                     <span class="symbol">KRDMD.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
                 </div>
                 <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
                     Score: 0.0% | 🇹🇷 Stock (3-layer)
@@ -333,13 +353,15 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_6"></div>
+                <div class="chart-container">
+                    <img src="assets/KRDMD_IS.png" alt="KRDMD.IS chart">
+                </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
                     <span class="symbol">TTKOM.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
                 </div>
                 <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
                     Score: 0.0% | 🇹🇷 Stock (3-layer)
@@ -364,13 +386,15 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_7"></div>
+                <div class="chart-container">
+                    <img src="assets/TTKOM_IS.png" alt="TTKOM.IS chart">
+                </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
                     <span class="symbol">ISCTR.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
                 </div>
                 <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
                     Score: 0.0% | 🇹🇷 Stock (3-layer)
@@ -395,13 +419,15 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_8"></div>
+                <div class="chart-container">
+                    <img src="assets/ISCTR_IS.png" alt="ISCTR.IS chart">
+                </div>
             </div>
             
             <div class="card">
                 <div class="card-header">
                     <span class="symbol">GARAN.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
                 </div>
                 <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
                     Score: 0.0% | 🇹🇷 Stock (3-layer)
@@ -426,59 +452,11 @@
                     </div>
                 </div>
                 
-                <div class="chart-container" id="tv_9"></div>
+                <div class="chart-container">
+                    <img src="assets/GARAN_IS.png" alt="GARAN.IS chart">
+                </div>
             </div>
             
     </div>
-
-    <script>
-        // TradingView Widget Generator
-        function createWidget(container_id, symbol) {
-            // Clean up the symbol for TradingView format
-            let tvSymbol = symbol;
-            if (symbol.includes('.IS')) {
-                tvSymbol = 'BIST:' + symbol.replace('.IS', '');
-            } else if (symbol === 'CL=F') {
-                tvSymbol = 'NYMEX:CL1!';
-            } else if (symbol === 'GC=F') {
-                tvSymbol = 'COMEX:GC1!';
-            } else if (symbol === 'HG=F') {
-                tvSymbol = 'COMEX:HG1!';
-            }
-
-            new TradingView.widget({
-                "autosize": true,
-                "symbol": tvSymbol,
-                "interval": "60",
-                "timezone": "Etc/UTC",
-                "theme": "dark",
-                "style": "1",
-                "locale": "en",
-                "enable_publishing": false,
-                "hide_top_toolbar": true,
-                "hide_legend": true,
-                "save_image": false,
-                "container_id": container_id,
-                "studies": [
-                    "Volume@tv-basicstudies"
-                ]
-            });
-        }
-
-        // Initialize all charts
-        window.onload = function() {
-            createWidget('tv_0', 'CL=F');
-            createWidget('tv_1', 'CL=F');
-            createWidget('tv_2', 'AEFES.IS');
-            createWidget('tv_3', 'YKBNK.IS');
-            createWidget('tv_4', 'BIMAS.IS');
-            createWidget('tv_5', 'MGROS.IS');
-            createWidget('tv_6', 'KRDMD.IS');
-            createWidget('tv_7', 'TTKOM.IS');
-            createWidget('tv_8', 'ISCTR.IS');
-            createWidget('tv_9', 'GARAN.IS');
-            
-        };
-    </script>
 </body>
 </html>
