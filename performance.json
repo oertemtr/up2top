@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-07 00:59:46",
+  "timestamp": "2026-03-06 17:30:00",
   "closed_positions": {
     "total_trades": 0,
     "win_rate": "0%",
@@ -11,117 +11,6 @@
     "max_drawdown": "0.0%",
     "current_drawdown": "0.0%"
   },
-  "open_positions": [
-    {
-      "symbol": "CL=F",
-      "action": "BUY",
-      "entry_price": "$87.53",
-      "stop_loss": "$79.45",
-      "target": "$111.78",
-      "days_open": 0.2,
-      "max_runup": "1.2%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "CL=F",
-      "action": "BUY",
-      "entry_price": "$88.62",
-      "stop_loss": "$80.54",
-      "target": "$112.87",
-      "days_open": 0.2,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "YKBNK.IS",
-      "action": "NEUTRAL",
-      "entry_price": "35.14 TL",
-      "stop_loss": "39.80 TL",
-      "target": "21.16 TL",
-      "days_open": -0.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "BIMAS.IS",
-      "action": "NEUTRAL",
-      "entry_price": "620.00 TL",
-      "stop_loss": "684.82 TL",
-      "target": "425.54 TL",
-      "days_open": -0.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "MGROS.IS",
-      "action": "NEUTRAL",
-      "entry_price": "571.50 TL",
-      "stop_loss": "635.70 TL",
-      "target": "378.91 TL",
-      "days_open": -0.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "KRDMD.IS",
-      "action": "NEUTRAL",
-      "entry_price": "29.46 TL",
-      "stop_loss": "32.21 TL",
-      "target": "17.27 TL",
-      "days_open": -0.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "TTKOM.IS",
-      "action": "NEUTRAL",
-      "entry_price": "59.20 TL",
-      "stop_loss": "66.08 TL",
-      "target": "38.58 TL",
-      "days_open": -0.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "ISCTR.IS",
-      "action": "NEUTRAL",
-      "entry_price": "14.13 TL",
-      "stop_loss": "15.99 TL",
-      "target": "8.56 TL",
-      "days_open": -0.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "GARAN.IS",
-      "action": "NEUTRAL",
-      "entry_price": "134.70 TL",
-      "stop_loss": "150.00 TL",
-      "target": "88.79 TL",
-      "days_open": -0.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "AEFES.IS",
-      "action": "SELL",
-      "entry_price": "$16.88",
-      "stop_loss": "$18.95",
-      "target": "$10.67",
-      "days_open": -0.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    }
-  ],
-  "total_open_positions": 10
+  "open_positions": [],
+  "total_open_positions": 0
 }

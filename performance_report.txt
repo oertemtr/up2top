@@ -1,6 +1,6 @@
 ================================================================================
 📊 PERFORMANCE REPORT
-Generated: 2026-03-07 00:59:46
+Generated: 2026-03-06 17:30:00
 ================================================================================
 
 📈 CLOSED POSITIONS:
@@ -17,93 +17,4 @@ Current Drawdown: 0.0%
 
 📊 OPEN POSITIONS:
 ----------------------------------------
-
-CL=F (BUY):
-  Entry: $87.53
-  Stop: $79.45
-  Target: $111.78
-  Days Open: 0.2
-  Max Run-up: 1.2%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-CL=F (BUY):
-  Entry: $88.62
-  Stop: $80.54
-  Target: $112.87
-  Days Open: 0.2
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-YKBNK.IS (NEUTRAL):
-  Entry: 35.14 TL
-  Stop: 39.80 TL
-  Target: 21.16 TL
-  Days Open: -0.1
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-BIMAS.IS (NEUTRAL):
-  Entry: 620.00 TL
-  Stop: 684.82 TL
-  Target: 425.54 TL
-  Days Open: -0.1
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-MGROS.IS (NEUTRAL):
-  Entry: 571.50 TL
-  Stop: 635.70 TL
-  Target: 378.91 TL
-  Days Open: -0.1
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-KRDMD.IS (NEUTRAL):
-  Entry: 29.46 TL
-  Stop: 32.21 TL
-  Target: 17.27 TL
-  Days Open: -0.1
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-TTKOM.IS (NEUTRAL):
-  Entry: 59.20 TL
-  Stop: 66.08 TL
-  Target: 38.58 TL
-  Days Open: -0.1
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-ISCTR.IS (NEUTRAL):
-  Entry: 14.13 TL
-  Stop: 15.99 TL
-  Target: 8.56 TL
-  Days Open: -0.1
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-GARAN.IS (NEUTRAL):
-  Entry: 134.70 TL
-  Stop: 150.00 TL
-  Target: 88.79 TL
-  Days Open: -0.1
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
-
-AEFES.IS (SELL):
-  Entry: $16.88
-  Stop: $18.95
-  Target: $10.67
-  Days Open: -0.1
-  Max Run-up: 0.0%
-  Max Drawdown: 0.0%
-  Status: OPEN
+No open positions
