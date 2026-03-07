@@ -3,13 +3,13 @@
   "closed_positions": {
     "total_trades": 29,
     "win_rate": "17.2%",
-    "total_pnl": "0.00%",
-    "avg_pnl_per_trade": "0.00%",
-    "best_trade": "0.00%",
-    "worst_trade": "0.00%",
+    "total_pnl": "-17.90%",
+    "avg_pnl_per_trade": "-0.62%",
+    "best_trade": "0.03%",
+    "worst_trade": "-2.22%",
     "avg_hold_hours": 1.4,
-    "max_drawdown": "0.0%",
-    "current_drawdown": "0.0%"
+    "max_drawdown": "16.0%",
+    "current_drawdown": "16.0%"
   },
   "open_positions": [],
   "total_open_positions": 0

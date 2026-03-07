@@ -7,13 +7,13 @@ Generated: 2026-03-06 17:30:00
 ----------------------------------------
 Total Trades: 29
 Win Rate: 17.2%
-Total Pnl: 0.00%
-Avg Pnl Per Trade: 0.00%
-Best Trade: 0.00%
-Worst Trade: 0.00%
+Total Pnl: -17.90%
+Avg Pnl Per Trade: -0.62%
+Best Trade: 0.03%
+Worst Trade: -2.22%
 Avg Hold Hours: 1.4
-Max Drawdown: 0.0%
-Current Drawdown: 0.0%
+Max Drawdown: 16.0%
+Current Drawdown: 16.0%
 
 📊 OPEN POSITIONS:
 ----------------------------------------
