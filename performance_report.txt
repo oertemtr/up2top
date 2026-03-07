@@ -5,16 +5,258 @@ Generated: 2026-03-06 17:30:00
 
 📈 CLOSED POSITIONS:
 ----------------------------------------
-Total Trades: 29
-Win Rate: 17.2%
-Total Pnl: -17.90%
-Avg Pnl Per Trade: -0.62%
-Best Trade: 0.03%
-Worst Trade: -2.22%
-Avg Hold Hours: 1.4
-Max Drawdown: 16.0%
-Current Drawdown: 16.0%
+Total Trades: 2
+Win Rate: 0%
+Total Pnl: -11.10%
+Avg Pnl Per Trade: -5.55%
+Best Trade: -5.55%
+Worst Trade: -5.55%
+Avg Hold Hours: 144.8
+Max Drawdown: 5.6%
+Current Drawdown: 5.6%
 
 📊 OPEN POSITIONS:
 ----------------------------------------
-No open positions
+
+SI=F (BUY):
+  Entry: $75.58
+  Stop: $64.25
+  Target: $114.45
+  Days Open: 30.1
+  Max Run-up: 22.2%
+  Max Drawdown: -11.5%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $75.58
+  Stop: $64.25
+  Target: $114.45
+  Days Open: 30.1
+  Max Run-up: 22.2%
+  Max Drawdown: -11.5%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $77.21
+  Stop: $65.63
+  Target: $116.08
+  Days Open: 29.1
+  Max Run-up: 19.6%
+  Max Drawdown: -6.2%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $77.21
+  Stop: $65.63
+  Target: $116.08
+  Days Open: 29.1
+  Max Run-up: 19.6%
+  Max Drawdown: -6.2%
+  Status: OPEN
+
+GC=F (BUY):
+  Entry: $4984.80
+  Stop: $4690.55
+  Target: $5867.55
+  Days Open: 29.1
+  Max Run-up: 7.5%
+  Max Drawdown: -2.1%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $76.99
+  Stop: $65.44
+  Target: $115.86
+  Days Open: 29.1
+  Max Run-up: 19.9%
+  Max Drawdown: -5.9%
+  Status: OPEN
+
+GC=F (BUY):
+  Entry: $4984.80
+  Stop: $4690.55
+  Target: $5867.55
+  Days Open: 29.1
+  Max Run-up: 7.5%
+  Max Drawdown: -2.1%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $76.99
+  Stop: $65.44
+  Target: $115.86
+  Days Open: 29.1
+  Max Run-up: 19.9%
+  Max Drawdown: -5.9%
+  Status: OPEN
+
+GC=F (BUY):
+  Entry: $4986.30
+  Stop: $4692.05
+  Target: $5869.05
+  Days Open: 29.0
+  Max Run-up: 7.5%
+  Max Drawdown: -2.1%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $77.22
+  Stop: $65.64
+  Target: $116.09
+  Days Open: 29.0
+  Max Run-up: 19.6%
+  Max Drawdown: -6.2%
+  Status: OPEN
+
+GC=F (BUY):
+  Entry: $4986.30
+  Stop: $4692.05
+  Target: $5869.05
+  Days Open: 29.0
+  Max Run-up: 7.5%
+  Max Drawdown: -2.1%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $77.22
+  Stop: $65.64
+  Target: $116.09
+  Days Open: 29.0
+  Max Run-up: 19.6%
+  Max Drawdown: -6.2%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $77.25
+  Stop: $65.67
+  Target: $116.12
+  Days Open: 29.0
+  Max Run-up: 19.5%
+  Max Drawdown: -6.2%
+  Status: OPEN
+
+SI=F (BUY):
+  Entry: $77.25
+  Stop: $65.67
+  Target: $116.12
+  Days Open: 29.0
+  Max Run-up: 19.5%
+  Max Drawdown: -6.2%
+  Status: OPEN
+
+GC=F (BUY):
+  Entry: $5268.40
+  Stop: $4974.15
+  Target: $6151.15
+  Days Open: 8.0
+  Max Run-up: 1.7%
+  Max Drawdown: -3.7%
+  Status: OPEN
+
+GC=F (BUY):
+  Entry: $5268.40
+  Stop: $4974.15
+  Target: $6151.15
+  Days Open: 8.0
+  Max Run-up: 1.7%
+  Max Drawdown: -3.7%
+  Status: OPEN
+
+GC=F (BUY):
+  Entry: $5281.30
+  Stop: $4987.05
+  Target: $6164.05
+  Days Open: 8.0
+  Max Run-up: 1.5%
+  Max Drawdown: -4.0%
+  Status: OPEN
+
+GC=F (BUY):
+  Entry: $5281.30
+  Stop: $4987.05
+  Target: $6164.05
+  Days Open: 8.0
+  Max Run-up: 1.5%
+  Max Drawdown: -4.0%
+  Status: OPEN
+
+HG=F (BUY):
+  Entry: $5.97
+  Stop: $5.64
+  Target: $6.95
+  Days Open: 5.0
+  Max Run-up: 0.0%
+  Max Drawdown: -2.9%
+  Status: OPEN
+
+HG=F (BUY):
+  Entry: $5.97
+  Stop: $5.64
+  Target: $6.95
+  Days Open: 4.9
+  Max Run-up: 0.0%
+  Max Drawdown: -2.9%
+  Status: OPEN
+
+HG=F (BUY):
+  Entry: $5.97
+  Stop: $5.64
+  Target: $6.95
+  Days Open: 4.9
+  Max Run-up: 0.0%
+  Max Drawdown: -2.9%
+  Status: OPEN
+
+CL=F (BUY):
+  Entry: $76.97
+  Stop: $73.11
+  Target: $108.37
+  Days Open: 4.2
+  Max Run-up: 15.1%
+  Max Drawdown: -4.4%
+  Status: OPEN
+
+CL=F (BUY):
+  Entry: $76.97
+  Stop: $73.11
+  Target: $108.37
+  Days Open: 4.2
+  Max Run-up: 15.1%
+  Max Drawdown: -4.4%
+  Status: OPEN
+
+CL=F (BUY):
+  Entry: $81.61
+  Stop: $77.52
+  Target: $113.01
+  Days Open: 2.0
+  Max Run-up: 8.6%
+  Max Drawdown: -3.4%
+  Status: OPEN
+
+CL=F (BUY):
+  Entry: $81.61
+  Stop: $77.52
+  Target: $113.01
+  Days Open: 2.0
+  Max Run-up: 8.6%
+  Max Drawdown: -3.4%
+  Status: OPEN
+
+HG=F (BUY):
+  Entry: $5.83
+  Stop: $5.50
+  Target: $6.81
+  Days Open: 2.0
+  Max Run-up: 0.2%
+  Max Drawdown: -0.4%
+  Status: OPEN
+
+HG=F (BUY):
+  Entry: $5.83
+  Stop: $5.50
+  Target: $6.81
+  Days Open: 2.0
+  Max Run-up: 0.2%
+  Max Drawdown: -0.4%
+  Status: OPEN
