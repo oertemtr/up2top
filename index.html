@@ -21,10 +21,12 @@
             color: var(--text-main);
             margin: 0;
             padding: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
         }
         .header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             border-bottom: 1px solid var(--bg-card);
             padding-bottom: 1rem;
         }
@@ -34,6 +36,34 @@
             background: linear-gradient(90deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        .top-chart {
+            width: 100%;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-sizing: border-box;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .top-chart img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .layout-container {
+            display: flex;
+            gap: 2rem;
+        }
+        .active-column {
+            flex: 2;
+        }
+        .closed-column {
+            flex: 1;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
         }
         .grid {
             display: grid;
@@ -46,9 +76,6 @@
             padding: 1.5rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
             transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
         }
         .card-header {
             display: flex;
@@ -71,6 +98,37 @@
         .badge-buy { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
         .badge-sell { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
         .badge-neutral { background: rgba(148, 163, 184, 0.2); color: var(--text-muted); border: 1px solid var(--text-muted); }
+        
+        /* Trades List Styles */
+        .trade-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .trade-row:last-child {
+            border-bottom: none;
+        }
+        .trade-symbol {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .trade-action {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .trade-pnl-positive {
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .trade-pnl-negative {
+            color: var(--danger);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
         .stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -116,17 +174,44 @@
             color: var(--text-muted);
             font-size: 1.2rem;
         }
+        h2 {
+            margin-top: 0;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+         /* Responsive layout */
+        @media (max-width: 1024px) {
+            .layout-container {
+                flex-direction: column;
+            }
+            .active-column {
+                order: 2;
+            }
+            .closed-column {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="header">
         <h1>Triple-Brain Trading Signals</h1>
-        <p>Live signals generated at: 2026-03-07 11:27:47</p>
+        <p>Live signals generated at: 2026-03-07 15:13:38</p>
         <p style="color: var(--text-muted);">Strict Simultaneous Rules Enforced • Dynamic MDD Constraints</p>
     </div>
     
-    <div class="grid" id="signals-grid">
+    <div class="top-chart">
+        <h2>Total Return vs SPX 500</h2>
         
+    </div>
+    
+    <div class="layout-container">
+        <div class="active-column">
+            <h2>Active Open Signals</h2>
+            <div class="grid" id="signals-grid">
+                
             <div class="card">
                 <div class="card-header">
                     <span class="symbol">ISCTR.IS</span>
@@ -424,6 +509,15 @@
                 </div>
             </div>
             
+            </div>
+        </div>
+        
+        <div class="closed-column">
+            <h2>Recently Closed Trades</h2>
+            <div class="trades-list">
+                <div style="color: var(--text-muted); text-align: center; margin-top: 2rem;">No closed trades yet.</div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
