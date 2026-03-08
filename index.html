@@ -2,14 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta http-equiv="cache-control" content="max-age=0" />
-    <meta http-equiv="cache-control" content="no-cache" />
-    <meta http-equiv="expires" content="0" />
-    <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
-    <meta http-equiv="pragma" content="no-cache" />
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
     <title>Autonomous Triple-Brain Dashboard</title>
     <style>
         :root {
@@ -27,10 +24,12 @@
             color: var(--text-main);
             margin: 0;
             padding: 2rem;
+            max-width: 1600px;
+            margin: 0 auto;
         }
         .header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
             border-bottom: 1px solid var(--bg-card);
             padding-bottom: 1rem;
         }
@@ -40,6 +39,34 @@
             background: linear-gradient(90deg, #60a5fa, #a78bfa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+        .top-chart {
+            width: 100%;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-sizing: border-box;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+        .top-chart img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .layout-container {
+            display: flex;
+            gap: 2rem;
+        }
+        .active-column {
+            flex: 2;
+        }
+        .closed-column {
+            flex: 1;
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            height: fit-content;
         }
         .grid {
             display: grid;
@@ -52,9 +79,6 @@
             padding: 1.5rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
             transition: transform 0.2s;
-        }
-        .card:hover {
-            transform: translateY(-5px);
         }
         .card-header {
             display: flex;
@@ -76,6 +100,38 @@
         }
         .badge-buy { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
         .badge-sell { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
+        .badge-neutral { background: rgba(148, 163, 184, 0.2); color: var(--text-muted); border: 1px solid var(--text-muted); }
+        
+        /* Trades List Styles */
+        .trade-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .trade-row:last-child {
+            border-bottom: none;
+        }
+        .trade-symbol {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        .trade-action {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        .trade-pnl-positive {
+            color: var(--success);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        .trade-pnl-negative {
+            color: var(--danger);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+        
         .stats {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -105,6 +161,14 @@
             overflow: hidden;
             margin-top: 1rem;
             background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .chart-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         .empty-state {
             grid-column: 1 / -1;
@@ -113,1082 +177,429 @@
             color: var(--text-muted);
             font-size: 1.2rem;
         }
+        h2 {
+            margin-top: 0;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+         /* Responsive layout */
+        @media (max-width: 1024px) {
+            .layout-container {
+                flex-direction: column;
+            }
+            .active-column {
+                order: 2;
+            }
+            .closed-column {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+        }
     </style>
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 </head>
 <body>
     <div class="header">
         <h1>Triple-Brain Trading Signals</h1>
-        <p>Live signals generated at: 2026-03-06 23:46:20</p>
+        <p>Live signals generated at: 2026-03-08 23:54:43</p>
         <p style="color: var(--text-muted);">Strict Simultaneous Rules Enforced • Dynamic MDD Constraints</p>
     </div>
     
-    <div class="grid" id="signals-grid">
-        
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">AEFES.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">16.88</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">18.95</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">10.67</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+36.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_0"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">AEFES.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">16.88</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">18.95</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">10.67</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+36.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_1"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">AEFES.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">16.88</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">18.95</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">10.67</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+36.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_2"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">AEFES.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">16.88</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">18.95</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">10.67</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+36.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_3"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">BIMAS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">620.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">684.82</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">425.54</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+31.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_4"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">GARAN.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">134.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">150.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">88.79</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.1%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_5"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">ISCTR.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">14.13</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">15.99</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">8.56</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_6"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">KRDMD.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">29.46</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">32.21</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">17.27</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+41.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_7"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">MGROS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">571.50</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">635.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">378.91</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+33.7%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_8"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">TTKOM.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">59.20</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">66.08</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">38.58</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_9"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">YKBNK.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">35.14</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">39.80</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">21.16</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_10"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">BIMAS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">620.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">684.82</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">425.54</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+31.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_11"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">GARAN.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">134.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">150.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">88.79</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.1%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_12"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">ISCTR.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">14.13</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">15.99</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">8.56</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_13"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">KRDMD.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">29.46</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">32.21</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">17.27</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+41.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_14"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">MGROS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">571.50</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">635.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">378.91</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+33.7%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_15"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">TTKOM.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">59.20</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">66.08</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">38.58</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_16"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">YKBNK.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">35.14</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">39.80</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">21.16</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_17"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">BIMAS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">620.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">684.82</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">425.54</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+31.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_18"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">GARAN.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">134.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">150.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">88.79</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.1%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_19"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">ISCTR.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">14.13</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">15.99</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">8.56</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_20"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">KRDMD.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">29.46</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">32.21</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">17.27</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+41.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_21"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">MGROS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">571.50</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">635.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">378.91</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+33.7%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_22"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">TTKOM.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">59.20</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">66.08</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">38.58</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_23"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">YKBNK.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">35.14</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">39.80</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">21.16</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_24"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">BIMAS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">620.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">684.82</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">425.54</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+31.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_25"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">GARAN.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">134.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">150.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">88.79</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.1%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_26"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">ISCTR.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">14.13</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">15.99</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">8.56</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_27"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">KRDMD.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">29.46</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">32.21</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">17.27</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+41.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_28"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">MGROS.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">571.50</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">635.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">378.91</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+33.7%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_29"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">TTKOM.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">59.20</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">66.08</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">38.58</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_30"></div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">YKBNK.IS</span>
-                    <span class="badge badge-sell">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">35.14</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">39.80</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">21.16</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container" id="tv_31"></div>
-            </div>
-            
+    <div class="top-chart" style="background: rgba(16, 185, 129, 0.05); border: 1px solid var(--success);">
+        <h3 style="color: var(--success); margin-top: 0; margin-bottom: 1rem;">30-Day Out-of-Sample SFS Verified Hit-Ratios (8-Feature Subset)</h3>
+        <div style="display: flex; justify-content: space-around; font-size: 1.1rem; flex-wrap: wrap; gap: 10px;">
+            <span><strong style="color: var(--success);">EKGYO.IS:</strong> 90.4%</span>
+            <span><strong style="color: var(--success);">SASA.IS:</strong> 89.6%</span>
+            <span><strong style="color: var(--success);">PGSUS.IS:</strong> 89.2%</span>
+            <span><strong style="color: var(--success);">GARAN.IS:</strong> 89.2%</span>
+            <span><strong style="color: var(--success);">BIMAS.IS:</strong> 87.5%</span>
+            <span><strong style="color: var(--success);">KCHOL.IS:</strong> 87.1%</span>
+            <span><strong style="color: var(--text-muted);">XU100 Benchmark:</strong> 55.0%</span>
+        </div>
     </div>
-
-    <script>
-        // TradingView Widget Generator
-        function createWidget(container_id, symbol) {
-            // Clean up the symbol for TradingView format
-            let tvSymbol = symbol;
-            if (symbol.includes('.IS')) {
-                tvSymbol = 'BIST:' + symbol.replace('.IS', '');
-            } else if (symbol === 'CL=F') {
-                tvSymbol = 'NYMEX:CL1!';
-            } else if (symbol === 'GC=F') {
-                tvSymbol = 'COMEX:GC1!';
-            } else if (symbol === 'HG=F') {
-                tvSymbol = 'COMEX:HG1!';
-            }
-
-            new TradingView.widget({
-                "autosize": true,
-                "symbol": tvSymbol,
-                "interval": "60",
-                "timezone": "Etc/UTC",
-                "theme": "dark",
-                "style": "1",
-                "locale": "en",
-                "enable_publishing": false,
-                "hide_top_toolbar": true,
-                "hide_legend": true,
-                "save_image": false,
-                "container_id": container_id,
-                "studies": [
-                    "Volume@tv-basicstudies"
-                ]
-            });
-        }
-
-        // Initialize all charts
-        window.onload = function() {
-            createWidget('tv_0', 'AEFES.IS');
-            createWidget('tv_1', 'AEFES.IS');
-            createWidget('tv_2', 'AEFES.IS');
-            createWidget('tv_3', 'AEFES.IS');
-            createWidget('tv_4', 'BIMAS.IS');
-            createWidget('tv_5', 'GARAN.IS');
-            createWidget('tv_6', 'ISCTR.IS');
-            createWidget('tv_7', 'KRDMD.IS');
-            createWidget('tv_8', 'MGROS.IS');
-            createWidget('tv_9', 'TTKOM.IS');
-            createWidget('tv_10', 'YKBNK.IS');
-            createWidget('tv_11', 'BIMAS.IS');
-            createWidget('tv_12', 'GARAN.IS');
-            createWidget('tv_13', 'ISCTR.IS');
-            createWidget('tv_14', 'KRDMD.IS');
-            createWidget('tv_15', 'MGROS.IS');
-            createWidget('tv_16', 'TTKOM.IS');
-            createWidget('tv_17', 'YKBNK.IS');
-            createWidget('tv_18', 'BIMAS.IS');
-            createWidget('tv_19', 'GARAN.IS');
-            createWidget('tv_20', 'ISCTR.IS');
-            createWidget('tv_21', 'KRDMD.IS');
-            createWidget('tv_22', 'MGROS.IS');
-            createWidget('tv_23', 'TTKOM.IS');
-            createWidget('tv_24', 'YKBNK.IS');
-            createWidget('tv_25', 'BIMAS.IS');
-            createWidget('tv_26', 'GARAN.IS');
-            createWidget('tv_27', 'ISCTR.IS');
-            createWidget('tv_28', 'KRDMD.IS');
-            createWidget('tv_29', 'MGROS.IS');
-            createWidget('tv_30', 'TTKOM.IS');
-            createWidget('tv_31', 'YKBNK.IS');
+    
+    <div class="top-chart">
+        <h2>Total Return vs SPX 500</h2>
+        
+    </div>
+    
+    <div class="layout-container">
+        <div class="active-column">
+            <h2>Active Open Signals</h2>
+            <div class="grid" id="signals-grid">
+                
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">SAHOL.IS</span>
+                    <span class="badge badge-sell">SELL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">90.10</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">100.36</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">59.32</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+34.2%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/SAHOL_IS.png" alt="SAHOL.IS chart">
+                </div>
+            </div>
             
-        };
-    </script>
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">TTKOM.IS</span>
+                    <span class="badge badge-sell">SELL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">59.20</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">66.08</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">38.58</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+34.8%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/TTKOM_IS.png" alt="TTKOM.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">YKBNK.IS</span>
+                    <span class="badge badge-sell">SELL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">35.14</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">39.80</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">21.16</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+39.8%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/YKBNK_IS.png" alt="YKBNK.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">AKBNK.IS</span>
+                    <span class="badge badge-sell">SELL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">73.35</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">83.35</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">43.35</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+40.9%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/AKBNK_IS.png" alt="AKBNK.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">EREGL.IS</span>
+                    <span class="badge badge-sell">SELL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">28.06</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">31.08</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">19.01</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+32.3%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/EREGL_IS.png" alt="EREGL.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">GARAN.IS</span>
+                    <span class="badge badge-sell">SELL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">134.70</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">150.00</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">88.79</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+34.1%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/GARAN_IS.png" alt="GARAN.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">ISCTR.IS</span>
+                    <span class="badge badge-sell">SELL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">14.13</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">15.99</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">8.56</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+39.4%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/ISCTR_IS.png" alt="ISCTR.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">BIMAS.IS</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">620.00</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">684.82</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">425.54</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+31.4%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/BIMAS_IS.png" alt="BIMAS.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">KRDMD.IS</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">29.46</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">32.21</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">17.27</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+41.4%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/KRDMD_IS.png" alt="KRDMD.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">MGROS.IS</span>
+                    <span class="badge badge-neutral">NEUTRAL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">571.50</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">635.70</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">378.91</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+33.7%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/MGROS_IS.png" alt="MGROS.IS chart">
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <span class="symbol">AEFES.IS</span>
+                    <span class="badge badge-sell">SELL</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
+                    Score: 0.0% | 🇹🇷 Stock (3-layer)
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-box">
+                        <div class="stat-label">Entry Price</div>
+                        <div class="stat-value">16.88</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Dyn Stop-Loss</div>
+                        <div class="stat-value" style="color: var(--danger)">18.95</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Target</div>
+                        <div class="stat-value" style="color: var(--success)">10.67</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Exp. Return</div>
+                        <div class="stat-value">+36.8%</div>
+                    </div>
+                </div>
+                
+                <div class="chart-container">
+                    <img src="assets/AEFES_IS.png" alt="AEFES.IS chart">
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        
+        <div class="closed-column">
+            <h2>Recently Closed Trades</h2>
+            <div class="trades-list">
+                <div style="color: var(--text-muted); text-align: center; margin-top: 2rem;">No closed trades yet.</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
