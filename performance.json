@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-03-10 10:15:08",
+  "timestamp": "2026-03-10 11:15:08",
   "closed_positions": {
     "total_trades": 2,
     "win_rate": "0%",
@@ -29,7 +29,7 @@
       "entry_price": "$75.58",
       "stop_loss": "$64.25",
       "target": "$114.45",
-      "days_open": 32.7,
+      "days_open": 32.8,
       "max_runup": "22.2%",
       "max_drawdown_in_trade": "-11.5%",
       "status": "OPEN"
@@ -84,7 +84,7 @@
       "entry_price": "$4984.80",
       "stop_loss": "$4690.55",
       "target": "$5867.55",
-      "days_open": 31.7,
+      "days_open": 31.8,
       "max_runup": "7.5%",
       "max_drawdown_in_trade": "-2.1%",
       "status": "OPEN"
@@ -95,7 +95,7 @@
       "entry_price": "$76.99",
       "stop_loss": "$65.44",
       "target": "$115.86",
-      "days_open": 31.7,
+      "days_open": 31.8,
       "max_runup": "19.9%",
       "max_drawdown_in_trade": "-5.9%",
       "status": "OPEN"
@@ -106,7 +106,7 @@
       "entry_price": "$4986.30",
       "stop_loss": "$4692.05",
       "target": "$5869.05",
-      "days_open": 31.7,
+      "days_open": 31.8,
       "max_runup": "7.5%",
       "max_drawdown_in_trade": "-2.1%",
       "status": "OPEN"
@@ -117,7 +117,7 @@
       "entry_price": "$77.22",
       "stop_loss": "$65.64",
       "target": "$116.09",
-      "days_open": 31.7,
+      "days_open": 31.8,
       "max_runup": "19.6%",
       "max_drawdown_in_trade": "-6.2%",
       "status": "OPEN"
@@ -172,7 +172,7 @@
       "entry_price": "$5268.40",
       "stop_loss": "$4974.15",
       "target": "$6151.15",
-      "days_open": 10.7,
+      "days_open": 10.8,
       "max_runup": "1.7%",
       "max_drawdown_in_trade": "-3.7%",
       "status": "OPEN"
@@ -216,7 +216,7 @@
       "entry_price": "$5.97",
       "stop_loss": "$5.64",
       "target": "$6.95",
-      "days_open": 7.6,
+      "days_open": 7.7,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-3.9%",
       "status": "OPEN"
@@ -227,7 +227,7 @@
       "entry_price": "$5.97",
       "stop_loss": "$5.64",
       "target": "$6.95",
-      "days_open": 7.6,
+      "days_open": 7.7,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-3.9%",
       "status": "OPEN"
@@ -271,7 +271,7 @@
       "entry_price": "$81.61",
       "stop_loss": "$77.52",
       "target": "$113.01",
-      "days_open": 4.7,
+      "days_open": 4.8,
       "max_runup": "27.5%",
       "max_drawdown_in_trade": "-3.4%",
       "status": "OPEN"
@@ -317,7 +317,7 @@
       "target": "21.16 TL",
       "days_open": 0.9,
       "max_runup": "4.4%",
-      "max_drawdown_in_trade": "0.0%",
+      "max_drawdown_in_trade": "-1.8%",
       "status": "OPEN"
     },
     {
@@ -328,7 +328,7 @@
       "target": "43.35 TL",
       "days_open": 0.9,
       "max_runup": "4.6%",
-      "max_drawdown_in_trade": "-0.2%",
+      "max_drawdown_in_trade": "-3.3%",
       "status": "OPEN"
     },
     {
@@ -339,7 +339,7 @@
       "target": "8.56 TL",
       "days_open": 0.9,
       "max_runup": "4.8%",
-      "max_drawdown_in_trade": "0.0%",
+      "max_drawdown_in_trade": "-1.8%",
       "status": "OPEN"
     },
     {
@@ -350,7 +350,7 @@
       "target": "59.32 TL",
       "days_open": 0.9,
       "max_runup": "4.2%",
-      "max_drawdown_in_trade": "-0.6%",
+      "max_drawdown_in_trade": "-3.5%",
       "status": "OPEN"
     },
     {
@@ -359,9 +359,9 @@
       "entry_price": "33.74 TL",
       "stop_loss": "38.40 TL",
       "target": "19.76 TL",
-      "days_open": 0.8,
+      "days_open": 0.9,
       "max_runup": "0.5%",
-      "max_drawdown_in_trade": "-3.9%",
+      "max_drawdown_in_trade": "-6.0%",
       "status": "OPEN"
     },
     {
@@ -370,9 +370,9 @@
       "entry_price": "13.54 TL",
       "stop_loss": "15.40 TL",
       "target": "7.97 TL",
-      "days_open": 0.8,
+      "days_open": 0.9,
       "max_runup": "0.7%",
-      "max_drawdown_in_trade": "-3.3%",
+      "max_drawdown_in_trade": "-6.3%",
       "status": "OPEN"
     },
     {
@@ -381,9 +381,9 @@
       "entry_price": "86.35 TL",
       "stop_loss": "96.61 TL",
       "target": "55.57 TL",
-      "days_open": 0.8,
+      "days_open": 0.9,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-5.0%",
+      "max_drawdown_in_trade": "-8.0%",
       "status": "OPEN"
     },
     {
@@ -394,7 +394,7 @@
       "target": "19.60 TL",
       "days_open": 0.8,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-4.3%",
+      "max_drawdown_in_trade": "-6.5%",
       "status": "OPEN"
     },
     {
@@ -404,7 +404,7 @@
       "stop_loss": "509.30 TL",
       "target": "766.09 TL",
       "days_open": 0.8,
-      "max_runup": "0.0%",
+      "max_runup": "3.7%",
       "max_drawdown_in_trade": "-1.8%",
       "status": "OPEN"
     },
@@ -416,7 +416,7 @@
       "target": "39.95 TL",
       "days_open": 0.8,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-5.1%",
+      "max_drawdown_in_trade": "-8.3%",
       "status": "OPEN"
     },
     {
@@ -427,7 +427,7 @@
       "target": "7.88 TL",
       "days_open": 0.8,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-4.0%",
+      "max_drawdown_in_trade": "-7.0%",
       "status": "OPEN"
     },
     {
@@ -438,7 +438,7 @@
       "target": "56.17 TL",
       "days_open": 0.8,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-4.3%",
+      "max_drawdown_in_trade": "-7.2%",
       "status": "OPEN"
     },
     {
@@ -449,7 +449,7 @@
       "target": "19.82 TL",
       "days_open": 0.8,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-3.7%",
+      "max_drawdown_in_trade": "-5.8%",
       "status": "OPEN"
     },
     {
@@ -459,7 +459,7 @@
       "stop_loss": "35.06 TL",
       "target": "53.23 TL",
       "days_open": 0.8,
-      "max_runup": "1.8%",
+      "max_runup": "4.3%",
       "max_drawdown_in_trade": "-0.1%",
       "status": "OPEN"
     },
@@ -469,9 +469,9 @@
       "entry_price": "13.58 TL",
       "stop_loss": "15.44 TL",
       "target": "8.01 TL",
-      "days_open": 0.7,
+      "days_open": 0.8,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-3.0%",
+      "max_drawdown_in_trade": "-6.0%",
       "status": "OPEN"
     },
     {
@@ -480,8 +480,8 @@
       "entry_price": "17.88 TL",
       "stop_loss": "19.87 TL",
       "target": "10.58 TL",
-      "days_open": 0.7,
-      "max_runup": "1.2%",
+      "days_open": 0.8,
+      "max_runup": "2.3%",
       "max_drawdown_in_trade": "0.0%",
       "status": "OPEN"
     },
@@ -493,7 +493,7 @@
       "target": "$291.11",
       "days_open": 0.7,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-1.7%",
+      "max_drawdown_in_trade": "-7.3%",
       "status": "OPEN"
     },
     {
@@ -503,7 +503,7 @@
       "stop_loss": "19.86 TL",
       "target": "10.57 TL",
       "days_open": 0.7,
-      "max_runup": "1.1%",
+      "max_runup": "2.3%",
       "max_drawdown_in_trade": "0.0%",
       "status": "OPEN"
     },
@@ -513,8 +513,8 @@
       "entry_price": "257.25 TL",
       "stop_loss": "280.35 TL",
       "target": "187.96 TL",
-      "days_open": 0.6,
-      "max_runup": "2.7%",
+      "days_open": 0.7,
+      "max_runup": "4.7%",
       "max_drawdown_in_trade": "0.0%",
       "status": "OPEN"
     },
@@ -524,8 +524,8 @@
       "entry_price": "17.79 TL",
       "stop_loss": "19.77 TL",
       "target": "10.49 TL",
-      "days_open": 0.6,
-      "max_runup": "0.7%",
+      "days_open": 0.7,
+      "max_runup": "1.9%",
       "max_drawdown_in_trade": "0.0%",
       "status": "OPEN"
     },
@@ -536,7 +536,7 @@
       "stop_loss": "273.35 TL",
       "target": "180.96 TL",
       "days_open": 0.6,
-      "max_runup": "0.0%",
+      "max_runup": "2.1%",
       "max_drawdown_in_trade": "-0.7%",
       "status": "OPEN"
     },
@@ -547,7 +547,7 @@
       "stop_loss": "19.67 TL",
       "target": "10.40 TL",
       "days_open": 0.6,
-      "max_runup": "0.2%",
+      "max_runup": "1.4%",
       "max_drawdown_in_trade": "0.0%",
       "status": "OPEN"
     },
@@ -557,8 +557,8 @@
       "entry_price": "17.67 TL",
       "stop_loss": "19.64 TL",
       "target": "10.37 TL",
-      "days_open": 0.5,
-      "max_runup": "0.0%",
+      "days_open": 0.6,
+      "max_runup": "1.2%",
       "max_drawdown_in_trade": "0.0%",
       "status": "OPEN"
     }
