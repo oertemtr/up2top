@@ -1,6 +1,6 @@
 ================================================================================
 📊 PERFORMANCE REPORT
-Generated: 2026-03-11 12:15:07
+Generated: 2026-03-11 13:15:08
 ================================================================================
 
 📈 CLOSED POSITIONS:
@@ -22,7 +22,7 @@ SI=F (BUY):
   Entry: $75.58
   Stop: $64.25
   Target: $114.45
-  Days Open: 33.8
+  Days Open: 33.9
   Max Run-up: 22.2%
   Max Drawdown: -11.5%
   Status: OPEN
@@ -31,7 +31,7 @@ SI=F (BUY):
   Entry: $75.58
   Stop: $64.25
   Target: $114.45
-  Days Open: 33.8
+  Days Open: 33.9
   Max Run-up: 22.2%
   Max Drawdown: -11.5%
   Status: OPEN
@@ -58,7 +58,7 @@ GC=F (BUY):
   Entry: $4984.80
   Stop: $4690.55
   Target: $5867.55
-  Days Open: 32.8
+  Days Open: 32.9
   Max Run-up: 7.5%
   Max Drawdown: -2.1%
   Status: OPEN
@@ -67,7 +67,7 @@ SI=F (BUY):
   Entry: $76.99
   Stop: $65.44
   Target: $115.86
-  Days Open: 32.8
+  Days Open: 32.9
   Max Run-up: 19.9%
   Max Drawdown: -5.9%
   Status: OPEN
@@ -76,7 +76,7 @@ GC=F (BUY):
   Entry: $4984.80
   Stop: $4690.55
   Target: $5867.55
-  Days Open: 32.8
+  Days Open: 32.9
   Max Run-up: 7.5%
   Max Drawdown: -2.1%
   Status: OPEN
@@ -85,7 +85,7 @@ SI=F (BUY):
   Entry: $76.99
   Stop: $65.44
   Target: $115.86
-  Days Open: 32.8
+  Days Open: 32.9
   Max Run-up: 19.9%
   Max Drawdown: -5.9%
   Status: OPEN
@@ -139,7 +139,7 @@ SI=F (BUY):
   Entry: $77.25
   Stop: $65.67
   Target: $116.12
-  Days Open: 32.7
+  Days Open: 32.8
   Max Run-up: 19.5%
   Max Drawdown: -6.2%
   Status: OPEN
@@ -175,7 +175,7 @@ GC=F (BUY):
   Entry: $5281.30
   Stop: $4987.05
   Target: $6164.05
-  Days Open: 11.7
+  Days Open: 11.8
   Max Run-up: 1.5%
   Max Drawdown: -4.0%
   Status: OPEN
@@ -184,7 +184,7 @@ HG=F (BUY):
   Entry: $5.97
   Stop: $5.64
   Target: $6.95
-  Days Open: 8.7
+  Days Open: 8.8
   Max Run-up: 0.0%
   Max Drawdown: -3.9%
   Status: OPEN
@@ -220,7 +220,7 @@ CL=F (BUY):
   Entry: $76.97
   Stop: $73.11
   Target: $108.37
-  Days Open: 7.9
+  Days Open: 8.0
   Max Run-up: 35.2%
   Max Drawdown: -4.4%
   Status: OPEN
@@ -256,7 +256,7 @@ HG=F (BUY):
   Entry: $5.83
   Stop: $5.50
   Target: $6.81
-  Days Open: 5.7
+  Days Open: 5.8
   Max Run-up: 1.5%
   Max Drawdown: -1.6%
   Status: OPEN
@@ -301,7 +301,7 @@ YKBNK.IS (SELL):
   Entry: 33.74 TL
   Stop: 38.40 TL
   Target: 19.76 TL
-  Days Open: 1.9
+  Days Open: 2.0
   Max Run-up: 0.5%
   Max Drawdown: -9.7%
   Status: OPEN
@@ -310,7 +310,7 @@ ISCTR.IS (SELL):
   Entry: 13.54 TL
   Stop: 15.40 TL
   Target: 7.97 TL
-  Days Open: 1.9
+  Days Open: 2.0
   Max Run-up: 0.7%
   Max Drawdown: -9.4%
   Status: OPEN
@@ -319,7 +319,7 @@ SAHOL.IS (SELL):
   Entry: 86.35 TL
   Stop: 96.61 TL
   Target: 55.57 TL
-  Days Open: 1.9
+  Days Open: 2.0
   Max Run-up: 0.0%
   Max Drawdown: -10.7%
   Status: OPEN
@@ -373,7 +373,7 @@ YKBNK.IS (SELL):
   Entry: 33.80 TL
   Stop: 38.46 TL
   Target: 19.82 TL
-  Days Open: 1.8
+  Days Open: 1.9
   Max Run-up: 0.0%
   Max Drawdown: -9.5%
   Status: OPEN
@@ -382,7 +382,7 @@ SISE.IS (BUY):
   Entry: 39.60 TL
   Stop: 35.06 TL
   Target: 53.23 TL
-  Days Open: 1.8
+  Days Open: 1.9
   Max Run-up: 6.3%
   Max Drawdown: -0.1%
   Status: OPEN
@@ -402,7 +402,7 @@ PETKM.IS (SELL):
   Target: 10.58 TL
   Days Open: 1.8
   Max Run-up: 2.5%
-  Max Drawdown: -0.3%
+  Max Drawdown: -0.8%
   Status: OPEN
 
 GUBRF.IS (SELL):
@@ -420,14 +420,14 @@ PETKM.IS (SELL):
   Target: 10.57 TL
   Days Open: 1.8
   Max Run-up: 2.4%
-  Max Drawdown: -0.3%
+  Max Drawdown: -0.9%
   Status: OPEN
 
 TUPRS.IS (SELL):
   Entry: 257.25 TL
   Stop: 280.35 TL
   Target: 187.96 TL
-  Days Open: 1.7
+  Days Open: 1.8
   Max Run-up: 6.0%
   Max Drawdown: 0.0%
   Status: OPEN
@@ -436,9 +436,9 @@ PETKM.IS (SELL):
   Entry: 17.79 TL
   Stop: 19.77 TL
   Target: 10.49 TL
-  Days Open: 1.7
+  Days Open: 1.8
   Max Run-up: 2.0%
-  Max Drawdown: -0.8%
+  Max Drawdown: -1.3%
   Status: OPEN
 
 TUPRS.IS (SELL):
@@ -447,7 +447,7 @@ TUPRS.IS (SELL):
   Target: 180.96 TL
   Days Open: 1.7
   Max Run-up: 3.4%
-  Max Drawdown: -0.7%
+  Max Drawdown: -1.9%
   Status: OPEN
 
 PETKM.IS (SELL):
@@ -456,23 +456,23 @@ PETKM.IS (SELL):
   Target: 10.40 TL
   Days Open: 1.7
   Max Run-up: 1.5%
-  Max Drawdown: -1.3%
+  Max Drawdown: -1.9%
   Status: OPEN
 
 PETKM.IS (SELL):
   Entry: 17.67 TL
   Stop: 19.64 TL
   Target: 10.37 TL
-  Days Open: 1.6
+  Days Open: 1.7
   Max Run-up: 1.3%
-  Max Drawdown: -1.5%
+  Max Drawdown: -2.0%
   Status: OPEN
 
 ASTOR.IS (BUY):
   Entry: 194.70 TL
   Stop: 171.74 TL
   Target: 263.59 TL
-  Days Open: -0.0
+  Days Open: 0.0
   Max Run-up: 0.0%
-  Max Drawdown: -1.2%
+  Max Drawdown: -1.3%
   Status: OPEN
