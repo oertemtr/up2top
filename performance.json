@@ -1,15 +1,15 @@
 {
-  "timestamp": "2026-03-12 13:15:08",
+  "timestamp": "2026-03-12 14:15:08",
   "closed_positions": {
-    "total_trades": 3,
+    "total_trades": 4,
     "win_rate": "0%",
-    "total_pnl": "-22.53%",
-    "avg_pnl_per_trade": "-7.51%",
+    "total_pnl": "-34.81%",
+    "avg_pnl_per_trade": "-8.70%",
     "best_trade": "-5.55%",
-    "worst_trade": "-11.43%",
-    "avg_hold_hours": 119.2,
-    "max_drawdown": "17.0%",
-    "current_drawdown": "17.0%"
+    "worst_trade": "-12.28%",
+    "avg_hold_hours": 108.1,
+    "max_drawdown": "29.3%",
+    "current_drawdown": "29.3%"
   },
   "open_positions": [
     {
@@ -40,7 +40,7 @@
       "entry_price": "$77.21",
       "stop_loss": "$65.63",
       "target": "$116.08",
-      "days_open": 33.9,
+      "days_open": 34.0,
       "max_runup": "19.6%",
       "max_drawdown_in_trade": "-6.2%",
       "status": "OPEN"
@@ -106,7 +106,7 @@
       "entry_price": "$4986.30",
       "stop_loss": "$4692.05",
       "target": "$5869.05",
-      "days_open": 33.8,
+      "days_open": 33.9,
       "max_runup": "7.5%",
       "max_drawdown_in_trade": "-2.1%",
       "status": "OPEN"
@@ -117,7 +117,7 @@
       "entry_price": "$77.22",
       "stop_loss": "$65.64",
       "target": "$116.09",
-      "days_open": 33.8,
+      "days_open": 33.9,
       "max_runup": "19.6%",
       "max_drawdown_in_trade": "-6.2%",
       "status": "OPEN"
@@ -128,7 +128,7 @@
       "entry_price": "$4986.30",
       "stop_loss": "$4692.05",
       "target": "$5869.05",
-      "days_open": 33.8,
+      "days_open": 33.9,
       "max_runup": "7.5%",
       "max_drawdown_in_trade": "-2.1%",
       "status": "OPEN"
@@ -139,7 +139,7 @@
       "entry_price": "$77.22",
       "stop_loss": "$65.64",
       "target": "$116.09",
-      "days_open": 33.8,
+      "days_open": 33.9,
       "max_runup": "19.6%",
       "max_drawdown_in_trade": "-6.2%",
       "status": "OPEN"
@@ -172,7 +172,7 @@
       "entry_price": "$5268.40",
       "stop_loss": "$4974.15",
       "target": "$6151.15",
-      "days_open": 12.8,
+      "days_open": 12.9,
       "max_runup": "1.7%",
       "max_drawdown_in_trade": "-3.7%",
       "status": "OPEN"
@@ -183,7 +183,7 @@
       "entry_price": "$5268.40",
       "stop_loss": "$4974.15",
       "target": "$6151.15",
-      "days_open": 12.8,
+      "days_open": 12.9,
       "max_runup": "1.7%",
       "max_drawdown_in_trade": "-3.7%",
       "status": "OPEN"
@@ -227,7 +227,7 @@
       "entry_price": "$5.97",
       "stop_loss": "$5.64",
       "target": "$6.95",
-      "days_open": 9.7,
+      "days_open": 9.8,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-3.9%",
       "status": "OPEN"
@@ -249,7 +249,7 @@
       "entry_price": "$76.97",
       "stop_loss": "$73.11",
       "target": "$108.37",
-      "days_open": 9.0,
+      "days_open": 9.1,
       "max_runup": "35.2%",
       "max_drawdown_in_trade": "-4.4%",
       "status": "OPEN"
@@ -271,7 +271,7 @@
       "entry_price": "$81.61",
       "stop_loss": "$77.52",
       "target": "$113.01",
-      "days_open": 6.8,
+      "days_open": 6.9,
       "max_runup": "27.5%",
       "max_drawdown_in_trade": "-3.4%",
       "status": "OPEN"
@@ -282,7 +282,7 @@
       "entry_price": "$81.61",
       "stop_loss": "$77.52",
       "target": "$113.01",
-      "days_open": 6.8,
+      "days_open": 6.9,
       "max_runup": "27.5%",
       "max_drawdown_in_trade": "-3.4%",
       "status": "OPEN"
@@ -350,7 +350,7 @@
       "target": "59.32 TL",
       "days_open": 3.0,
       "max_runup": "4.2%",
-      "max_drawdown_in_trade": "-6.9%",
+      "max_drawdown_in_trade": "-7.6%",
       "status": "OPEN"
     },
     {
@@ -376,23 +376,12 @@
       "status": "OPEN"
     },
     {
-      "symbol": "SAHOL.IS",
-      "action": "SELL",
-      "entry_price": "86.35 TL",
-      "stop_loss": "96.61 TL",
-      "target": "55.57 TL",
-      "days_open": 3.0,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-11.6%",
-      "status": "OPEN"
-    },
-    {
       "symbol": "YKBNK.IS",
       "action": "SELL",
       "entry_price": "33.58 TL",
       "stop_loss": "38.24 TL",
       "target": "19.60 TL",
-      "days_open": 2.9,
+      "days_open": 3.0,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-10.2%",
       "status": "OPEN"
@@ -403,7 +392,7 @@
       "entry_price": "573.50 TL",
       "stop_loss": "509.30 TL",
       "target": "766.09 TL",
-      "days_open": 2.9,
+      "days_open": 3.0,
       "max_runup": "7.3%",
       "max_drawdown_in_trade": "-1.8%",
       "status": "OPEN"
@@ -414,7 +403,7 @@
       "entry_price": "69.95 TL",
       "stop_loss": "79.95 TL",
       "target": "39.95 TL",
-      "days_open": 2.9,
+      "days_open": 3.0,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-11.2%",
       "status": "OPEN"
@@ -425,7 +414,7 @@
       "entry_price": "13.45 TL",
       "stop_loss": "15.31 TL",
       "target": "7.88 TL",
-      "days_open": 2.9,
+      "days_open": 3.0,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-10.1%",
       "status": "OPEN"
@@ -436,9 +425,9 @@
       "entry_price": "86.95 TL",
       "stop_loss": "97.21 TL",
       "target": "56.17 TL",
-      "days_open": 2.9,
+      "days_open": 3.0,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-10.8%",
+      "max_drawdown_in_trade": "-11.5%",
       "status": "OPEN"
     },
     {
@@ -469,7 +458,7 @@
       "entry_price": "13.58 TL",
       "stop_loss": "15.44 TL",
       "target": "8.01 TL",
-      "days_open": 2.8,
+      "days_open": 2.9,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-9.1%",
       "status": "OPEN"
@@ -480,7 +469,7 @@
       "entry_price": "17.88 TL",
       "stop_loss": "19.87 TL",
       "target": "10.58 TL",
-      "days_open": 2.8,
+      "days_open": 2.9,
       "max_runup": "2.5%",
       "max_drawdown_in_trade": "-2.0%",
       "status": "OPEN"
@@ -524,7 +513,7 @@
       "entry_price": "250.25 TL",
       "stop_loss": "273.35 TL",
       "target": "180.96 TL",
-      "days_open": 2.7,
+      "days_open": 2.8,
       "max_runup": "3.4%",
       "max_drawdown_in_trade": "-3.4%",
       "status": "OPEN"
@@ -535,7 +524,7 @@
       "entry_price": "17.70 TL",
       "stop_loss": "19.67 TL",
       "target": "10.40 TL",
-      "days_open": 2.7,
+      "days_open": 2.8,
       "max_runup": "1.5%",
       "max_drawdown_in_trade": "-3.1%",
       "status": "OPEN"
@@ -581,7 +570,7 @@
       "target": "1.49 TL",
       "days_open": 0.8,
       "max_runup": "0.9%",
-      "max_drawdown_in_trade": "-1.8%",
+      "max_drawdown_in_trade": "-2.3%",
       "status": "OPEN"
     },
     {
@@ -601,9 +590,9 @@
       "entry_price": "2.19 TL",
       "stop_loss": "2.43 TL",
       "target": "1.47 TL",
-      "days_open": 0.7,
+      "days_open": 0.8,
       "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-2.7%",
+      "max_drawdown_in_trade": "-3.2%",
       "status": "OPEN"
     },
     {
@@ -612,7 +601,7 @@
       "entry_price": "111.90 TL",
       "stop_loss": "123.67 TL",
       "target": "76.60 TL",
-      "days_open": 0.7,
+      "days_open": 0.8,
       "max_runup": "0.7%",
       "max_drawdown_in_trade": "-0.2%",
       "status": "OPEN"
@@ -629,5 +618,5 @@
       "status": "OPEN"
     }
   ],
-  "total_open_positions": 56
+  "total_open_positions": 55
 }
