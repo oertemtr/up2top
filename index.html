@@ -1,717 +1,279 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
-    <title>Autonomous Triple-Brain Dashboard</title>
+    <title>SFS Dual-Brain Engine</title>
+    <!-- TailwindCSS for blazing fast modern styling without a build step -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root {
-            --bg-dark: #0f172a;
-            --bg-card: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #3b82f6;
-            --success: #10b981;
-            --danger: #ef4444;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            margin: 0;
-            padding: 2rem;
-            max-width: 1600px;
-            margin: 0 auto;
+            font-family: 'Inter', sans-serif;
+            background-color: #0b0f19;
+            color: #e2e8f0;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid var(--bg-card);
-            padding-bottom: 1rem;
+        .glass-panel {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
         }
-        .header h1 {
-            font-size: 2.5rem;
-            margin: 0 0 0.5rem 0;
-            background: linear-gradient(90deg, #60a5fa, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .glow-text {
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
         }
-        .top-chart {
-            width: 100%;
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-sizing: border-box;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            text-align: center;
+        /* Pulse Animation for Active Trades */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
-        .top-chart img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        .layout-container {
-            display: flex;
-            gap: 2rem;
-        }
-        .active-column {
-            flex: 2;
-        }
-        .closed-column {
-            flex: 1;
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-            height: fit-content;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        .card {
-            background: var(--bg-card);
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-            transition: transform 0.2s;
-        }
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding-bottom: 0.5rem;
-        }
-        .symbol {
-            font-size: 1.5rem;
-            font-weight: 700;
-        }
-        .badge {
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.875rem;
-        }
-        .badge-buy { background: rgba(16, 185, 129, 0.2); color: var(--success); border: 1px solid var(--success); }
-        .badge-sell { background: rgba(239, 68, 68, 0.2); color: var(--danger); border: 1px solid var(--danger); }
-        .badge-neutral { background: rgba(148, 163, 184, 0.2); color: var(--text-muted); border: 1px solid var(--text-muted); }
-        
-        /* Trades List Styles */
-        .trade-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .trade-row:last-child {
-            border-bottom: none;
-        }
-        .trade-symbol {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        .trade-action {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-        .trade-pnl-positive {
-            color: var(--success);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        .trade-pnl-negative {
-            color: var(--danger);
-            font-weight: bold;
-            font-size: 1.1rem;
-        }
-        
-        .stats {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .stat-box {
-            background: rgba(0,0,0,0.2);
-            padding: 1rem;
-            border-radius: 8px;
-        }
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            margin-bottom: 0.25rem;
-        }
-        .stat-value {
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-        .chart-container {
-            height: 300px;
-            width: 100%;
-            border-radius: 8px;
-            overflow: hidden;
-            margin-top: 1rem;
-            background: #000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .chart-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
-        .empty-state {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 4rem;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-        }
-        h2 {
-            margin-top: 0;
-            color: var(--text-main);
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-         /* Responsive layout */
-        @media (max-width: 1024px) {
-            .layout-container {
-                flex-direction: column;
-            }
-            .active-column {
-                order: 2;
-            }
-            .closed-column {
-                order: 1;
-                margin-bottom: 2rem;
-            }
+        .pulse {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #22c55e;
+            animation: pulse-ring 2s infinite;
         }
     </style>
 </head>
-<body>
-    <div class="header">
-        <h1>Triple-Brain Trading Signals</h1>
-        <p>Live signals generated at: 2026-03-09 00:28:30</p>
-        <p style="color: var(--text-muted);">Strict Simultaneous Rules Enforced • Dynamic MDD Constraints</p>
-    </div>
+<body class="min-h-screen pb-12">
     
-    <div class="top-chart" style="background: rgba(16, 185, 129, 0.05); border: 1px solid var(--success);">
-        <h3 style="color: var(--success); margin-top: 0; margin-bottom: 1rem;">30-Day Out-of-Sample SFS Verified Hit-Ratios (8-Feature Subset)</h3>
-        <div style="display: flex; justify-content: space-around; font-size: 1.1rem; flex-wrap: wrap; gap: 10px;">
-            <span><strong style="color: var(--success);">EKGYO.IS:</strong> 90.4%</span>
-            <span><strong style="color: var(--success);">SASA.IS:</strong> 89.6%</span>
-            <span><strong style="color: var(--success);">PGSUS.IS:</strong> 89.2%</span>
-            <span><strong style="color: var(--success);">GARAN.IS:</strong> 89.2%</span>
-            <span><strong style="color: var(--success);">BIMAS.IS:</strong> 87.5%</span>
-            <span><strong style="color: var(--success);">KCHOL.IS:</strong> 87.1%</span>
-            <span><strong style="color: var(--text-muted);">XU100 Benchmark:</strong> 55.0%</span>
+    <!-- Navigation Bar -->
+    <nav class="glass-panel sticky top-0 z-50 px-6 py-4 flex justify-between items-center border-b border-gray-800">
+        <div class="flex items-center space-x-3">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-white text-xl">SFS</div>
+            <div>
+                <h1 class="text-xl font-bold tracking-tight text-white glow-text">Autonomous Engine</h1>
+                <p class="text-xs text-cyan-400 font-medium">Dual-Brain 1-Year XGBoost Architecture</p>
+            </div>
         </div>
-    </div>
-    
-    <div class="top-chart">
-        <h2>Total Return vs SPX 500</h2>
+        <div class="flex items-center space-x-4">
+            <div class="text-right">
+                <p class="text-xs text-gray-400">System Status</p>
+                <div class="flex items-center space-x-2">
+                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                    <span class="text-sm font-semibold text-green-400">ONLINE</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 space-y-8">
         
-    </div>
-    
-    <div class="layout-container">
-        <div class="active-column">
-            <h2>Active Open Signals</h2>
-            <div class="grid" id="signals-grid">
-                
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">SAHOL.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">90.10</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">100.36</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">59.32</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.2%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/SAHOL_IS.png" alt="SAHOL.IS chart">
-                </div>
+        <!-- Stats Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <div class="glass-panel p-5 rounded-xl border border-gray-800">
+                <p class="text-sm text-gray-400 font-medium">Total Execution PnL</p>
+                <p class="text-3xl font-bold text-white mt-1" id="total-pnl">0.00%</p>
             </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">TTKOM.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">59.20</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">66.08</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">38.58</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/TTKOM_IS.png" alt="TTKOM.IS chart">
-                </div>
+            <div class="glass-panel p-5 rounded-xl border border-gray-800">
+                <p class="text-sm text-gray-400 font-medium">Total Trades Executed</p>
+                <p class="text-3xl font-bold text-white mt-1" id="total-trades">0</p>
             </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">YKBNK.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">35.14</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">39.80</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">21.16</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/YKBNK_IS.png" alt="YKBNK.IS chart">
-                </div>
+            <div class="glass-panel p-5 rounded-xl border border-gray-800">
+                <p class="text-sm text-gray-400 font-medium">Global Hit Ratio</p>
+                <p class="text-3xl font-bold text-cyan-400 mt-1" id="hit-ratio">0.00%</p>
             </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">AKBNK.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">73.35</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">83.35</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">43.35</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+40.9%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/AKBNK_IS.png" alt="AKBNK.IS chart">
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">EREGL.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">28.06</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">31.08</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">19.01</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+32.3%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/EREGL_IS.png" alt="EREGL.IS chart">
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">GARAN.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">134.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">150.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">88.79</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+34.1%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/GARAN_IS.png" alt="GARAN.IS chart">
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">ISCTR.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">14.13</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">15.99</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">8.56</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+39.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/ISCTR_IS.png" alt="ISCTR.IS chart">
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">BIMAS.IS</span>
-                    <span class="badge badge-neutral">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">620.00</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">684.82</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">425.54</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+31.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/BIMAS_IS.png" alt="BIMAS.IS chart">
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">KRDMD.IS</span>
-                    <span class="badge badge-neutral">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">29.46</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">32.21</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">17.27</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+41.4%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/KRDMD_IS.png" alt="KRDMD.IS chart">
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">MGROS.IS</span>
-                    <span class="badge badge-neutral">NEUTRAL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">571.50</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">635.70</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">378.91</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+33.7%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/MGROS_IS.png" alt="MGROS.IS chart">
-                </div>
-            </div>
-            
-            <div class="card">
-                <div class="card-header">
-                    <span class="symbol">AEFES.IS</span>
-                    <span class="badge badge-sell">SELL</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">
-                    Score: 0.0% | 🇹🇷 Stock (3-layer)
-                </div>
-                
-                <div class="stats">
-                    <div class="stat-box">
-                        <div class="stat-label">Entry Price</div>
-                        <div class="stat-value">16.88</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Dyn Stop-Loss</div>
-                        <div class="stat-value" style="color: var(--danger)">18.95</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Target</div>
-                        <div class="stat-value" style="color: var(--success)">10.67</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-label">Exp. Return</div>
-                        <div class="stat-value">+36.8%</div>
-                    </div>
-                </div>
-                
-                <div class="chart-container">
-                    <img src="assets/AEFES_IS.png" alt="AEFES.IS chart">
-                </div>
-            </div>
-            
+            <div class="glass-panel p-5 rounded-xl border border-gray-800">
+                <p class="text-sm text-gray-400 font-medium">Average Heat/Drawdown</p>
+                <p class="text-3xl font-bold text-red-400 mt-1" id="avg-dd">0.00%</p>
             </div>
         </div>
-        
-        <div class="closed-column">
-            <h2>Recent Trades (OOS Included)</h2>
-            <div class="trades-list">
-                
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">AEFES.IS</div>
-                    <div class="trade-action">BUY • STOP LOSS (OOS) • Mar 06</div>
-                </div>
-                <div class="trade-pnl-negative">-10.8%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">EREGL.IS</div>
-                    <div class="trade-action">BUY • STOP LOSS (OOS) • Mar 03</div>
-                </div>
-                <div class="trade-pnl-negative">-5.0%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">AKBNK.IS</div>
-                    <div class="trade-action">BUY • STOP LOSS (OOS) • Mar 02</div>
-                </div>
-                <div class="trade-pnl-negative">-8.8%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">ENKAI.IS</div>
-                    <div class="trade-action">BUY • STOP LOSS (OOS) • Mar 02</div>
-                </div>
-                <div class="trade-pnl-negative">-4.0%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">EKGYO.IS</div>
-                    <div class="trade-action">BUY • STOP LOSS (OOS) • Mar 02</div>
-                </div>
-                <div class="trade-pnl-negative">-10.7%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">AEFES.IS</div>
-                    <div class="trade-action">SELL • REVERSAL EXIT (OOS) • Feb 25</div>
-                </div>
-                <div class="trade-pnl-positive">+5.9%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">ASTOR.IS</div>
-                    <div class="trade-action">BUY • REVERSAL EXIT (OOS) • Feb 25</div>
-                </div>
-                <div class="trade-pnl-negative">-1.3%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">ASTOR.IS</div>
-                    <div class="trade-action">SELL • STOP LOSS (OOS) • Feb 25</div>
-                </div>
-                <div class="trade-pnl-negative">-6.8%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">ENKAI.IS</div>
-                    <div class="trade-action">SELL • REVERSAL EXIT (OOS) • Feb 25</div>
-                </div>
-                <div class="trade-pnl-negative">-1.0%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">ASELS.IS</div>
-                    <div class="trade-action">SELL • REVERSAL EXIT (OOS) • Feb 25</div>
-                </div>
-                <div class="trade-pnl-positive">+1.8%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">EREGL.IS</div>
-                    <div class="trade-action">SELL • STOP LOSS (OOS) • Feb 25</div>
-                </div>
-                <div class="trade-pnl-negative">-6.1%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">BIMAS.IS</div>
-                    <div class="trade-action">BUY • REVERSAL EXIT (OOS) • Feb 25</div>
-                </div>
-                <div class="trade-pnl-negative">-3.4%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">AKBNK.IS</div>
-                    <div class="trade-action">SELL • REVERSAL EXIT (OOS) • Feb 25</div>
-                </div>
-                <div class="trade-pnl-negative">-4.1%</div>
-            </div>
-            
-            <div class="trade-row">
-                <div>
-                    <div class="trade-symbol">ASELS.IS</div>
-                    <div class="trade-action">SELL • REVERSAL EXIT (OOS) • Feb 19</div>
-                </div>
-                <div class="trade-pnl-negative">-1.9%</div>
-            </div>
-            
+
+        <!-- Chart Section -->
+        <div class="glass-panel p-6 rounded-xl border border-gray-800">
+            <h2 class="text-lg font-semibold text-white mb-4">Cumulative PnL Trajectory (Trailing 30 Days)</h2>
+            <div class="h-64 w-full">
+                <canvas id="pnlChart"></canvas>
             </div>
         </div>
-    </div>
+
+        <!-- ACTIVE POSITIONS -->
+        <div>
+            <div class="flex items-center space-x-3 mb-4">
+                <div class="pulse"></div>
+                <h2 class="text-2xl font-bold text-white">Active Positions</h2>
+            </div>
+            <div class="glass-panel rounded-xl border border-gray-800 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/50 text-gray-400 text-sm uppercase tracking-wider">
+                            <th class="p-4 font-medium">Symbol</th>
+                            <th class="p-4 font-medium">Direction</th>
+                            <th class="p-4 font-medium">Brain Horizon</th>
+                            <th class="p-4 font-medium">Confidence</th>
+                            <th class="p-4 font-medium">Entry Date</th>
+                            <th class="p-4 font-medium">Entry Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="active-table" class="divide-y divide-gray-800 text-sm">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+                <div id="no-active" class="p-8 text-center text-gray-500 hidden">
+                    No positions currently held in memory.
+                </div>
+            </div>
+        </div>
+
+        <!-- HISTORICAL POSITIONS -->
+        <div>
+            <h2 class="text-2xl font-bold text-white mb-4">Historical Log (OOS)</h2>
+            <div class="glass-panel rounded-xl border border-gray-800 overflow-hidden">
+                <table class="w-full text-left border-collapse">
+                    <thead>
+                        <tr class="bg-gray-800/50 text-gray-400 text-sm uppercase tracking-wider">
+                            <th class="p-4 font-medium">Symbol</th>
+                            <th class="p-4 font-medium">Direction</th>
+                            <th class="p-4 font-medium">Horizon</th>
+                            <th class="p-4 font-medium">Entry Date</th>
+                            <th class="p-4 font-medium text-right">Realized PnL</th>
+                            <th class="p-4 font-medium text-right">Max Heat</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-table" class="divide-y divide-gray-800 text-sm">
+                        <!-- Populated by JS -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async () => {
+            try {
+                // Add timestamp to foil agressive browser caching
+                const response = await fetch(`dual_signals.json?t=${new Date().getTime()}`);
+                const data = await response.json();
+                
+                let activeTrades = [];
+                let expiredTrades = [];
+                let cumulativePnl = 0;
+                let wins = 0;
+                let totalDd = 0;
+                
+                let chartLabels = [];
+                let chartData = [];
+
+                data.forEach(trade => {
+                    if (trade.status === 'ACTIVE') {
+                        activeTrades.push(trade);
+                    } else {
+                        expiredTrades.push(trade);
+                        cumulativePnl += trade.realized_pnl;
+                        totalDd += trade.max_heat;
+                        
+                        if (trade.realized_pnl > 0) wins++;
+                        
+                        chartLabels.push(trade.entry_time.split(' ')[0]);
+                        chartData.push(cumulativePnl);
+                    }
+                });
+
+                // Update Metrics
+                document.getElementById('total-pnl').innerText = cumulativePnl > 0 ? `+${cumulativePnl.toFixed(2)}%` : `${cumulativePnl.toFixed(2)}%`;
+                document.getElementById('total-pnl').className = cumulativePnl > 0 ? "text-3xl font-bold text-green-400 mt-1" : "text-3xl font-bold text-red-400 mt-1";
+                document.getElementById('total-trades').innerText = expiredTrades.length;
+                document.getElementById('hit-ratio').innerText = expiredTrades.length > 0 ? `${((wins / expiredTrades.length) * 100).toFixed(1)}%` : `0.00%`;
+                document.getElementById('avg-dd').innerText = expiredTrades.length > 0 ? `${(totalDd / expiredTrades.length).toFixed(2)}%` : `0.00%`;
+
+                // Render Active Table
+                const activeTbody = document.getElementById('active-table');
+                if (activeTrades.length === 0) {
+                    document.getElementById('no-active').classList.remove('hidden');
+                } else {
+                    activeTrades.forEach(trade => {
+                        const tr = document.createElement('tr');
+                        tr.className = "hover:bg-gray-800/30 transition-colors";
+                        
+                        const dirBadge = trade.direction === 'LONG' 
+                            ? `<span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-bold">LONG</span>`
+                            : `<span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs font-bold">SHORT</span>`;
+                            
+                        const brainBadge = trade.brain === 'Daily' 
+                            ? `<span class="text-purple-400 font-medium">${trade.brain} (${trade.horizon})</span>`
+                            : `<span class="text-orange-400 font-medium">${trade.brain} (${trade.horizon})</span>`;
+
+                        tr.innerHTML = `
+                            <td class="p-4 font-semibold text-white">${trade.symbol}</td>
+                            <td class="p-4">${dirBadge}</td>
+                            <td class="p-4">${brainBadge}</td>
+                            <td class="p-4 text-cyan-400 font-medium">${(trade.prob * 100).toFixed(1)}%</td>
+                            <td class="p-4 text-gray-300">${trade.entry_time}</td>
+                            <td class="p-4 text-gray-300">${trade.entry_price.toFixed(3)}</td>
+                        `;
+                        activeTbody.appendChild(tr);
+                    });
+                }
+
+                // Render History Table (Reverse chronological)
+                const historyTbody = document.getElementById('history-table');
+                [...expiredTrades].reverse().forEach(trade => {
+                    const tr = document.createElement('tr');
+                    tr.className = "hover:bg-gray-800/30 transition-colors";
+                    
+                    const pnlClass = trade.realized_pnl > 0 ? 'text-green-400 font-semibold' : 'text-red-400 font-semibold';
+                    const pnlText = trade.realized_pnl > 0 ? `+${trade.realized_pnl.toFixed(2)}%` : `${trade.realized_pnl.toFixed(2)}%`;
+                    
+                    const dirBadge = trade.direction === 'LONG' 
+                        ? `<span class="text-green-400 font-medium text-xs">LONG</span>`
+                        : `<span class="text-red-400 font-medium text-xs">SHORT</span>`;
+
+                    tr.innerHTML = `
+                        <td class="p-4 font-medium text-white">${trade.symbol}</td>
+                        <td class="p-4">${dirBadge}</td>
+                        <td class="p-4 text-gray-400">${trade.horizon}</td>
+                        <td class="p-4 text-gray-400">${trade.entry_time}</td>
+                        <td class="p-4 text-right ${pnlClass}">${pnlText}</td>
+                        <td class="p-4 text-right text-gray-400">${trade.max_heat.toFixed(2)}%</td>
+                    `;
+                    historyTbody.appendChild(tr);
+                });
+
+                // Render Chart
+                const ctx = document.getElementById('pnlChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: chartLabels,
+                        datasets: [{
+                            label: 'Cumulative PnL (%)',
+                            data: chartData,
+                            borderColor: '#38bdf8',
+                            backgroundColor: 'rgba(56, 189, 248, 0.1)',
+                            borderWidth: 2,
+                            pointBackgroundColor: '#0ea5e9',
+                            pointRadius: 3,
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false }
+                        },
+                        scales: {
+                            y: {
+                                grid: { color: 'rgba(255, 255, 255, 0.05)' },
+                                ticks: { color: '#94a3b8' }
+                            },
+                            x: {
+                                grid: { display: false },
+                                ticks: { color: '#94a3b8', maxTicksLimit: 10 }
+                            }
+                        }
+                    }
+                });
+
+            } catch (error) {
+                console.error("Failed to load dashboard data:", error);
+            }
+        });
+    </script>
 </body>
 </html>
