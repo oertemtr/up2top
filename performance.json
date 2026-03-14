@@ -1,27 +1,297 @@
 {
-  "timestamp": "2026-03-14 17:49:15",
+  "timestamp": "2026-03-14 21:54:30",
   "closed_positions": {
-    "total_trades": 4,
-    "win_rate": "25.0%",
-    "total_pnl": "-11.71%",
-    "avg_pnl_per_trade": "-2.93%",
-    "best_trade": "1.33%",
-    "worst_trade": "-7.82%",
-    "avg_hold_hours": 126.1,
-    "max_drawdown": "13.0%",
-    "current_drawdown": "13.0%"
+    "total_trades": 104,
+    "win_rate": "29.8%",
+    "total_pnl": "-251.98%",
+    "avg_pnl_per_trade": "-2.42%",
+    "best_trade": "9.70%",
+    "worst_trade": "-10.53%",
+    "avg_hold_hours": 121.8,
+    "max_drawdown": "256.8%",
+    "current_drawdown": "256.8%"
   },
   "open_positions": [
+    {
+      "symbol": "TOASO.IS",
+      "action": "BUY",
+      "entry_price": "313.75 TL",
+      "stop_loss": "282.67 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-7.6%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "AEFES.IS",
+      "action": "BUY",
+      "entry_price": "$18.40",
+      "stop_loss": "$16.49",
+      "days_open": 12.1,
+      "max_runup": "1.9%",
+      "max_drawdown_in_trade": "-8.2%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "KCHOL.IS",
+      "action": "SELL",
+      "entry_price": "195.40 TL",
+      "stop_loss": "216.80 TL",
+      "days_open": 12.1,
+      "max_runup": "4.2%",
+      "max_drawdown_in_trade": "0.0%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "THYAO.IS",
+      "action": "BUY",
+      "entry_price": "289.00 TL",
+      "stop_loss": "257.12 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-4.2%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "SAHOL.IS",
+      "action": "BUY",
+      "entry_price": "96.05 TL",
+      "stop_loss": "84.45 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-6.3%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "GUBRF.IS",
+      "action": "BUY",
+      "entry_price": "$533.00",
+      "stop_loss": "$484.63",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-6.6%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "PGSUS.IS",
+      "action": "BUY",
+      "entry_price": "185.10 TL",
+      "stop_loss": "164.45 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-4.3%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "TUPRS.IS",
+      "action": "BUY",
+      "entry_price": "224.80 TL",
+      "stop_loss": "204.05 TL",
+      "days_open": 12.1,
+      "max_runup": "14.8%",
+      "max_drawdown_in_trade": "0.0%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "TCELL.IS",
+      "action": "BUY",
+      "entry_price": "114.00 TL",
+      "stop_loss": "102.40 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-5.7%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "PETKM.IS",
+      "action": "BUY",
+      "entry_price": "17.85 TL",
+      "stop_loss": "15.86 TL",
+      "days_open": 12.1,
+      "max_runup": "8.6%",
+      "max_drawdown_in_trade": "0.0%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "ASELS.IS",
+      "action": "BUY",
+      "entry_price": "340.00 TL",
+      "stop_loss": "303.88 TL",
+      "days_open": 12.1,
+      "max_runup": "1.5%",
+      "max_drawdown_in_trade": "-5.2%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "ULKER.IS",
+      "action": "BUY",
+      "entry_price": "121.90 TL",
+      "stop_loss": "110.05 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-5.0%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "EKGYO.IS",
+      "action": "BUY",
+      "entry_price": "22.54 TL",
+      "stop_loss": "20.02 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-7.0%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "GARAN.IS",
+      "action": "BUY",
+      "entry_price": "146.30 TL",
+      "stop_loss": "129.72 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-7.4%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "SASA.IS",
+      "action": "BUY",
+      "entry_price": "2.35 TL",
+      "stop_loss": "2.10 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-5.5%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "AKBNK.IS",
+      "action": "BUY",
+      "entry_price": "82.75 TL",
+      "stop_loss": "73.67 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-10.5%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "SISE.IS",
+      "action": "BUY",
+      "entry_price": "42.44 TL",
+      "stop_loss": "37.29 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-4.8%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "ISCTR.IS",
+      "action": "BUY",
+      "entry_price": "15.77 TL",
+      "stop_loss": "13.82 TL",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-9.8%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "FROTO.IS",
+      "action": "BUY",
+      "entry_price": "$111.70",
+      "stop_loss": "$99.00",
+      "days_open": 12.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-3.5%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "TAVHL.IS",
+      "action": "BUY",
+      "entry_price": "303.75 TL",
+      "stop_loss": "269.50 TL",
+      "days_open": 12.1,
+      "max_runup": "0.7%",
+      "max_drawdown_in_trade": "-4.1%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "EREGL.IS",
+      "action": "BUY",
+      "entry_price": "29.14 TL",
+      "stop_loss": "26.00 TL",
+      "days_open": 11.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "-3.2%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "KRDMD.IS",
+      "action": "BUY",
+      "entry_price": "29.54 TL",
+      "stop_loss": "26.83 TL",
+      "days_open": 11.1,
+      "max_runup": "3.7%",
+      "max_drawdown_in_trade": "-0.2%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "ASTOR.IS",
+      "action": "BUY",
+      "entry_price": "167.00 TL",
+      "stop_loss": "143.54 TL",
+      "days_open": 10.1,
+      "max_runup": "5.8%",
+      "max_drawdown_in_trade": "0.0%",
+      "status": "OPEN"
+    },
     {
       "symbol": "MGROS.IS",
       "action": "BUY",
       "entry_price": "601.50 TL",
       "stop_loss": "520.58 TL",
-      "days_open": 8.9,
+      "days_open": 9.1,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-5.1%",
       "status": "OPEN"
+    },
+    {
+      "symbol": "BIMAS.IS",
+      "action": "BUY",
+      "entry_price": "621.00 TL",
+      "stop_loss": "538.60 TL",
+      "days_open": 8.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "0.0%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "ENKAI.IS",
+      "action": "BUY",
+      "entry_price": "89.60 TL",
+      "stop_loss": "78.53 TL",
+      "days_open": 8.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "0.0%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "TTKOM.IS",
+      "action": "BUY",
+      "entry_price": "59.10 TL",
+      "stop_loss": "51.38 TL",
+      "days_open": 8.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "0.0%",
+      "status": "OPEN"
+    },
+    {
+      "symbol": "YKBNK.IS",
+      "action": "BUY",
+      "entry_price": "35.36 TL",
+      "stop_loss": "30.06 TL",
+      "days_open": 8.1,
+      "max_runup": "0.0%",
+      "max_drawdown_in_trade": "0.0%",
+      "status": "OPEN"
     }
   ],
-  "total_open_positions": 1
+  "total_open_positions": 28
 }

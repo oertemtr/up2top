@@ -1,27 +1,243 @@
 ================================================================================
 📊 PERFORMANCE REPORT
-Generated: 2026-03-14 17:49:15
+Generated: 2026-03-14 21:54:30
 ================================================================================
 
 📈 CLOSED POSITIONS:
 ----------------------------------------
-Total Trades: 4
-Win Rate: 25.0%
-Total Pnl: -11.71%
-Avg Pnl Per Trade: -2.93%
-Best Trade: 1.33%
-Worst Trade: -7.82%
-Avg Hold Hours: 126.1
-Max Drawdown: 13.0%
-Current Drawdown: 13.0%
+Total Trades: 104
+Win Rate: 29.8%
+Total Pnl: -251.98%
+Avg Pnl Per Trade: -2.42%
+Best Trade: 9.70%
+Worst Trade: -10.53%
+Avg Hold Hours: 121.8
+Max Drawdown: 256.8%
+Current Drawdown: 256.8%
 
 📊 OPEN POSITIONS:
 ----------------------------------------
 
+TOASO.IS (BUY):
+  Entry: 313.75 TL
+  Stop: 282.67 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -7.6%
+  Status: OPEN
+
+AEFES.IS (BUY):
+  Entry: $18.40
+  Stop: $16.49
+  Days Open: 12.1
+  Max Run-up: 1.9%
+  Max Drawdown: -8.2%
+  Status: OPEN
+
+KCHOL.IS (SELL):
+  Entry: 195.40 TL
+  Stop: 216.80 TL
+  Days Open: 12.1
+  Max Run-up: 4.2%
+  Max Drawdown: 0.0%
+  Status: OPEN
+
+THYAO.IS (BUY):
+  Entry: 289.00 TL
+  Stop: 257.12 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -4.2%
+  Status: OPEN
+
+SAHOL.IS (BUY):
+  Entry: 96.05 TL
+  Stop: 84.45 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -6.3%
+  Status: OPEN
+
+GUBRF.IS (BUY):
+  Entry: $533.00
+  Stop: $484.63
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -6.6%
+  Status: OPEN
+
+PGSUS.IS (BUY):
+  Entry: 185.10 TL
+  Stop: 164.45 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -4.3%
+  Status: OPEN
+
+TUPRS.IS (BUY):
+  Entry: 224.80 TL
+  Stop: 204.05 TL
+  Days Open: 12.1
+  Max Run-up: 14.8%
+  Max Drawdown: 0.0%
+  Status: OPEN
+
+TCELL.IS (BUY):
+  Entry: 114.00 TL
+  Stop: 102.40 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -5.7%
+  Status: OPEN
+
+PETKM.IS (BUY):
+  Entry: 17.85 TL
+  Stop: 15.86 TL
+  Days Open: 12.1
+  Max Run-up: 8.6%
+  Max Drawdown: 0.0%
+  Status: OPEN
+
+ASELS.IS (BUY):
+  Entry: 340.00 TL
+  Stop: 303.88 TL
+  Days Open: 12.1
+  Max Run-up: 1.5%
+  Max Drawdown: -5.2%
+  Status: OPEN
+
+ULKER.IS (BUY):
+  Entry: 121.90 TL
+  Stop: 110.05 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -5.0%
+  Status: OPEN
+
+EKGYO.IS (BUY):
+  Entry: 22.54 TL
+  Stop: 20.02 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -7.0%
+  Status: OPEN
+
+GARAN.IS (BUY):
+  Entry: 146.30 TL
+  Stop: 129.72 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -7.4%
+  Status: OPEN
+
+SASA.IS (BUY):
+  Entry: 2.35 TL
+  Stop: 2.10 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -5.5%
+  Status: OPEN
+
+AKBNK.IS (BUY):
+  Entry: 82.75 TL
+  Stop: 73.67 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -10.5%
+  Status: OPEN
+
+SISE.IS (BUY):
+  Entry: 42.44 TL
+  Stop: 37.29 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -4.8%
+  Status: OPEN
+
+ISCTR.IS (BUY):
+  Entry: 15.77 TL
+  Stop: 13.82 TL
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -9.8%
+  Status: OPEN
+
+FROTO.IS (BUY):
+  Entry: $111.70
+  Stop: $99.00
+  Days Open: 12.1
+  Max Run-up: 0.0%
+  Max Drawdown: -3.5%
+  Status: OPEN
+
+TAVHL.IS (BUY):
+  Entry: 303.75 TL
+  Stop: 269.50 TL
+  Days Open: 12.1
+  Max Run-up: 0.7%
+  Max Drawdown: -4.1%
+  Status: OPEN
+
+EREGL.IS (BUY):
+  Entry: 29.14 TL
+  Stop: 26.00 TL
+  Days Open: 11.1
+  Max Run-up: 0.0%
+  Max Drawdown: -3.2%
+  Status: OPEN
+
+KRDMD.IS (BUY):
+  Entry: 29.54 TL
+  Stop: 26.83 TL
+  Days Open: 11.1
+  Max Run-up: 3.7%
+  Max Drawdown: -0.2%
+  Status: OPEN
+
+ASTOR.IS (BUY):
+  Entry: 167.00 TL
+  Stop: 143.54 TL
+  Days Open: 10.1
+  Max Run-up: 5.8%
+  Max Drawdown: 0.0%
+  Status: OPEN
+
 MGROS.IS (BUY):
   Entry: 601.50 TL
   Stop: 520.58 TL
-  Days Open: 8.9
+  Days Open: 9.1
   Max Run-up: 0.0%
   Max Drawdown: -5.1%
+  Status: OPEN
+
+BIMAS.IS (BUY):
+  Entry: 621.00 TL
+  Stop: 538.60 TL
+  Days Open: 8.1
+  Max Run-up: 0.0%
+  Max Drawdown: 0.0%
+  Status: OPEN
+
+ENKAI.IS (BUY):
+  Entry: 89.60 TL
+  Stop: 78.53 TL
+  Days Open: 8.1
+  Max Run-up: 0.0%
+  Max Drawdown: 0.0%
+  Status: OPEN
+
+TTKOM.IS (BUY):
+  Entry: 59.10 TL
+  Stop: 51.38 TL
+  Days Open: 8.1
+  Max Run-up: 0.0%
+  Max Drawdown: 0.0%
+  Status: OPEN
+
+YKBNK.IS (BUY):
+  Entry: 35.36 TL
+  Stop: 30.06 TL
+  Days Open: 8.1
+  Max Run-up: 0.0%
+  Max Drawdown: 0.0%
   Status: OPEN
