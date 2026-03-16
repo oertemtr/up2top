@@ -1,6 +1,6 @@
 ================================================================================
 📊 PERFORMANCE REPORT
-Generated: 2026-03-16 19:12:27
+Generated: 2026-03-16 19:23:29
 ================================================================================
 
 📈 CLOSED POSITIONS:
@@ -202,7 +202,7 @@ HG=F (BUY):
   Entry: $5.97
   Stop: $5.64
   Target: $6.95
-  Days Open: 13.9
+  Days Open: 14.0
   Max Run-up: 0.0%
   Max Drawdown: -3.9%
   Status: OPEN
@@ -265,7 +265,7 @@ YKBNK.IS (SELL):
   Entry: 35.14 TL
   Stop: 39.80 TL
   Target: 21.16 TL
-  Days Open: 7.2
+  Days Open: 7.3
   Max Run-up: 4.4%
   Max Drawdown: -5.3%
   Status: OPEN
@@ -274,7 +274,7 @@ AKBNK.IS (SELL):
   Entry: 73.35 TL
   Stop: 83.35 TL
   Target: 43.35 TL
-  Days Open: 7.2
+  Days Open: 7.3
   Max Run-up: 4.6%
   Max Drawdown: -7.0%
   Status: OPEN
@@ -283,7 +283,7 @@ ISCTR.IS (SELL):
   Entry: 14.13 TL
   Stop: 15.99 TL
   Target: 8.56 TL
-  Days Open: 7.2
+  Days Open: 7.3
   Max Run-up: 4.8%
   Max Drawdown: -5.9%
   Status: OPEN
@@ -292,7 +292,7 @@ SAHOL.IS (SELL):
   Entry: 90.10 TL
   Stop: 100.36 TL
   Target: 59.32 TL
-  Days Open: 7.2
+  Days Open: 7.3
   Max Run-up: 4.2%
   Max Drawdown: -8.5%
   Status: OPEN
@@ -400,7 +400,7 @@ ASTOR.IS (BUY):
   Entry: 194.70 TL
   Stop: 171.74 TL
   Target: 263.59 TL
-  Days Open: 5.2
+  Days Open: 5.3
   Max Run-up: 3.3%
   Max Drawdown: -2.7%
   Status: OPEN
@@ -445,7 +445,7 @@ PETKM.IS (BUY):
   Entry: 19.05 TL
   Stop: 16.93 TL
   Target: 26.90 TL
-  Days Open: 3.2
+  Days Open: 3.3
   Max Run-up: 6.9%
   Max Drawdown: 0.0%
   Status: OPEN
