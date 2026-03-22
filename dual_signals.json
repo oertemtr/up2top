@@ -6,10 +6,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-08 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.879,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 2.86,
-        "max_heat": -0.8
+        "max_heat": 0.0
     },
     {
         "symbol": "ASELS.IS",
@@ -18,10 +18,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-13 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.803,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 7.16,
-        "max_heat": -2.33
+        "max_heat": 0.0
     },
     {
         "symbol": "TOASO.IS",
@@ -30,10 +30,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-13 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.913,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 10.06,
-        "max_heat": -2.74
+        "max_heat": 0.0
     },
     {
         "symbol": "TTKOM.IS",
@@ -42,10 +42,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-13 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.801,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 8.42,
-        "max_heat": -1.18
+        "max_heat": 0.0
     },
     {
         "symbol": "TUPRS.IS",
@@ -54,10 +54,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-13 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.824,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 9.02,
-        "max_heat": -0.29
+        "max_heat": 0.0
     },
     {
         "symbol": "GC=F",
@@ -66,10 +66,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-13 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.844,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 15.52,
-        "max_heat": -0.02
+        "max_heat": 0.0
     },
     {
         "symbol": "XU100.IS",
@@ -78,10 +78,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-13 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.89,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 5.82,
-        "max_heat": -0.69
+        "max_heat": 0.0
     },
     {
         "symbol": "AEFES.IS",
@@ -90,10 +90,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-14 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.812,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 9.3,
-        "max_heat": -2.06
+        "max_heat": 0.0
     },
     {
         "symbol": "KCHOL.IS",
@@ -102,10 +102,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-14 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.834,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 3.6,
-        "max_heat": -2.26
+        "max_heat": 0.0
     },
     {
         "symbol": "ENKAI.IS",
@@ -114,10 +114,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-19 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.84,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 14.22,
-        "max_heat": -3.15
+        "max_heat": 0.0
     },
     {
         "symbol": "BIMAS.IS",
@@ -126,10 +126,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-21 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.851,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 12.68,
-        "max_heat": 0.98
+        "max_heat": 0.0
     },
     {
         "symbol": "MGROS.IS",
@@ -138,10 +138,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-22 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.817,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 3.6,
-        "max_heat": -2.32
+        "max_heat": 0.0
     },
     {
         "symbol": "SI=F",
@@ -150,10 +150,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-23 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.815,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": -23.97,
-        "max_heat": -31.92
+        "max_heat": 0.0
     },
     {
         "symbol": "TCELL.IS",
@@ -162,10 +162,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-26 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.901,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 1.92,
-        "max_heat": -3.4
+        "max_heat": 0.0
     },
     {
         "symbol": "HG=F",
@@ -174,10 +174,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-27 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.868,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 1.16,
-        "max_heat": -4.45
+        "max_heat": 0.0
     },
     {
         "symbol": "TOASO.IS",
@@ -186,10 +186,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-28 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.876,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.48,
-        "max_heat": -2.07
+        "max_heat": 0.0
     },
     {
         "symbol": "AKBNK.IS",
@@ -198,10 +198,10 @@
         "direction": "LONG",
         "entry_time": "2026-01-29 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.801,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 2.42,
-        "max_heat": -7.13
+        "max_heat": 0.0
     },
     {
         "symbol": "FROTO.IS",
@@ -210,177 +210,9 @@
         "direction": "LONG",
         "entry_time": "2026-02-02 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.8,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 18.01,
-        "max_heat": 0.26
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-05 13:00:00",
-        "entry_price": 75.58499908447266,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-05 13:30:00",
-        "entry_price": 75.58499908447266,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 12:00:00",
-        "entry_price": 77.20999908447266,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 12:30:00",
-        "entry_price": 77.20999908447266,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "GC=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 13:00:00",
-        "entry_price": 4984.7998046875,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 13:00:00",
-        "entry_price": 76.98999786376953,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "GC=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 13:30:00",
-        "entry_price": 4984.7998046875,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 13:30:00",
-        "entry_price": 76.98999786376953,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "GC=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 14:00:00",
-        "entry_price": 4986.2998046875,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 14:00:00",
-        "entry_price": 77.22000122070312,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "GC=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 14:30:00",
-        "entry_price": 4986.2998046875,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 14:30:00",
-        "entry_price": 77.22000122070312,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 15:00:00",
-        "entry_price": 77.25499725341797,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SI=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-06 15:30:00",
-        "entry_price": 77.25499725341797,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
         "max_heat": 0.0
     },
     {
@@ -390,10 +222,10 @@
         "direction": "LONG",
         "entry_time": "2026-02-09 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.818,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 1.88,
-        "max_heat": -4.3
+        "max_heat": 0.0
     },
     {
         "symbol": "TTKOM.IS",
@@ -402,10 +234,10 @@
         "direction": "LONG",
         "entry_time": "2026-02-10 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.868,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 5.17,
-        "max_heat": -1.2
+        "max_heat": 0.0
     },
     {
         "symbol": "ENKAI.IS",
@@ -414,10 +246,10 @@
         "direction": "LONG",
         "entry_time": "2026-02-11 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.856,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 6.04,
-        "max_heat": -0.31
+        "max_heat": 0.0
     },
     {
         "symbol": "GC=F",
@@ -426,10 +258,10 @@
         "direction": "LONG",
         "entry_time": "2026-02-11 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.801,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 2.07,
-        "max_heat": -4.41
+        "max_heat": 0.0
     },
     {
         "symbol": "HG=F",
@@ -438,10 +270,10 @@
         "direction": "LONG",
         "entry_time": "2026-02-11 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.873,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": -0.03,
-        "max_heat": -5.31
+        "max_heat": 0.0
     },
     {
         "symbol": "XU100.IS",
@@ -450,10 +282,10 @@
         "direction": "LONG",
         "entry_time": "2026-02-11 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.805,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.16,
-        "max_heat": -0.51
+        "max_heat": 0.0
     },
     {
         "symbol": "CL=F",
@@ -486,10 +318,10 @@
         "direction": "LONG",
         "entry_time": "2026-02-13 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.807,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 10.41,
-        "max_heat": -1.62
+        "max_heat": 0.0
     },
     {
         "symbol": "ASELS.IS",
@@ -498,57 +330,9 @@
         "direction": "LONG",
         "entry_time": "2026-02-20 00:00:00",
         "entry_price": 0.0,
-        "prob": 0.81,
+        "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 6.46,
-        "max_heat": -3.03
-    },
-    {
-        "symbol": "GC=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-27 14:00:00",
-        "entry_price": 5268.39990234375,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "GC=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-27 14:30:00",
-        "entry_price": 5268.39990234375,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "GC=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-27 15:00:00",
-        "entry_price": 5281.2998046875,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "GC=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-27 15:30:00",
-        "entry_price": 5281.2998046875,
-        "prob": 0.0,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
         "max_heat": 0.0
     },
     {
