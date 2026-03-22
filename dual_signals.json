@@ -9,7 +9,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 2.86,
-        "max_heat": 0.0
+        "max_heat": -0.8
     },
     {
         "symbol": "ASELS.IS",
@@ -21,7 +21,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 7.16,
-        "max_heat": 0.0
+        "max_heat": -2.33
     },
     {
         "symbol": "TOASO.IS",
@@ -33,7 +33,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 10.06,
-        "max_heat": 0.0
+        "max_heat": -2.74
     },
     {
         "symbol": "TTKOM.IS",
@@ -45,7 +45,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 8.42,
-        "max_heat": 0.0
+        "max_heat": -1.18
     },
     {
         "symbol": "TUPRS.IS",
@@ -57,7 +57,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 9.02,
-        "max_heat": 0.0
+        "max_heat": -0.29
     },
     {
         "symbol": "GC=F",
@@ -69,7 +69,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 15.52,
-        "max_heat": 0.0
+        "max_heat": -0.02
     },
     {
         "symbol": "XU100.IS",
@@ -81,7 +81,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 5.82,
-        "max_heat": 0.0
+        "max_heat": -0.69
     },
     {
         "symbol": "AEFES.IS",
@@ -93,7 +93,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 9.3,
-        "max_heat": 0.0
+        "max_heat": -2.06
     },
     {
         "symbol": "KCHOL.IS",
@@ -105,7 +105,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 3.6,
-        "max_heat": 0.0
+        "max_heat": -2.26
     },
     {
         "symbol": "ENKAI.IS",
@@ -117,7 +117,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 14.22,
-        "max_heat": 0.0
+        "max_heat": -3.15
     },
     {
         "symbol": "BIMAS.IS",
@@ -129,7 +129,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 12.68,
-        "max_heat": 0.0
+        "max_heat": 0.98
     },
     {
         "symbol": "MGROS.IS",
@@ -141,7 +141,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 3.6,
-        "max_heat": 0.0
+        "max_heat": -2.32
     },
     {
         "symbol": "SI=F",
@@ -153,7 +153,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": -23.97,
-        "max_heat": 0.0
+        "max_heat": -31.92
     },
     {
         "symbol": "TCELL.IS",
@@ -165,7 +165,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 1.92,
-        "max_heat": 0.0
+        "max_heat": -3.4
     },
     {
         "symbol": "HG=F",
@@ -177,7 +177,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 1.16,
-        "max_heat": 0.0
+        "max_heat": -4.45
     },
     {
         "symbol": "TOASO.IS",
@@ -189,7 +189,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.48,
-        "max_heat": 0.0
+        "max_heat": -2.07
     },
     {
         "symbol": "AKBNK.IS",
@@ -201,7 +201,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 2.42,
-        "max_heat": 0.0
+        "max_heat": -7.13
     },
     {
         "symbol": "FROTO.IS",
@@ -213,7 +213,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 18.01,
-        "max_heat": 0.0
+        "max_heat": 0.26
     },
     {
         "symbol": "ISCTR.IS",
@@ -225,7 +225,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 1.88,
-        "max_heat": 0.0
+        "max_heat": -4.3
     },
     {
         "symbol": "TTKOM.IS",
@@ -237,7 +237,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 5.17,
-        "max_heat": 0.0
+        "max_heat": -1.2
     },
     {
         "symbol": "ENKAI.IS",
@@ -249,7 +249,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 6.04,
-        "max_heat": 0.0
+        "max_heat": -0.31
     },
     {
         "symbol": "GC=F",
@@ -261,7 +261,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 2.07,
-        "max_heat": 0.0
+        "max_heat": -4.41
     },
     {
         "symbol": "HG=F",
@@ -273,7 +273,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": -0.03,
-        "max_heat": 0.0
+        "max_heat": -5.31
     },
     {
         "symbol": "XU100.IS",
@@ -285,7 +285,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.16,
-        "max_heat": 0.0
+        "max_heat": -0.51
     },
     {
         "symbol": "CL=F",
@@ -297,7 +297,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": -5.55,
-        "max_heat": 0.0
+        "max_heat": -4.88
     },
     {
         "symbol": "CL=F",
@@ -309,7 +309,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": -5.55,
-        "max_heat": 0.0
+        "max_heat": -4.88
     },
     {
         "symbol": "EREGL.IS",
@@ -321,7 +321,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 10.41,
-        "max_heat": 0.0
+        "max_heat": -1.62
     },
     {
         "symbol": "ASELS.IS",
@@ -333,7 +333,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 6.46,
-        "max_heat": 0.0
+        "max_heat": -3.03
     },
     {
         "symbol": "HG=F",
@@ -345,7 +345,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
+        "max_heat": -3.92
     },
     {
         "symbol": "HG=F",
@@ -357,7 +357,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
+        "max_heat": -3.92
     },
     {
         "symbol": "HG=F",
@@ -369,7 +369,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
+        "max_heat": -3.92
     },
     {
         "symbol": "CL=F",
@@ -381,7 +381,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
+        "max_heat": -4.38
     },
     {
         "symbol": "CL=F",
@@ -393,7 +393,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
+        "max_heat": -4.38
     },
     {
         "symbol": "CL=F",
@@ -405,7 +405,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
+        "max_heat": -3.36
     },
     {
         "symbol": "CL=F",
@@ -417,7 +417,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
+        "max_heat": -3.36
     },
     {
         "symbol": "HG=F",
@@ -429,7 +429,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
+        "max_heat": -1.63
     },
     {
         "symbol": "HG=F",
@@ -441,103 +441,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "YKBNK.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 10:15:05",
-        "entry_price": 35.13999938964844,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 1.02,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "AKBNK.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 10:15:05",
-        "entry_price": 73.3499984741211,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -0.34,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "ISCTR.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 10:15:06",
-        "entry_price": 14.130000114440918,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 1.27,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SAHOL.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 10:15:06",
-        "entry_price": 90.0999984741211,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -2.72,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "YKBNK.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 11:15:05",
-        "entry_price": 33.7400016784668,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -3.08,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SAHOL.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 11:15:06",
-        "entry_price": 86.3499984741211,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -12.28,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "ISCTR.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 11:15:06",
-        "entry_price": 13.539999961853027,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -3.03,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "YKBNK.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 12:15:06",
-        "entry_price": 33.58000183105469,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -3.57,
-        "max_heat": 0.0
+        "max_heat": -1.63
     },
     {
         "symbol": "MGROS.IS",
@@ -549,55 +453,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 1.83,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "AKBNK.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 12:15:06",
-        "entry_price": 69.94999694824219,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -5.22,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SAHOL.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 12:15:07",
-        "entry_price": 86.94999694824219,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -12.48,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "ISCTR.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 12:15:07",
-        "entry_price": 13.449999809265137,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -3.72,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "YKBNK.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 13:15:05",
-        "entry_price": 33.79999923706055,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -2.9,
-        "max_heat": 0.0
+        "max_heat": -1.83
     },
     {
         "symbol": "SISE.IS",
@@ -609,115 +465,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 11.77,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 14:15:07",
-        "entry_price": 17.8799991607666,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -6.54,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "ISCTR.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 14:15:07",
-        "entry_price": 13.579999923706055,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -2.72,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "GUBRF.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 15:15:06",
-        "entry_price": 477.0,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -11.43,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 15:15:07",
-        "entry_price": 17.8700008392334,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -6.6,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "TUPRS.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 16:15:06",
-        "entry_price": 257.25,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 1.55,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 16:15:07",
-        "entry_price": 17.790000915527344,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -7.08,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 17:15:07",
-        "entry_price": 17.700000762939453,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -7.63,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "TUPRS.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 17:15:07",
-        "entry_price": 250.25,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -1.2,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-09 18:15:09",
-        "entry_price": 17.670000076293945,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -7.81,
-        "max_heat": 0.0
+        "max_heat": -0.1
     },
     {
         "symbol": "ASTOR.IS",
@@ -729,79 +477,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": -3.8,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "ULKER.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-11 15:15:07",
-        "entry_price": 112.5999984741211,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 0.09,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SASA.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-11 16:15:06",
-        "entry_price": 2.2100000381469727,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -16.74,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "ULKER.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-11 16:15:07",
-        "entry_price": 112.5,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 0.0,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "SASA.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-11 17:15:06",
-        "entry_price": 2.190000057220459,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -10.96,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "ULKER.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-11 17:15:07",
-        "entry_price": 111.9000015258789,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -0.54,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "ULKER.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-11 18:15:09",
-        "entry_price": 112.0999984741211,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -0.36,
-        "max_heat": 0.0
+        "max_heat": -2.72
     },
     {
         "symbol": "PETKM.IS",
@@ -825,7 +501,7 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 5.23,
-        "max_heat": 0.0
+        "max_heat": -0.16
     },
     {
         "symbol": "PETKM.IS",
@@ -837,30 +513,6 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": 5.39,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "BIMAS.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-13 16:15:07",
-        "entry_price": 698.5,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 0.93,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "FROTO.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "SHORT",
-        "entry_time": "2026-03-13 16:15:08",
-        "entry_price": 108.5,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -1.2,
         "max_heat": 0.0
     },
     {
@@ -885,6 +537,6 @@
         "prob": 0.9,
         "status": "EXPIRED",
         "realized_pnl": -0.2,
-        "max_heat": 0.0
+        "max_heat": -0.79
     }
 ]
