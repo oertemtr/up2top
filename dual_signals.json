@@ -300,18 +300,6 @@
         "max_heat": -4.88
     },
     {
-        "symbol": "CL=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-02-11 10:30:00",
-        "entry_price": 65.55999755859375,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -5.55,
-        "max_heat": -4.88
-    },
-    {
         "symbol": "EREGL.IS",
         "brain": "Daily",
         "horizon": "3d",
@@ -348,47 +336,11 @@
         "max_heat": -3.92
     },
     {
-        "symbol": "HG=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-02 16:30:00",
-        "entry_price": 5.9654998779296875,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 0.0,
-        "max_heat": -3.92
-    },
-    {
-        "symbol": "HG=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-02 17:30:00",
-        "entry_price": 5.9654998779296875,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 0.0,
-        "max_heat": -3.92
-    },
-    {
         "symbol": "CL=F",
         "brain": "Daily",
         "horizon": "3d",
         "direction": "LONG",
         "entry_time": "2026-03-03 10:00:00",
-        "entry_price": 76.97000122070312,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 0.0,
-        "max_heat": -4.38
-    },
-    {
-        "symbol": "CL=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-03 10:30:00",
         "entry_price": 76.97000122070312,
         "prob": 0.9,
         "status": "EXPIRED",
@@ -408,35 +360,11 @@
         "max_heat": -3.36
     },
     {
-        "symbol": "CL=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-05 14:30:00",
-        "entry_price": 81.61000061035156,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 0.0,
-        "max_heat": -3.36
-    },
-    {
         "symbol": "HG=F",
         "brain": "Daily",
         "horizon": "3d",
         "direction": "LONG",
         "entry_time": "2026-03-05 15:00:00",
-        "entry_price": 5.826499938964844,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 0.0,
-        "max_heat": -1.63
-    },
-    {
-        "symbol": "HG=F",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-05 15:30:00",
         "entry_price": 5.826499938964844,
         "prob": 0.9,
         "status": "EXPIRED",
@@ -490,53 +418,5 @@
         "status": "EXPIRED",
         "realized_pnl": 6.67,
         "max_heat": 0.0
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-13 11:15:08",
-        "entry_price": 19.309999465942383,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 5.23,
-        "max_heat": -0.16
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-13 12:15:07",
-        "entry_price": 19.280000686645508,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 5.39,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-13 16:15:08",
-        "entry_price": 19.6200008392334,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": 3.57,
-        "max_heat": 0.0
-    },
-    {
-        "symbol": "PETKM.IS",
-        "brain": "Daily",
-        "horizon": "3d",
-        "direction": "LONG",
-        "entry_time": "2026-03-13 17:15:07",
-        "entry_price": 20.360000610351562,
-        "prob": 0.9,
-        "status": "EXPIRED",
-        "realized_pnl": -0.2,
-        "max_heat": -0.79
     }
 ]
