@@ -538,5 +538,17 @@
         "status": "ACTIVE",
         "realized_pnl": 0.0,
         "max_heat": 0.0
+    },
+    {
+        "symbol": "SAHOL.IS",
+        "brain": "Daily",
+        "horizon": "3d",
+        "direction": "LONG",
+        "entry_time": "2026-03-27 17:55:05",
+        "entry_price": 89.94999694824219,
+        "prob": 0.8247262239456177,
+        "status": "ACTIVE",
+        "realized_pnl": 0.0,
+        "max_heat": 0.0
     }
 ]
