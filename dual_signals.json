@@ -550,5 +550,17 @@
         "status": "ACTIVE",
         "realized_pnl": 0.0,
         "max_heat": 0.0
+    },
+    {
+        "symbol": "HG=F",
+        "brain": "Daily",
+        "horizon": "3d",
+        "direction": "LONG",
+        "entry_time": "2026-03-31 22:55:04",
+        "entry_price": 5.48799991607666,
+        "prob": 0.9231919646263123,
+        "status": "ACTIVE",
+        "realized_pnl": 0.0,
+        "max_heat": 0.0
     }
 ]
