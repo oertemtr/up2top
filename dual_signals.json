@@ -427,8 +427,8 @@
         "entry_time": "2026-03-26 17:55:04",
         "entry_price": 604.5,
         "prob": 0.8094304800033569,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": -0.25,
         "max_heat": 0.0
     },
     {
@@ -439,8 +439,8 @@
         "entry_time": "2026-03-26 17:55:04",
         "entry_price": 27.920000076293945,
         "prob": 0.821936845779419,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": 1.72,
         "max_heat": 0.0
     },
     {
@@ -451,8 +451,8 @@
         "entry_time": "2026-03-26 17:55:04",
         "entry_price": 705.0,
         "prob": 0.8430063128471375,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": -2.62,
         "max_heat": 0.0
     },
     {
@@ -463,8 +463,8 @@
         "entry_time": "2026-03-26 17:55:04",
         "entry_price": 13.420000076293945,
         "prob": 0.832100510597229,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": -2.01,
         "max_heat": 0.0
     },
     {
@@ -475,8 +475,8 @@
         "entry_time": "2026-03-26 17:55:04",
         "entry_price": 19.030000686645508,
         "prob": 0.8117800354957581,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": 11.51,
         "max_heat": 0.0
     },
     {
@@ -487,8 +487,8 @@
         "entry_time": "2026-03-26 17:55:05",
         "entry_price": 337.5,
         "prob": 0.898030698299408,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": -4.67,
         "max_heat": 0.0
     },
     {
@@ -499,8 +499,8 @@
         "entry_time": "2026-03-26 17:55:05",
         "entry_price": 70.9000015258789,
         "prob": 0.868148684501648,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": -6.7,
         "max_heat": 0.0
     },
     {
@@ -511,8 +511,8 @@
         "entry_time": "2026-03-26 17:55:05",
         "entry_price": 130.39999389648438,
         "prob": 0.820260226726532,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": -2.84,
         "max_heat": 0.0
     },
     {
@@ -523,8 +523,8 @@
         "entry_time": "2026-03-26 17:55:05",
         "entry_price": 471.75,
         "prob": 0.8772599697113037,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": 0.79,
         "max_heat": 0.0
     },
     {
@@ -535,8 +535,8 @@
         "entry_time": "2026-03-26 22:55:04",
         "entry_price": 5.526500225067139,
         "prob": 0.9083836674690247,
-        "status": "ACTIVE",
-        "realized_pnl": 0.0,
+        "status": "EXPIRED",
+        "realized_pnl": 0.81,
         "max_heat": 0.0
     },
     {

@@ -1,18 +1,18 @@
 ================================================================================
 📊 PERFORMANCE REPORT
-Generated: 2026-03-30 23:00:06
+Generated: 2026-03-31 18:00:07
 ================================================================================
 
 📈 CLOSED POSITIONS:
 ----------------------------------------
-Total Trades: 35
-Win Rate: 8.6%
-Total Pnl: 145.35%
-Avg Pnl Per Trade: 4.15%
+Total Trades: 45
+Win Rate: 15.6%
+Total Pnl: 141.10%
+Avg Pnl Per Trade: 3.14%
 Best Trade: 18.01%
 Worst Trade: -23.97%
-Avg Hold Hours: 141.8
+Avg Hold Hours: 136.8
 Max Drawdown: 24.0%
-Current Drawdown: 0.0%
+Current Drawdown: 12.6%
 
 📊 OPEN POSITIONS:

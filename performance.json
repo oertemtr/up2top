@@ -1,138 +1,28 @@
 {
-  "timestamp": "2026-03-30 23:00:06",
+  "timestamp": "2026-03-31 18:00:07",
   "closed_positions": {
-    "total_trades": 35,
-    "win_rate": "8.6%",
-    "total_pnl": "145.35%",
-    "avg_pnl_per_trade": "4.15%",
+    "total_trades": 45,
+    "win_rate": "15.6%",
+    "total_pnl": "141.10%",
+    "avg_pnl_per_trade": "3.14%",
     "best_trade": "18.01%",
     "worst_trade": "-23.97%",
-    "avg_hold_hours": 141.8,
+    "avg_hold_hours": 136.8,
     "max_drawdown": "24.0%",
-    "current_drawdown": "0.0%"
+    "current_drawdown": "12.6%"
   },
   "open_positions": [
-    {
-      "symbol": "MGROS.IS",
-      "action": "BUY",
-      "entry_price": "604.50 TL",
-      "stop_loss": "546.50 TL",
-      "target": "778.50 TL",
-      "days_open": 4.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-1.7%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "EREGL.IS",
-      "action": "BUY",
-      "entry_price": "27.92 TL",
-      "stop_loss": "25.36 TL",
-      "target": "35.60 TL",
-      "days_open": 4.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-3.7%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "BIMAS.IS",
-      "action": "BUY",
-      "entry_price": "705.00 TL",
-      "stop_loss": "633.50 TL",
-      "target": "919.50 TL",
-      "days_open": 4.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-4.9%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "ISCTR.IS",
-      "action": "BUY",
-      "entry_price": "13.42 TL",
-      "stop_loss": "12.13 TL",
-      "target": "17.30 TL",
-      "days_open": 4.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-3.7%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "PETKM.IS",
-      "action": "BUY",
-      "entry_price": "19.03 TL",
-      "stop_loss": "16.91 TL",
-      "target": "28.33 TL",
-      "days_open": 4.1,
-      "max_runup": "7.7%",
-      "max_drawdown_in_trade": "0.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "ASELS.IS",
-      "action": "BUY",
-      "entry_price": "337.50 TL",
-      "stop_loss": "312.07 TL",
-      "target": "455.62 TL",
-      "days_open": 4.1,
-      "max_runup": "0.7%",
-      "max_drawdown_in_trade": "-5.0%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "AKBNK.IS",
-      "action": "BUY",
-      "entry_price": "70.90 TL",
-      "stop_loss": "63.33 TL",
-      "target": "93.62 TL",
-      "days_open": 4.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-7.8%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "GARAN.IS",
-      "action": "BUY",
-      "entry_price": "130.40 TL",
-      "stop_loss": "118.65 TL",
-      "target": "165.65 TL",
-      "days_open": 4.1,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-3.8%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "GUBRF.IS",
-      "action": "BUY",
-      "entry_price": "$471.75",
-      "stop_loss": "$408.50",
-      "target": "$661.50",
-      "days_open": 4.1,
-      "max_runup": "0.4%",
-      "max_drawdown_in_trade": "-2.9%",
-      "status": "OPEN"
-    },
-    {
-      "symbol": "HG=F",
-      "action": "BUY",
-      "entry_price": "$5.53",
-      "stop_loss": "$5.04",
-      "target": "$6.98",
-      "days_open": 3.9,
-      "max_runup": "0.0%",
-      "max_drawdown_in_trade": "-1.3%",
-      "status": "OPEN"
-    },
     {
       "symbol": "SAHOL.IS",
       "action": "BUY",
       "entry_price": "89.95 TL",
       "stop_loss": "81.55 TL",
       "target": "115.15 TL",
-      "days_open": 3.1,
+      "days_open": 3.9,
       "max_runup": "0.0%",
       "max_drawdown_in_trade": "-1.3%",
       "status": "OPEN"
     }
   ],
-  "total_open_positions": 11
+  "total_open_positions": 1
 }
