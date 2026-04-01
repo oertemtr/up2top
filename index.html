@@ -1,283 +1,831 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SFS Dual-Brain Engine</title>
-    <!-- TailwindCSS for blazing fast modern styling without a build step -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0b0f19;
-            color: #e2e8f0;
-        }
-        .glass-panel {
-            background: rgba(17, 24, 39, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-        }
-        .glow-text {
-            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
-        }
-        /* Pulse Animation for Active Trades */
-        @keyframes pulse-ring {
-            0% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
-            100% { transform: scale(0.8); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
-        }
-        .pulse {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: #22c55e;
-            animation: pulse-ring 2s infinite;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Up2Top — BIST Trading Signals</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root {
+  --bg-primary: #0a0e17;
+  --bg-secondary: #111827;
+  --bg-card: #1a2233;
+  --bg-card-hover: #1e2940;
+  --text-primary: #e5e7eb;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  --accent-green: #10b981;
+  --accent-red: #ef4444;
+  --accent-blue: #3b82f6;
+  --accent-yellow: #f59e0b;
+  --accent-purple: #8b5cf6;
+  --border: #1f2937;
+  --low-risk: #10b981;
+  --med-risk: #3b82f6;
+  --high-risk: #ef4444;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* Header */
+.header {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+.logo span { color: var(--accent-blue); }
+.header-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Landing Page */
+.landing { padding: 48px 0; }
+.landing-title {
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.landing-subtitle {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 16px;
+  margin-bottom: 48px;
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Strategy Cards */
+.strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+@media (max-width: 900px) {
+  .strategy-grid { grid-template-columns: 1fr; }
+}
+.strategy-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 28px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.strategy-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+}
+.strategy-card.low-risk:hover { border-color: var(--low-risk); }
+.strategy-card.med-risk:hover { border-color: var(--med-risk); }
+.strategy-card.high-risk:hover { border-color: var(--high-risk); }
+
+.risk-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+.low-risk .risk-badge { background: rgba(16,185,129,0.15); color: var(--low-risk); }
+.med-risk .risk-badge { background: rgba(59,130,246,0.15); color: var(--med-risk); }
+.high-risk .risk-badge { background: rgba(239,68,68,0.15); color: var(--high-risk); }
+
+.card-title { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.card-description {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  min-height: 66px;
+}
+.card-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.stat-item {
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+.stat-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.stat-value { font-size: 18px; font-weight: 700; }
+.stat-value.green { color: var(--accent-green); }
+.stat-value.red { color: var(--accent-red); }
+
+.chart-container {
+  height: 160px;
+  margin-top: 16px;
+  position: relative;
+}
+.select-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 16px;
+  color: white;
+}
+.low-risk .select-btn { background: var(--low-risk); }
+.med-risk .select-btn { background: var(--med-risk); }
+.high-risk .select-btn { background: var(--high-risk); }
+.select-btn:hover { opacity: 0.85; transform: scale(1.02); }
+
+/* Detail Page */
+.detail-page { display: none; padding: 32px 0; }
+.detail-page.active { display: block; }
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 24px;
+}
+.back-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
+
+.detail-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.detail-title { font-size: 28px; font-weight: 700; }
+
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+@media (max-width: 900px) {
+  .stats-bar { grid-template-columns: repeat(3, 1fr); }
+}
+.stats-bar .stat-item { background: var(--bg-card); }
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 4px;
+  width: fit-content;
+}
+.tab-btn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.tab-btn.active {
+  background: var(--accent-blue);
+  color: white;
+}
+.tab-btn:hover:not(.active) { color: var(--text-primary); }
+
+/* Trade Tables */
+.trades-section { margin-bottom: 32px; }
+.section-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-title .count {
+  background: var(--bg-card);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+th {
+  background: var(--bg-card);
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-secondary);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  position: sticky;
+  top: 0;
+}
+td {
+  padding: 10px 16px;
+  border-top: 1px solid var(--border);
+  white-space: nowrap;
+}
+tr:hover td { background: rgba(59,130,246,0.05); }
+.dir-long {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+.dir-short {
+  color: var(--accent-red);
+  font-weight: 600;
+}
+.pnl-positive { color: var(--accent-green); font-weight: 600; }
+.pnl-negative { color: var(--accent-red); font-weight: 600; }
+.badge-stopped {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(239,68,68,0.15);
+  color: var(--accent-red);
+}
+.badge-overridden {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(245,158,11,0.15);
+  color: var(--accent-yellow);
+}
+.badge-active {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(59,130,246,0.15);
+  color: var(--accent-blue);
+}
+
+/* Equity chart on detail */
+.equity-chart-large {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 32px;
+}
+.equity-chart-large .chart-area { height: 300px; position: relative; }
+
+/* Footer */
+.footer {
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Disclaimer */
+.disclaimer {
+  background: rgba(245,158,11,0.08);
+  border: 1px solid rgba(245,158,11,0.2);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 32px 0;
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+.disclaimer strong { color: var(--accent-yellow); }
+
+/* Loading */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+</style>
 </head>
-<body class="min-h-screen pb-12">
-    
-    <!-- Navigation Bar -->
-    <nav class="glass-panel sticky top-0 z-50 px-6 py-4 flex justify-between items-center border-b border-gray-800">
-        <div class="flex items-center space-x-3">
-            <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-600 to-cyan-400 flex items-center justify-center font-bold text-white text-xl">SFS</div>
-            <div>
-                <h1 class="text-xl font-bold tracking-tight text-white glow-text">Autonomous Engine</h1>
-                <p class="text-xs text-cyan-400 font-medium">Dual-Brain 1-Year XGBoost Architecture</p>
-            </div>
+<body>
+
+<div class="container">
+  <div class="header">
+    <div class="logo">Up2<span>Top</span></div>
+    <div class="header-meta">BIST Trading Signals &middot; Updated: <span id="lastUpdated">—</span></div>
+  </div>
+
+  <!-- LANDING PAGE -->
+  <div id="landingPage" class="landing">
+    <h1 class="landing-title">Choose Your Strategy</h1>
+    <p class="landing-subtitle">
+      Three XGBoost-powered portfolios for Borsa Istanbul, each with built-in 3% stop-loss protection per trade.
+      Select a risk profile that matches your style.
+    </p>
+
+    <div class="strategy-grid">
+      <!-- Low Risk -->
+      <div class="strategy-card low-risk" onclick="showStrategy('low_risk')">
+        <div class="risk-badge">Low Risk</div>
+        <div class="card-title">Conservative Long-Only</div>
+        <div class="card-description">
+          Zero-stop strategies — only trades that historically never dipped past 3%. Long positions only with stop-loss safety net.
         </div>
-        <div class="flex items-center space-x-4">
-            <div class="flex space-x-3 mr-4 border-r border-gray-700 pr-4">
-                <a href="oos_evaluator_output.txt" target="_blank" class="text-xs font-semibold text-blue-400 hover:text-blue-300 transition-colors">📄 Daily OOS (1-Yr)</a>
-                <a href="oos_evaluator_60m_output.txt" target="_blank" class="text-xs font-semibold text-purple-400 hover:text-purple-300 transition-colors">📄 Hourly OOS (1-Yr)</a>
-            </div>
-            <div class="text-right">
-                <p class="text-xs text-gray-400">System Status</p>
-                <div class="flex items-center space-x-2">
-                    <span class="w-2 h-2 rounded-full bg-green-500"></span>
-                    <span class="text-sm font-semibold text-green-400">ONLINE</span>
-                </div>
-            </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <div class="stat-label">24-Month Return</div>
+            <div class="stat-value green" id="lr-return">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Max Portfolio Loss</div>
+            <div class="stat-value red" id="lr-maxdd">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Win Rate</div>
+            <div class="stat-value" id="lr-winrate">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Total Trades</div>
+            <div class="stat-value" id="lr-trades">—</div>
+          </div>
         </div>
-    </nav>
+        <div class="chart-container"><canvas id="chart-low"></canvas></div>
+        <button class="select-btn">View Signals &rarr;</button>
+      </div>
 
-    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 space-y-8">
-        
-        <!-- Stats Summary -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-            <div class="glass-panel p-5 rounded-xl border border-gray-800">
-                <p class="text-sm text-gray-400 font-medium">Total Execution PnL</p>
-                <p class="text-3xl font-bold text-white mt-1" id="total-pnl">0.00%</p>
-            </div>
-            <div class="glass-panel p-5 rounded-xl border border-gray-800">
-                <p class="text-sm text-gray-400 font-medium">Total Trades Executed</p>
-                <p class="text-3xl font-bold text-white mt-1" id="total-trades">0</p>
-            </div>
-            <div class="glass-panel p-5 rounded-xl border border-gray-800">
-                <p class="text-sm text-gray-400 font-medium">Global Hit Ratio</p>
-                <p class="text-3xl font-bold text-cyan-400 mt-1" id="hit-ratio">0.00%</p>
-            </div>
-            <div class="glass-panel p-5 rounded-xl border border-gray-800">
-                <p class="text-sm text-gray-400 font-medium">Average Heat/Drawdown</p>
-                <p class="text-3xl font-bold text-red-400 mt-1" id="avg-dd">0.00%</p>
-            </div>
+      <!-- Medium Risk -->
+      <div class="strategy-card med-risk" onclick="showStrategy('medium_risk')">
+        <div class="risk-badge">Medium Risk</div>
+        <div class="card-title">Balanced Long-Only</div>
+        <div class="card-description">
+          Minimum drawdown portfolio — optimized for lowest average equity drawdown. Long positions only with 3% stop-loss.
         </div>
-
-        <!-- Chart Section -->
-        <div class="glass-panel p-6 rounded-xl border border-gray-800">
-            <h2 class="text-lg font-semibold text-white mb-4">Cumulative PnL Trajectory (Trailing 30 Days)</h2>
-            <div class="h-64 w-full">
-                <canvas id="pnlChart"></canvas>
-            </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <div class="stat-label">24-Month Return</div>
+            <div class="stat-value green" id="mr-return">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Max Portfolio Loss</div>
+            <div class="stat-value red" id="mr-maxdd">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Win Rate</div>
+            <div class="stat-value" id="mr-winrate">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Total Trades</div>
+            <div class="stat-value" id="mr-trades">—</div>
+          </div>
         </div>
+        <div class="chart-container"><canvas id="chart-med"></canvas></div>
+        <button class="select-btn">View Signals &rarr;</button>
+      </div>
 
-        <!-- ACTIVE POSITIONS -->
-        <div>
-            <div class="flex items-center space-x-3 mb-4">
-                <div class="pulse"></div>
-                <h2 class="text-2xl font-bold text-white">Active Positions</h2>
-            </div>
-            <div class="glass-panel rounded-xl border border-gray-800 overflow-hidden">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800/50 text-gray-400 text-sm uppercase tracking-wider">
-                            <th class="p-4 font-medium">Symbol</th>
-                            <th class="p-4 font-medium">Direction</th>
-                            <th class="p-4 font-medium">Brain Horizon</th>
-                            <th class="p-4 font-medium">Confidence</th>
-                            <th class="p-4 font-medium">Entry Date</th>
-                            <th class="p-4 font-medium">Entry Price</th>
-                        </tr>
-                    </thead>
-                    <tbody id="active-table" class="divide-y divide-gray-800 text-sm">
-                        <!-- Populated by JS -->
-                    </tbody>
-                </table>
-                <div id="no-active" class="p-8 text-center text-gray-500 hidden">
-                    No positions currently held in memory.
-                </div>
-            </div>
+      <!-- High Risk -->
+      <div class="strategy-card high-risk" onclick="showStrategy('high_risk')">
+        <div class="risk-badge">High Risk</div>
+        <div class="card-title">Aggressive Long &amp; Short</div>
+        <div class="card-description">
+          Both long and short positions with bidirectional override — opposite signals close existing trades. Higher return, higher volatility.
         </div>
-
-        <!-- HISTORICAL POSITIONS -->
-        <div>
-            <h2 class="text-2xl font-bold text-white mb-4">Historical Log (OOS)</h2>
-            <div class="glass-panel rounded-xl border border-gray-800 overflow-hidden">
-                <table class="w-full text-left border-collapse">
-                    <thead>
-                        <tr class="bg-gray-800/50 text-gray-400 text-sm uppercase tracking-wider">
-                            <th class="p-4 font-medium">Symbol</th>
-                            <th class="p-4 font-medium">Direction</th>
-                            <th class="p-4 font-medium">Horizon</th>
-                            <th class="p-4 font-medium">Entry Date</th>
-                            <th class="p-4 font-medium text-right">Realized PnL</th>
-                            <th class="p-4 font-medium text-right">Max Heat</th>
-                        </tr>
-                    </thead>
-                    <tbody id="history-table" class="divide-y divide-gray-800 text-sm">
-                        <!-- Populated by JS -->
-                    </tbody>
-                </table>
-            </div>
+        <div class="card-stats">
+          <div class="stat-item">
+            <div class="stat-label">24-Month Return</div>
+            <div class="stat-value green" id="hr-return">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Max Portfolio Loss</div>
+            <div class="stat-value red" id="hr-maxdd">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Win Rate</div>
+            <div class="stat-value" id="hr-winrate">—</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Total Trades</div>
+            <div class="stat-value" id="hr-trades">—</div>
+          </div>
         </div>
-    </main>
+        <div class="chart-container"><canvas id="chart-high"></canvas></div>
+        <button class="select-btn">View Signals &rarr;</button>
+      </div>
+    </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", async () => {
-            try {
-                // Add timestamp to foil agressive browser caching
-                const response = await fetch(`dual_signals.json?t=${new Date().getTime()}`);
-                const data = await response.json();
-                
-                let activeTrades = [];
-                let expiredTrades = [];
-                let cumulativePnl = 0;
-                let wins = 0;
-                let totalDd = 0;
-                
-                let chartLabels = [];
-                let chartData = [];
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> Past performance does not guarantee future results. All statistics are based on out-of-sample backtesting over 24 months.
+      This is not financial advice. Trade at your own risk. The 3% stop-loss applies per trade, not to overall portfolio.
+    </div>
+  </div>
 
-                data.forEach(trade => {
-                    if (trade.status === 'ACTIVE') {
-                        activeTrades.push(trade);
-                    } else {
-                        expiredTrades.push(trade);
-                        cumulativePnl += trade.realized_pnl;
-                        totalDd += trade.max_heat;
-                        
-                        if (trade.realized_pnl > 0) wins++;
-                        
-                        chartLabels.push(trade.entry_time.split(' ')[0]);
-                        chartData.push(cumulativePnl);
-                    }
-                });
+  <!-- DETAIL PAGE -->
+  <div id="detailPage" class="detail-page">
+    <button class="back-btn" onclick="showLanding()">&larr; Back to Strategies</button>
 
-                // Update Metrics
-                document.getElementById('total-pnl').innerText = cumulativePnl > 0 ? `+${cumulativePnl.toFixed(2)}%` : `${cumulativePnl.toFixed(2)}%`;
-                document.getElementById('total-pnl').className = cumulativePnl > 0 ? "text-3xl font-bold text-green-400 mt-1" : "text-3xl font-bold text-red-400 mt-1";
-                document.getElementById('total-trades').innerText = expiredTrades.length;
-                document.getElementById('hit-ratio').innerText = expiredTrades.length > 0 ? `${((wins / expiredTrades.length) * 100).toFixed(1)}%` : `0.00%`;
-                document.getElementById('avg-dd').innerText = expiredTrades.length > 0 ? `${(totalDd / expiredTrades.length).toFixed(2)}%` : `0.00%`;
+    <div class="detail-header">
+      <span class="risk-badge" id="detail-badge"></span>
+      <h2 class="detail-title" id="detail-title"></h2>
+    </div>
 
-                // Render Active Table
-                const activeTbody = document.getElementById('active-table');
-                if (activeTrades.length === 0) {
-                    document.getElementById('no-active').classList.remove('hidden');
-                } else {
-                    activeTrades.forEach(trade => {
-                        const tr = document.createElement('tr');
-                        tr.className = "hover:bg-gray-800/30 transition-colors";
-                        
-                        const dirBadge = trade.direction === 'LONG' 
-                            ? `<span class="bg-green-500/20 text-green-400 px-2 py-1 rounded text-xs font-bold">LONG</span>`
-                            : `<span class="bg-red-500/20 text-red-400 px-2 py-1 rounded text-xs font-bold">SHORT</span>`;
-                            
-                        const brainBadge = trade.brain === 'Daily' 
-                            ? `<span class="text-purple-400 font-medium">${trade.brain} (${trade.horizon})</span>`
-                            : `<span class="text-orange-400 font-medium">${trade.brain} (${trade.horizon})</span>`;
+    <div class="stats-bar">
+      <div class="stat-item">
+        <div class="stat-label">Total Return</div>
+        <div class="stat-value green" id="d-return">—</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Max Drawdown</div>
+        <div class="stat-value red" id="d-maxdd">—</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Win Rate</div>
+        <div class="stat-value" id="d-winrate">—</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Profit Factor</div>
+        <div class="stat-value" id="d-pf">—</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Total Trades</div>
+        <div class="stat-value" id="d-trades">—</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-label">Stopped Trades</div>
+        <div class="stat-value" id="d-stopped">—</div>
+      </div>
+    </div>
 
-                        tr.innerHTML = `
-                            <td class="p-4 font-semibold text-white">${trade.symbol}</td>
-                            <td class="p-4">${dirBadge}</td>
-                            <td class="p-4">${brainBadge}</td>
-                            <td class="p-4 text-cyan-400 font-medium">${(trade.prob * 100).toFixed(1)}%</td>
-                            <td class="p-4 text-gray-300">${trade.entry_time}</td>
-                            <td class="p-4 text-gray-300">${trade.entry_price.toFixed(3)}</td>
-                        `;
-                        activeTbody.appendChild(tr);
-                    });
-                }
+    <div class="equity-chart-large">
+      <div class="section-title">Equity Curve (Compounded Returns)</div>
+      <div class="chart-area"><canvas id="detail-chart"></canvas></div>
+    </div>
 
-                // Render History Table (Reverse chronological)
-                const historyTbody = document.getElementById('history-table');
-                [...expiredTrades].reverse().forEach(trade => {
-                    const tr = document.createElement('tr');
-                    tr.className = "hover:bg-gray-800/30 transition-colors";
-                    
-                    const pnlClass = trade.realized_pnl > 0 ? 'text-green-400 font-semibold' : 'text-red-400 font-semibold';
-                    const pnlText = trade.realized_pnl > 0 ? `+${trade.realized_pnl.toFixed(2)}%` : `${trade.realized_pnl.toFixed(2)}%`;
-                    
-                    const dirBadge = trade.direction === 'LONG' 
-                        ? `<span class="text-green-400 font-medium text-xs">LONG</span>`
-                        : `<span class="text-red-400 font-medium text-xs">SHORT</span>`;
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('active')">Active Trades</button>
+      <button class="tab-btn" onclick="switchTab('past')">Past Trades</button>
+      <button class="tab-btn" onclick="switchTab('all')">All Trades</button>
+    </div>
 
-                    tr.innerHTML = `
-                        <td class="p-4 font-medium text-white">${trade.symbol}</td>
-                        <td class="p-4">${dirBadge}</td>
-                        <td class="p-4 text-gray-400">${trade.horizon}</td>
-                        <td class="p-4 text-gray-400">${trade.entry_time}</td>
-                        <td class="p-4 text-right ${pnlClass}">${pnlText}</td>
-                        <td class="p-4 text-right text-gray-400">${trade.max_heat.toFixed(2)}%</td>
-                    `;
-                    historyTbody.appendChild(tr);
-                });
+    <div id="active-trades" class="trades-section">
+      <div class="section-title">Active Signals <span class="count" id="active-count">0</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
+              <th>Stop-Loss</th><th>Expected Hold</th><th>Unrealized P&amp;L</th><th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="active-tbody"></tbody>
+        </table>
+      </div>
+      <div id="no-active" style="text-align:center; padding:40px; color:var(--text-muted);">
+        No active trades at the moment. New signals appear when the model runs after market close.
+      </div>
+    </div>
 
-                // Render Chart
-                const ctx = document.getElementById('pnlChart').getContext('2d');
-                new Chart(ctx, {
-                    type: 'line',
-                    data: {
-                        labels: chartLabels,
-                        datasets: [{
-                            label: 'Cumulative PnL (%)',
-                            data: chartData,
-                            borderColor: '#38bdf8',
-                            backgroundColor: 'rgba(56, 189, 248, 0.1)',
-                            borderWidth: 2,
-                            pointBackgroundColor: '#0ea5e9',
-                            pointRadius: 3,
-                            fill: true,
-                            tension: 0.4
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false }
-                        },
-                        scales: {
-                            y: {
-                                grid: { color: 'rgba(255, 255, 255, 0.05)' },
-                                ticks: { color: '#94a3b8' }
-                            },
-                            x: {
-                                grid: { display: false },
-                                ticks: { color: '#94a3b8', maxTicksLimit: 10 }
-                            }
-                        }
-                    }
-                });
+    <div id="past-trades" class="trades-section" style="display:none;">
+      <div class="section-title">Past Trades <span class="count" id="past-count">0</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
+              <th>Exit Date</th><th>Exit Price</th><th>Stop-Loss</th>
+              <th>Expected Hold</th><th>P&amp;L</th><th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="past-tbody"></tbody>
+        </table>
+      </div>
+    </div>
 
-            } catch (error) {
-                console.error("Failed to load dashboard data:", error);
-            }
-        });
-    </script>
+    <div id="all-trades" class="trades-section" style="display:none;">
+      <div class="section-title">All Trades <span class="count" id="all-count">0</span></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
+              <th>Exit Date</th><th>Exit Price</th><th>Stop-Loss</th>
+              <th>Expected Hold</th><th>P&amp;L</th><th>Notes</th>
+            </tr>
+          </thead>
+          <tbody id="all-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Up2Top &middot; XGBoost + Markov Regime Trading Signals for BIST &middot; Not financial advice
+  </div>
+</div>
+
+<script>
+let DATA = null;
+let charts = {};
+let detailChart = null;
+let currentStrategy = null;
+
+async function loadData() {
+  try {
+    const resp = await fetch('data/strategies.json');
+    DATA = await resp.json();
+    document.getElementById('lastUpdated').textContent = DATA.last_updated || '—';
+    populateLanding();
+  } catch(e) {
+    console.error('Failed to load data:', e);
+    document.getElementById('landingPage').innerHTML = '<div class="loading">Failed to load data. Make sure data/strategies.json exists.</div>';
+  }
+}
+
+function populateLanding() {
+  const s = DATA.strategies;
+
+  // Low risk
+  const lr = s.low_risk.stats;
+  document.getElementById('lr-return').textContent = '+' + lr.total_return.toLocaleString() + '%';
+  document.getElementById('lr-maxdd').textContent = lr.max_dd + '%';
+  document.getElementById('lr-winrate').textContent = lr.win_rate + '%';
+  document.getElementById('lr-trades').textContent = lr.trades;
+
+  // Medium risk
+  const mr = s.medium_risk.stats;
+  document.getElementById('mr-return').textContent = '+' + mr.total_return.toLocaleString() + '%';
+  document.getElementById('mr-maxdd').textContent = mr.max_dd + '%';
+  document.getElementById('mr-winrate').textContent = mr.win_rate + '%';
+  document.getElementById('mr-trades').textContent = mr.trades;
+
+  // High risk
+  const hr = s.high_risk.stats;
+  document.getElementById('hr-return').textContent = '+' + hr.total_return.toLocaleString() + '%';
+  document.getElementById('hr-maxdd').textContent = hr.max_dd + '%';
+  document.getElementById('hr-winrate').textContent = hr.win_rate + '%';
+  document.getElementById('hr-trades').textContent = hr.trades;
+
+  createMiniChart('chart-low', s.low_risk.equity_curve, '#10b981');
+  createMiniChart('chart-med', s.medium_risk.equity_curve, '#3b82f6');
+  createMiniChart('chart-high', s.high_risk.equity_curve, '#ef4444');
+}
+
+function createMiniChart(canvasId, eqData, color) {
+  const ctx = document.getElementById(canvasId).getContext('2d');
+  const labels = eqData.map(d => d.date);
+  const values = eqData.map(d => (d.value - 1) * 100);
+
+  if (charts[canvasId]) charts[canvasId].destroy();
+  charts[canvasId] = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        data: values,
+        borderColor: color,
+        backgroundColor: color + '15',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 0,
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: {
+        x: { display: false },
+        y: {
+          display: false,
+          beginAtZero: true
+        }
+      },
+      interaction: { enabled: false }
+    }
+  });
+}
+
+function showStrategy(key) {
+  currentStrategy = key;
+  const s = DATA.strategies[key];
+
+  document.getElementById('landingPage').style.display = 'none';
+  document.getElementById('detailPage').classList.add('active');
+
+  // Badge + title
+  const badge = document.getElementById('detail-badge');
+  const riskMap = { low_risk: 'Low Risk', medium_risk: 'Medium Risk', high_risk: 'High Risk' };
+  const classMap = { low_risk: 'low-risk', medium_risk: 'med-risk', high_risk: 'high-risk' };
+  badge.textContent = riskMap[key];
+  badge.className = 'risk-badge';
+  badge.style.background = key === 'low_risk' ? 'rgba(16,185,129,0.15)' : key === 'medium_risk' ? 'rgba(59,130,246,0.15)' : 'rgba(239,68,68,0.15)';
+  badge.style.color = key === 'low_risk' ? 'var(--low-risk)' : key === 'medium_risk' ? 'var(--med-risk)' : 'var(--high-risk)';
+  document.getElementById('detail-title').textContent = s.name + ' — ' + s.subtitle;
+
+  // Stats
+  document.getElementById('d-return').textContent = '+' + s.stats.total_return.toLocaleString() + '%';
+  document.getElementById('d-maxdd').textContent = s.stats.max_dd + '%';
+  document.getElementById('d-winrate').textContent = s.stats.win_rate + '%';
+  document.getElementById('d-pf').textContent = s.stats.profit_factor;
+  document.getElementById('d-trades').textContent = s.stats.trades;
+  document.getElementById('d-stopped').textContent = s.stats.stopped;
+
+  // Equity chart
+  createDetailChart(s.equity_curve, key);
+
+  // Trades
+  const today = new Date().toISOString().slice(0, 10);
+  const active = s.trades.filter(t => t.status === 'active' || t.exit_date > today);
+  const past = s.trades.filter(t => t.status === 'closed' && t.exit_date <= today);
+
+  document.getElementById('active-count').textContent = active.length;
+  document.getElementById('past-count').textContent = past.length;
+  document.getElementById('all-count').textContent = s.trades.length;
+
+  renderActiveTrades(active);
+  renderPastTrades(past, 'past-tbody');
+  renderPastTrades(s.trades, 'all-tbody');
+
+  document.getElementById('no-active').style.display = active.length ? 'none' : 'block';
+
+  // Reset to active tab
+  switchTab('active');
+  window.scrollTo(0, 0);
+}
+
+function createDetailChart(eqData, key) {
+  const ctx = document.getElementById('detail-chart').getContext('2d');
+  const colorMap = { low_risk: '#10b981', medium_risk: '#3b82f6', high_risk: '#ef4444' };
+  const color = colorMap[key];
+
+  const labels = eqData.map(d => d.date === 'start' ? 'Start' : d.date);
+  const values = eqData.map(d => (d.value - 1) * 100);
+
+  if (detailChart) detailChart.destroy();
+  detailChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [{
+        label: 'Return %',
+        data: values,
+        borderColor: color,
+        backgroundColor: color + '20',
+        fill: true,
+        tension: 0.3,
+        pointRadius: 3,
+        pointHoverRadius: 6,
+        borderWidth: 2.5
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          backgroundColor: '#1a2233',
+          titleColor: '#e5e7eb',
+          bodyColor: '#e5e7eb',
+          borderColor: '#374151',
+          borderWidth: 1,
+          callbacks: {
+            label: ctx => 'Return: ' + ctx.parsed.y.toFixed(1) + '%'
+          }
+        }
+      },
+      scales: {
+        x: {
+          ticks: { color: '#6b7280', maxTicksLimit: 12, font: { size: 11 } },
+          grid: { color: 'rgba(107,114,128,0.1)' }
+        },
+        y: {
+          ticks: {
+            color: '#6b7280',
+            font: { size: 11 },
+            callback: v => v.toFixed(0) + '%'
+          },
+          grid: { color: 'rgba(107,114,128,0.1)' }
+        }
+      }
+    }
+  });
+}
+
+function renderActiveTrades(trades) {
+  const tbody = document.getElementById('active-tbody');
+  tbody.innerHTML = '';
+  trades.forEach(t => {
+    const dirClass = t.direction === 'LONG' ? 'dir-long' : 'dir-short';
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><strong>${t.symbol}</strong></td>
+      <td class="${dirClass}">${t.direction}</td>
+      <td>${t.entry_date}</td>
+      <td>${t.entry_price.toFixed(2)}</td>
+      <td>${t.stop_price.toFixed(2)}</td>
+      <td>${t.expected_hold_days}d</td>
+      <td class="${t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
+      <td><span class="badge-active">ACTIVE</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function renderPastTrades(trades, tbodyId) {
+  const tbody = document.getElementById(tbodyId);
+  tbody.innerHTML = '';
+  const sorted = [...trades].sort((a, b) => b.exit_date.localeCompare(a.exit_date));
+  sorted.forEach(t => {
+    const dirClass = t.direction === 'LONG' ? 'dir-long' : 'dir-short';
+    let notes = '';
+    if (t.stopped) notes = '<span class="badge-stopped">STOPPED</span>';
+    else if (t.overridden) notes = '<span class="badge-overridden">OVERRIDDEN</span>';
+
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><strong>${t.symbol}</strong></td>
+      <td class="${dirClass}">${t.direction}</td>
+      <td>${t.entry_date}</td>
+      <td>${t.entry_price.toFixed(2)}</td>
+      <td>${t.exit_date}</td>
+      <td>${t.exit_price.toFixed(2)}</td>
+      <td>${t.stop_price.toFixed(2)}</td>
+      <td>${t.expected_hold_days}d</td>
+      <td class="${t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
+      <td>${notes}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  document.getElementById('active-trades').style.display = tab === 'active' ? 'block' : 'none';
+  document.getElementById('past-trades').style.display = tab === 'past' ? 'block' : 'none';
+  document.getElementById('all-trades').style.display = tab === 'all' ? 'block' : 'none';
+}
+
+function showLanding() {
+  document.getElementById('landingPage').style.display = 'block';
+  document.getElementById('detailPage').classList.remove('active');
+  window.scrollTo(0, 0);
+}
+
+// Init
+loadData();
+</script>
 </body>
 </html>

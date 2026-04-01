@@ -1,0 +1,2350 @@
+{
+  "strategies": {
+    "low_risk": {
+      "name": "Low Risk",
+      "subtitle": "Conservative Long-Only",
+      "description": "Zero-stop strategies (no trade ever dipped past 3%) \u2014 Long positions only with 3% stop-loss protection.",
+      "stats": {
+        "trades": 36,
+        "win_rate": 77.8,
+        "total_return": 725.7,
+        "max_dd": -8.7,
+        "profit_factor": 12.96,
+        "stopped": 6
+      },
+      "equity_curve": [
+        {
+          "date": "start",
+          "value": 1.0
+        },
+        {
+          "date": "2024-03-26",
+          "value": 0.97
+        },
+        {
+          "date": "2024-05-10",
+          "value": 1.0393
+        },
+        {
+          "date": "2024-05-10",
+          "value": 1.1094
+        },
+        {
+          "date": "2024-07-09",
+          "value": 1.2927
+        },
+        {
+          "date": "2024-10-11",
+          "value": 1.2539
+        },
+        {
+          "date": "2024-11-04",
+          "value": 1.2163
+        },
+        {
+          "date": "2024-12-18",
+          "value": 1.1798
+        },
+        {
+          "date": "2024-12-20",
+          "value": 1.1846
+        },
+        {
+          "date": "2024-12-20",
+          "value": 1.3544
+        },
+        {
+          "date": "2025-01-31",
+          "value": 1.3138
+        },
+        {
+          "date": "2025-03-11",
+          "value": 1.3932
+        },
+        {
+          "date": "2025-03-11",
+          "value": 1.4885
+        },
+        {
+          "date": "2025-04-07",
+          "value": 1.4439
+        },
+        {
+          "date": "2025-08-15",
+          "value": 1.782
+        },
+        {
+          "date": "2025-08-15",
+          "value": 1.9649
+        },
+        {
+          "date": "2025-08-15",
+          "value": 2.0134
+        },
+        {
+          "date": "2025-08-22",
+          "value": 2.2995
+        },
+        {
+          "date": "2025-08-22",
+          "value": 2.4104
+        },
+        {
+          "date": "2025-09-03",
+          "value": 2.5379
+        },
+        {
+          "date": "2025-11-26",
+          "value": 2.546
+        },
+        {
+          "date": "2025-11-26",
+          "value": 2.852
+        },
+        {
+          "date": "2025-12-12",
+          "value": 2.9113
+        },
+        {
+          "date": "2025-12-15",
+          "value": 2.9567
+        },
+        {
+          "date": "2025-12-15",
+          "value": 3.2376
+        },
+        {
+          "date": "2025-12-25",
+          "value": 3.2215
+        },
+        {
+          "date": "2025-12-25",
+          "value": 3.272
+        },
+        {
+          "date": "2025-12-25",
+          "value": 3.2599
+        },
+        {
+          "date": "2026-01-13",
+          "value": 3.4353
+        },
+        {
+          "date": "2026-01-20",
+          "value": 3.7036
+        },
+        {
+          "date": "2026-01-20",
+          "value": 4.2321
+        },
+        {
+          "date": "2026-01-20",
+          "value": 4.712
+        },
+        {
+          "date": "2026-01-20",
+          "value": 5.1243
+        },
+        {
+          "date": "2026-02-02",
+          "value": 6.1021
+        },
+        {
+          "date": "2026-02-18",
+          "value": 6.3272
+        },
+        {
+          "date": "2026-02-19",
+          "value": 7.4946
+        },
+        {
+          "date": "2026-03-04",
+          "value": 8.2568
+        }
+      ],
+      "trades": [
+        {
+          "symbol": "SISE.IS",
+          "direction": "LONG",
+          "entry_date": "2024-03-25",
+          "entry_price": 45.54,
+          "exit_date": "2024-03-26",
+          "exit_price": 44.17,
+          "stop_price": 44.17,
+          "expected_hold_days": 10,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2024-04-29",
+          "entry_price": 5.21,
+          "exit_date": "2024-05-10",
+          "exit_price": 5.59,
+          "stop_price": 5.06,
+          "expected_hold_days": 11,
+          "pnl": 7.14,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2024-04-29",
+          "entry_price": 21.73,
+          "exit_date": "2024-05-10",
+          "exit_price": 23.2,
+          "stop_price": 21.08,
+          "expected_hold_days": 11,
+          "pnl": 6.75,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2024-05-17",
+          "entry_price": 23.21,
+          "exit_date": "2024-07-09",
+          "exit_price": 27.04,
+          "stop_price": 22.51,
+          "expected_hold_days": 53,
+          "pnl": 16.52,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H34_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2024-10-07",
+          "entry_price": 4.12,
+          "exit_date": "2024-10-11",
+          "exit_price": 4.0,
+          "stop_price": 4.0,
+          "expected_hold_days": 17,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2024-10-15",
+          "entry_price": 3.87,
+          "exit_date": "2024-11-04",
+          "exit_price": 3.75,
+          "stop_price": 3.75,
+          "expected_hold_days": 20,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "FROTO.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-03",
+          "entry_price": 88.74,
+          "exit_date": "2024-12-18",
+          "exit_price": 86.08,
+          "stop_price": 86.08,
+          "expected_hold_days": 17,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "PGSUS.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-03",
+          "entry_price": 220.4,
+          "exit_date": "2024-12-20",
+          "exit_price": 221.3,
+          "stop_price": 213.79,
+          "expected_hold_days": 17,
+          "pnl": 0.41,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-03",
+          "entry_price": 20.35,
+          "exit_date": "2024-12-20",
+          "exit_price": 23.26,
+          "stop_price": 19.74,
+          "expected_hold_days": 17,
+          "pnl": 14.33,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-01-29",
+          "entry_price": 16.31,
+          "exit_date": "2025-01-31",
+          "exit_price": 15.82,
+          "stop_price": 15.82,
+          "expected_hold_days": 19,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "AKBNK.IS",
+          "direction": "LONG",
+          "entry_date": "2025-02-27",
+          "entry_price": 66.32,
+          "exit_date": "2025-03-11",
+          "exit_price": 70.33,
+          "stop_price": 64.33,
+          "expected_hold_days": 12,
+          "pnl": 6.05,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "YKBNK.IS",
+          "direction": "LONG",
+          "entry_date": "2025-02-27",
+          "entry_price": 29.54,
+          "exit_date": "2025-03-11",
+          "exit_price": 31.56,
+          "stop_price": 28.65,
+          "expected_hold_days": 12,
+          "pnl": 6.84,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-03-28",
+          "entry_price": 303.81,
+          "exit_date": "2025-04-07",
+          "exit_price": 294.7,
+          "stop_price": 294.7,
+          "expected_hold_days": 14,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 3.16,
+          "exit_date": "2025-08-15",
+          "exit_price": 3.9,
+          "stop_price": 3.07,
+          "expected_hold_days": 10,
+          "pnl": 23.42,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 15.69,
+          "exit_date": "2025-08-15",
+          "exit_price": 17.3,
+          "stop_price": 15.22,
+          "expected_hold_days": 10,
+          "pnl": 10.26,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "ULKER.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 113.4,
+          "exit_date": "2025-08-15",
+          "exit_price": 116.2,
+          "stop_price": 110.0,
+          "expected_hold_days": 10,
+          "pnl": 2.47,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 292.49,
+          "exit_date": "2025-08-22",
+          "exit_price": 334.06,
+          "stop_price": 283.71,
+          "expected_hold_days": 17,
+          "pnl": 14.21,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R8",
+          "status": "closed"
+        },
+        {
+          "symbol": "TCELL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 91.63,
+          "exit_date": "2025-08-22",
+          "exit_price": 96.05,
+          "stop_price": 88.88,
+          "expected_hold_days": 17,
+          "pnl": 4.82,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R8",
+          "status": "closed"
+        },
+        {
+          "symbol": "PETKM.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 17.59,
+          "exit_date": "2025-09-03",
+          "exit_price": 18.52,
+          "stop_price": 17.06,
+          "expected_hold_days": 29,
+          "pnl": 5.29,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H21_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "FROTO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-14",
+          "entry_price": 85.92,
+          "exit_date": "2025-11-26",
+          "exit_price": 86.19,
+          "stop_price": 83.34,
+          "expected_hold_days": 12,
+          "pnl": 0.32,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-14",
+          "entry_price": 14.23,
+          "exit_date": "2025-11-26",
+          "exit_price": 15.94,
+          "stop_price": 13.8,
+          "expected_hold_days": 12,
+          "pnl": 12.02,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "TOASO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-02",
+          "entry_price": 219.94,
+          "exit_date": "2025-12-12",
+          "exit_price": 224.53,
+          "stop_price": 213.35,
+          "expected_hold_days": 10,
+          "pnl": 2.08,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EKGYO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-26",
+          "entry_price": 20.56,
+          "exit_date": "2025-12-15",
+          "exit_price": 20.88,
+          "stop_price": 19.94,
+          "expected_hold_days": 19,
+          "pnl": 1.56,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "SISE.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-26",
+          "entry_price": 36.86,
+          "exit_date": "2025-12-15",
+          "exit_price": 40.36,
+          "stop_price": 35.75,
+          "expected_hold_days": 19,
+          "pnl": 9.5,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-08",
+          "entry_price": 24.16,
+          "exit_date": "2025-12-25",
+          "exit_price": 24.04,
+          "stop_price": 23.44,
+          "expected_hold_days": 17,
+          "pnl": -0.5,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R8",
+          "status": "closed"
+        },
+        {
+          "symbol": "PGSUS.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-08",
+          "entry_price": 203.3,
+          "exit_date": "2025-12-25",
+          "exit_price": 206.5,
+          "stop_price": 197.2,
+          "expected_hold_days": 17,
+          "pnl": 1.57,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R8",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-08",
+          "entry_price": 272.25,
+          "exit_date": "2025-12-25",
+          "exit_price": 271.25,
+          "stop_price": 264.08,
+          "expected_hold_days": 17,
+          "pnl": -0.37,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R8",
+          "status": "closed"
+        },
+        {
+          "symbol": "EKGYO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 20.44,
+          "exit_date": "2026-01-13",
+          "exit_price": 21.54,
+          "stop_price": 19.83,
+          "expected_hold_days": 13,
+          "pnl": 5.38,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 23.82,
+          "exit_date": "2026-01-20",
+          "exit_price": 25.68,
+          "stop_price": 23.11,
+          "expected_hold_days": 20,
+          "pnl": 7.81,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "TOASO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 231.08,
+          "exit_date": "2026-01-20",
+          "exit_price": 264.06,
+          "stop_price": 224.15,
+          "expected_hold_days": 20,
+          "pnl": 14.27,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SAHOL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 84.25,
+          "exit_date": "2026-01-20",
+          "exit_price": 93.8,
+          "stop_price": 81.72,
+          "expected_hold_days": 20,
+          "pnl": 11.34,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 268.5,
+          "exit_date": "2026-01-20",
+          "exit_price": 292.0,
+          "stop_price": 260.44,
+          "expected_hold_days": 20,
+          "pnl": 8.75,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "ENKAI.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-02",
+          "entry_price": 79.28,
+          "exit_date": "2026-02-02",
+          "exit_price": 94.4,
+          "stop_price": 76.9,
+          "expected_hold_days": 31,
+          "pnl": 19.08,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H21_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "PGSUS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-30",
+          "entry_price": 203.5,
+          "exit_date": "2026-02-18",
+          "exit_price": 211.0,
+          "stop_price": 197.39,
+          "expected_hold_days": 19,
+          "pnl": 3.69,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "TUPRS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-02",
+          "entry_price": 179.63,
+          "exit_date": "2026-02-19",
+          "exit_price": 212.77,
+          "stop_price": 174.24,
+          "expected_hold_days": 48,
+          "pnl": 18.45,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H34_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "ASELS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-02-13",
+          "entry_price": 302.25,
+          "exit_date": "2026-03-04",
+          "exit_price": 333.0,
+          "stop_price": 293.18,
+          "expected_hold_days": 19,
+          "pnl": 10.17,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R8",
+          "status": "closed"
+        }
+      ]
+    },
+    "medium_risk": {
+      "name": "Medium Risk",
+      "subtitle": "Balanced Long-Only",
+      "description": "Minimum drawdown portfolio \u2014 Long positions only, optimized for lowest average equity drawdown, with 3% stop-loss.",
+      "stats": {
+        "trades": 38,
+        "win_rate": 78.9,
+        "total_return": 1191.8,
+        "max_dd": -8.7,
+        "profit_factor": 14.87,
+        "stopped": 6
+      },
+      "equity_curve": [
+        {
+          "date": "start",
+          "value": 1.0
+        },
+        {
+          "date": "2024-03-26",
+          "value": 0.97
+        },
+        {
+          "date": "2024-05-10",
+          "value": 1.0355
+        },
+        {
+          "date": "2024-05-10",
+          "value": 1.1094
+        },
+        {
+          "date": "2024-07-09",
+          "value": 1.2927
+        },
+        {
+          "date": "2024-09-09",
+          "value": 1.3119
+        },
+        {
+          "date": "2024-12-13",
+          "value": 1.4724
+        },
+        {
+          "date": "2024-12-19",
+          "value": 1.4696
+        },
+        {
+          "date": "2024-12-19",
+          "value": 1.4902
+        },
+        {
+          "date": "2025-01-31",
+          "value": 1.4455
+        },
+        {
+          "date": "2025-03-11",
+          "value": 1.5443
+        },
+        {
+          "date": "2025-03-11",
+          "value": 1.6378
+        },
+        {
+          "date": "2025-03-17",
+          "value": 1.8351
+        },
+        {
+          "date": "2025-03-20",
+          "value": 2.0737
+        },
+        {
+          "date": "2025-04-07",
+          "value": 2.0115
+        },
+        {
+          "date": "2025-04-15",
+          "value": 1.9511
+        },
+        {
+          "date": "2025-05-08",
+          "value": 1.8926
+        },
+        {
+          "date": "2025-08-15",
+          "value": 2.0868
+        },
+        {
+          "date": "2025-08-15",
+          "value": 2.5755
+        },
+        {
+          "date": "2025-08-15",
+          "value": 2.6391
+        },
+        {
+          "date": "2025-08-21",
+          "value": 2.8389
+        },
+        {
+          "date": "2025-08-22",
+          "value": 3.3601
+        },
+        {
+          "date": "2025-08-22",
+          "value": 3.8376
+        },
+        {
+          "date": "2025-08-26",
+          "value": 4.0337
+        },
+        {
+          "date": "2025-11-26",
+          "value": 4.5185
+        },
+        {
+          "date": "2025-11-26",
+          "value": 4.533
+        },
+        {
+          "date": "2025-12-15",
+          "value": 4.5484
+        },
+        {
+          "date": "2025-12-15",
+          "value": 4.9805
+        },
+        {
+          "date": "2025-12-26",
+          "value": 4.8983
+        },
+        {
+          "date": "2025-12-29",
+          "value": 4.7514
+        },
+        {
+          "date": "2026-01-13",
+          "value": 5.0787
+        },
+        {
+          "date": "2026-01-13",
+          "value": 5.3601
+        },
+        {
+          "date": "2026-01-14",
+          "value": 5.4486
+        },
+        {
+          "date": "2026-01-20",
+          "value": 6.0664
+        },
+        {
+          "date": "2026-01-20",
+          "value": 7.2833
+        },
+        {
+          "date": "2026-02-02",
+          "value": 8.673
+        },
+        {
+          "date": "2026-02-18",
+          "value": 8.993
+        },
+        {
+          "date": "2026-02-19",
+          "value": 10.6523
+        },
+        {
+          "date": "2026-03-17",
+          "value": 12.918
+        }
+      ],
+      "trades": [
+        {
+          "symbol": "SISE.IS",
+          "direction": "LONG",
+          "entry_date": "2024-03-25",
+          "entry_price": 45.54,
+          "exit_date": "2024-03-26",
+          "exit_price": 44.17,
+          "stop_price": 44.17,
+          "expected_hold_days": 10,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2024-04-29",
+          "entry_price": 21.73,
+          "exit_date": "2024-05-10",
+          "exit_price": 23.2,
+          "stop_price": 21.08,
+          "expected_hold_days": 11,
+          "pnl": 6.75,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2024-04-29",
+          "entry_price": 5.21,
+          "exit_date": "2024-05-10",
+          "exit_price": 5.59,
+          "stop_price": 5.06,
+          "expected_hold_days": 11,
+          "pnl": 7.14,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2024-05-17",
+          "entry_price": 23.21,
+          "exit_date": "2024-07-09",
+          "exit_price": 27.04,
+          "stop_price": 22.51,
+          "expected_hold_days": 53,
+          "pnl": 16.52,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H34_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "FROTO.IS",
+          "direction": "LONG",
+          "entry_date": "2024-08-27",
+          "entry_price": 79.49,
+          "exit_date": "2024-09-09",
+          "exit_price": 80.68,
+          "stop_price": 77.11,
+          "expected_hold_days": 13,
+          "pnl": 1.49,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-03",
+          "entry_price": 20.35,
+          "exit_date": "2024-12-13",
+          "exit_price": 22.84,
+          "stop_price": 19.74,
+          "expected_hold_days": 10,
+          "pnl": 12.23,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "ENKAI.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-02",
+          "entry_price": 49.58,
+          "exit_date": "2024-12-19",
+          "exit_price": 49.48,
+          "stop_price": 48.09,
+          "expected_hold_days": 17,
+          "pnl": -0.19,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-02",
+          "entry_price": 278.9,
+          "exit_date": "2024-12-19",
+          "exit_price": 282.81,
+          "stop_price": 270.53,
+          "expected_hold_days": 17,
+          "pnl": 1.4,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-01-29",
+          "entry_price": 16.31,
+          "exit_date": "2025-01-31",
+          "exit_price": 15.82,
+          "stop_price": 15.82,
+          "expected_hold_days": 19,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "YKBNK.IS",
+          "direction": "LONG",
+          "entry_date": "2025-02-27",
+          "entry_price": 29.54,
+          "exit_date": "2025-03-11",
+          "exit_price": 31.56,
+          "stop_price": 28.65,
+          "expected_hold_days": 12,
+          "pnl": 6.84,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "AKBNK.IS",
+          "direction": "LONG",
+          "entry_date": "2025-02-27",
+          "entry_price": 66.32,
+          "exit_date": "2025-03-11",
+          "exit_price": 70.33,
+          "stop_price": 64.33,
+          "expected_hold_days": 12,
+          "pnl": 6.05,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "PETKM.IS",
+          "direction": "LONG",
+          "entry_date": "2025-02-26",
+          "entry_price": 16.43,
+          "exit_date": "2025-03-17",
+          "exit_price": 18.41,
+          "stop_price": 15.94,
+          "expected_hold_days": 19,
+          "pnl": 12.05,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R5",
+          "status": "closed"
+        },
+        {
+          "symbol": "ENKAI.IS",
+          "direction": "LONG",
+          "entry_date": "2025-03-10",
+          "entry_price": 50.76,
+          "exit_date": "2025-03-20",
+          "exit_price": 57.36,
+          "stop_price": 49.23,
+          "expected_hold_days": 10,
+          "pnl": 13.0,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-03-28",
+          "entry_price": 303.81,
+          "exit_date": "2025-04-07",
+          "exit_price": 294.7,
+          "stop_price": 294.7,
+          "expected_hold_days": 14,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EKGYO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-04-11",
+          "entry_price": 12.46,
+          "exit_date": "2025-04-15",
+          "exit_price": 12.09,
+          "stop_price": 12.09,
+          "expected_hold_days": 53,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H34_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "PETKM.IS",
+          "direction": "LONG",
+          "entry_date": "2025-05-02",
+          "entry_price": 16.37,
+          "exit_date": "2025-05-08",
+          "exit_price": 15.88,
+          "stop_price": 15.88,
+          "expected_hold_days": 20,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 15.69,
+          "exit_date": "2025-08-15",
+          "exit_price": 17.3,
+          "stop_price": 15.22,
+          "expected_hold_days": 10,
+          "pnl": 10.26,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 3.16,
+          "exit_date": "2025-08-15",
+          "exit_price": 3.9,
+          "stop_price": 3.07,
+          "expected_hold_days": 10,
+          "pnl": 23.42,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "ULKER.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 113.4,
+          "exit_date": "2025-08-15",
+          "exit_price": 116.2,
+          "stop_price": 110.0,
+          "expected_hold_days": 10,
+          "pnl": 2.47,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-11",
+          "entry_price": 27.48,
+          "exit_date": "2025-08-21",
+          "exit_price": 29.56,
+          "stop_price": 26.66,
+          "expected_hold_days": 10,
+          "pnl": 7.57,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "PETKM.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 17.59,
+          "exit_date": "2025-08-22",
+          "exit_price": 20.82,
+          "stop_price": 17.06,
+          "expected_hold_days": 17,
+          "pnl": 18.36,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 292.49,
+          "exit_date": "2025-08-22",
+          "exit_price": 334.06,
+          "stop_price": 283.71,
+          "expected_hold_days": 17,
+          "pnl": 14.21,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "TCELL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-07",
+          "entry_price": 93.2,
+          "exit_date": "2025-08-26",
+          "exit_price": 97.96,
+          "stop_price": 90.4,
+          "expected_hold_days": 19,
+          "pnl": 5.11,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-14",
+          "entry_price": 14.23,
+          "exit_date": "2025-11-26",
+          "exit_price": 15.94,
+          "stop_price": 13.8,
+          "expected_hold_days": 12,
+          "pnl": 12.02,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "FROTO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-14",
+          "entry_price": 85.92,
+          "exit_date": "2025-11-26",
+          "exit_price": 86.19,
+          "stop_price": 83.34,
+          "expected_hold_days": 12,
+          "pnl": 0.32,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-26",
+          "entry_price": 2.91,
+          "exit_date": "2025-12-15",
+          "exit_price": 2.92,
+          "stop_price": 2.82,
+          "expected_hold_days": 19,
+          "pnl": 0.34,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "SISE.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-26",
+          "entry_price": 36.86,
+          "exit_date": "2025-12-15",
+          "exit_price": 40.36,
+          "stop_price": 35.75,
+          "expected_hold_days": 19,
+          "pnl": 9.5,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-09",
+          "entry_price": 24.24,
+          "exit_date": "2025-12-26",
+          "exit_price": 23.84,
+          "stop_price": 23.51,
+          "expected_hold_days": 17,
+          "pnl": -1.65,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R5",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-15",
+          "entry_price": 274.25,
+          "exit_date": "2025-12-29",
+          "exit_price": 266.02,
+          "stop_price": 266.02,
+          "expected_hold_days": 18,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 268.5,
+          "exit_date": "2026-01-13",
+          "exit_price": 287.0,
+          "stop_price": 260.44,
+          "expected_hold_days": 13,
+          "pnl": 6.89,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 23.82,
+          "exit_date": "2026-01-13",
+          "exit_price": 25.14,
+          "stop_price": 23.11,
+          "expected_hold_days": 13,
+          "pnl": 5.54,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EKGYO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-26",
+          "entry_price": 20.56,
+          "exit_date": "2026-01-14",
+          "exit_price": 20.9,
+          "stop_price": 19.94,
+          "expected_hold_days": 49,
+          "pnl": 1.65,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H34_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "SAHOL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 84.25,
+          "exit_date": "2026-01-20",
+          "exit_price": 93.8,
+          "stop_price": 81.72,
+          "expected_hold_days": 20,
+          "pnl": 11.34,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "TOASO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-02",
+          "entry_price": 219.94,
+          "exit_date": "2026-01-20",
+          "exit_price": 264.06,
+          "stop_price": 213.35,
+          "expected_hold_days": 49,
+          "pnl": 20.06,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H34_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "ENKAI.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-02",
+          "entry_price": 79.28,
+          "exit_date": "2026-02-02",
+          "exit_price": 94.4,
+          "stop_price": 76.9,
+          "expected_hold_days": 31,
+          "pnl": 19.08,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H21_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "PGSUS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-30",
+          "entry_price": 203.5,
+          "exit_date": "2026-02-18",
+          "exit_price": 211.0,
+          "stop_price": 197.39,
+          "expected_hold_days": 19,
+          "pnl": 3.69,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "TUPRS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-02",
+          "entry_price": 179.63,
+          "exit_date": "2026-02-19",
+          "exit_price": 212.77,
+          "stop_price": 174.24,
+          "expected_hold_days": 48,
+          "pnl": 18.45,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H34_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "TUPRS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-02-26",
+          "entry_price": 207.4,
+          "exit_date": "2026-03-17",
+          "exit_price": 251.5,
+          "stop_price": 201.17,
+          "expected_hold_days": 19,
+          "pnl": 21.27,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        }
+      ]
+    },
+    "high_risk": {
+      "name": "High Risk",
+      "subtitle": "Aggressive Long & Short",
+      "description": "Minimum drawdown portfolio \u2014 Both Long and Short positions with bidirectional override (opposite signals close existing trades). 3% stop-loss per trade.",
+      "stats": {
+        "trades": 46,
+        "win_rate": 73.9,
+        "total_return": 1305.4,
+        "max_dd": -14.1,
+        "profit_factor": 10.86,
+        "stopped": 9,
+        "longs": 38,
+        "shorts": 8
+      },
+      "equity_curve": [
+        {
+          "date": "start",
+          "value": 1.0
+        },
+        {
+          "date": "2024-03-26",
+          "value": 0.97
+        },
+        {
+          "date": "2024-05-10",
+          "value": 1.0393
+        },
+        {
+          "date": "2024-05-10",
+          "value": 1.1094
+        },
+        {
+          "date": "2024-07-09",
+          "value": 1.2927
+        },
+        {
+          "date": "2024-09-09",
+          "value": 1.3119
+        },
+        {
+          "date": "2024-12-13",
+          "value": 1.4724
+        },
+        {
+          "date": "2024-12-19",
+          "value": 1.4696
+        },
+        {
+          "date": "2024-12-19",
+          "value": 1.4902
+        },
+        {
+          "date": "2025-01-10",
+          "value": 1.5416
+        },
+        {
+          "date": "2025-01-31",
+          "value": 1.4953
+        },
+        {
+          "date": "2025-02-17",
+          "value": 1.5767
+        },
+        {
+          "date": "2025-03-11",
+          "value": 1.6845
+        },
+        {
+          "date": "2025-03-11",
+          "value": 1.7864
+        },
+        {
+          "date": "2025-03-17",
+          "value": 2.0017
+        },
+        {
+          "date": "2025-03-20",
+          "value": 2.2619
+        },
+        {
+          "date": "2025-03-24",
+          "value": 2.1941
+        },
+        {
+          "date": "2025-04-07",
+          "value": 2.1282
+        },
+        {
+          "date": "2025-04-15",
+          "value": 2.0644
+        },
+        {
+          "date": "2025-05-08",
+          "value": 2.0025
+        },
+        {
+          "date": "2025-06-19",
+          "value": 1.9424
+        },
+        {
+          "date": "2025-06-24",
+          "value": 1.9805
+        },
+        {
+          "date": "2025-06-24",
+          "value": 1.9805
+        },
+        {
+          "date": "2025-08-15",
+          "value": 2.0294
+        },
+        {
+          "date": "2025-08-15",
+          "value": 2.2376
+        },
+        {
+          "date": "2025-08-15",
+          "value": 2.7616
+        },
+        {
+          "date": "2025-08-21",
+          "value": 2.9707
+        },
+        {
+          "date": "2025-08-22",
+          "value": 3.3928
+        },
+        {
+          "date": "2025-08-22",
+          "value": 4.0158
+        },
+        {
+          "date": "2025-08-26",
+          "value": 4.221
+        },
+        {
+          "date": "2025-08-28",
+          "value": 4.3531
+        },
+        {
+          "date": "2025-11-26",
+          "value": 4.8763
+        },
+        {
+          "date": "2025-11-26",
+          "value": 4.8919
+        },
+        {
+          "date": "2025-12-15",
+          "value": 4.9086
+        },
+        {
+          "date": "2025-12-15",
+          "value": 5.3749
+        },
+        {
+          "date": "2025-12-15",
+          "value": 5.2136
+        },
+        {
+          "date": "2025-12-26",
+          "value": 5.1276
+        },
+        {
+          "date": "2025-12-29",
+          "value": 4.9738
+        },
+        {
+          "date": "2026-01-14",
+          "value": 5.0558
+        },
+        {
+          "date": "2026-01-20",
+          "value": 5.4507
+        },
+        {
+          "date": "2026-01-20",
+          "value": 5.9276
+        },
+        {
+          "date": "2026-01-20",
+          "value": 7.1167
+        },
+        {
+          "date": "2026-01-20",
+          "value": 7.9238
+        },
+        {
+          "date": "2026-02-02",
+          "value": 9.4356
+        },
+        {
+          "date": "2026-02-18",
+          "value": 9.7838
+        },
+        {
+          "date": "2026-02-19",
+          "value": 11.5889
+        },
+        {
+          "date": "2026-03-17",
+          "value": 14.0538
+        }
+      ],
+      "trades": [
+        {
+          "symbol": "SISE.IS",
+          "direction": "LONG",
+          "entry_date": "2024-03-25",
+          "entry_price": 45.54,
+          "exit_date": "2024-03-26",
+          "exit_price": 44.17,
+          "stop_price": 44.17,
+          "expected_hold_days": 10,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2024-04-29",
+          "entry_price": 5.21,
+          "exit_date": "2024-05-10",
+          "exit_price": 5.59,
+          "stop_price": 5.06,
+          "expected_hold_days": 11,
+          "pnl": 7.14,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2024-04-29",
+          "entry_price": 21.73,
+          "exit_date": "2024-05-10",
+          "exit_price": 23.2,
+          "stop_price": 21.08,
+          "expected_hold_days": 11,
+          "pnl": 6.75,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2024-05-17",
+          "entry_price": 23.21,
+          "exit_date": "2024-07-09",
+          "exit_price": 27.04,
+          "stop_price": 22.51,
+          "expected_hold_days": 53,
+          "pnl": 16.52,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H34_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "FROTO.IS",
+          "direction": "LONG",
+          "entry_date": "2024-08-27",
+          "entry_price": 79.49,
+          "exit_date": "2024-09-09",
+          "exit_price": 80.68,
+          "stop_price": 77.11,
+          "expected_hold_days": 13,
+          "pnl": 1.49,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-03",
+          "entry_price": 20.35,
+          "exit_date": "2024-12-13",
+          "exit_price": 22.84,
+          "stop_price": 19.74,
+          "expected_hold_days": 10,
+          "pnl": 12.23,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "ENKAI.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-02",
+          "entry_price": 49.58,
+          "exit_date": "2024-12-19",
+          "exit_price": 49.48,
+          "stop_price": 48.09,
+          "expected_hold_days": 17,
+          "pnl": -0.19,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2024-12-02",
+          "entry_price": 278.9,
+          "exit_date": "2024-12-19",
+          "exit_price": 282.81,
+          "stop_price": 270.53,
+          "expected_hold_days": 17,
+          "pnl": 1.4,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "SHORT",
+          "entry_date": "2024-12-30",
+          "entry_price": 24.37,
+          "exit_date": "2025-01-10",
+          "exit_price": 23.56,
+          "stop_price": 25.12,
+          "expected_hold_days": 11,
+          "pnl": 3.45,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "S_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-01-29",
+          "entry_price": 16.31,
+          "exit_date": "2025-01-31",
+          "exit_price": 15.82,
+          "stop_price": 15.82,
+          "expected_hold_days": 19,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "SHORT",
+          "entry_date": "2025-01-29",
+          "entry_price": 3.68,
+          "exit_date": "2025-02-17",
+          "exit_price": 3.49,
+          "stop_price": 3.79,
+          "expected_hold_days": 19,
+          "pnl": 5.44,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "S_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "YKBNK.IS",
+          "direction": "LONG",
+          "entry_date": "2025-02-27",
+          "entry_price": 29.54,
+          "exit_date": "2025-03-11",
+          "exit_price": 31.56,
+          "stop_price": 28.65,
+          "expected_hold_days": 12,
+          "pnl": 6.84,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "AKBNK.IS",
+          "direction": "LONG",
+          "entry_date": "2025-02-27",
+          "entry_price": 66.32,
+          "exit_date": "2025-03-11",
+          "exit_price": 70.33,
+          "stop_price": 64.33,
+          "expected_hold_days": 12,
+          "pnl": 6.05,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "PETKM.IS",
+          "direction": "LONG",
+          "entry_date": "2025-02-26",
+          "entry_price": 16.43,
+          "exit_date": "2025-03-17",
+          "exit_price": 18.41,
+          "stop_price": 15.94,
+          "expected_hold_days": 19,
+          "pnl": 12.05,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R5",
+          "status": "closed"
+        },
+        {
+          "symbol": "ENKAI.IS",
+          "direction": "LONG",
+          "entry_date": "2025-03-10",
+          "entry_price": 50.76,
+          "exit_date": "2025-03-20",
+          "exit_price": 57.36,
+          "stop_price": 49.23,
+          "expected_hold_days": 10,
+          "pnl": 13.0,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "ULKER.IS",
+          "direction": "SHORT",
+          "entry_date": "2025-03-21",
+          "entry_price": 104.86,
+          "exit_date": "2025-03-24",
+          "exit_price": 108.1,
+          "stop_price": 108.1,
+          "expected_hold_days": 34,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "S_2y_H21_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-03-28",
+          "entry_price": 303.81,
+          "exit_date": "2025-04-07",
+          "exit_price": 294.7,
+          "stop_price": 294.7,
+          "expected_hold_days": 14,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EKGYO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-04-11",
+          "entry_price": 12.46,
+          "exit_date": "2025-04-15",
+          "exit_price": 12.09,
+          "stop_price": 12.09,
+          "expected_hold_days": 53,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L_2y_H34_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "PETKM.IS",
+          "direction": "LONG",
+          "entry_date": "2025-05-02",
+          "entry_price": 16.37,
+          "exit_date": "2025-05-08",
+          "exit_price": 15.88,
+          "stop_price": 15.88,
+          "expected_hold_days": 20,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "PETKM.IS",
+          "direction": "SHORT",
+          "entry_date": "2025-06-12",
+          "entry_price": 16.38,
+          "exit_date": "2025-06-19",
+          "exit_price": 16.89,
+          "stop_price": 16.89,
+          "expected_hold_days": 12,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "S_4y_H8_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "KCHOL.IS",
+          "direction": "SHORT",
+          "entry_date": "2025-06-03",
+          "entry_price": 150.8,
+          "exit_date": "2025-06-24",
+          "exit_price": 147.9,
+          "stop_price": 155.46,
+          "expected_hold_days": 21,
+          "pnl": 1.96,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "S_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SISE.IS",
+          "direction": "SHORT",
+          "entry_date": "2025-06-12",
+          "entry_price": 33.5,
+          "exit_date": "2025-06-24",
+          "exit_price": 33.5,
+          "stop_price": 34.54,
+          "expected_hold_days": 12,
+          "pnl": 0.0,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "S_4y_H8_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "ULKER.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 113.4,
+          "exit_date": "2025-08-15",
+          "exit_price": 116.2,
+          "stop_price": 110.0,
+          "expected_hold_days": 10,
+          "pnl": 2.47,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 15.69,
+          "exit_date": "2025-08-15",
+          "exit_price": 17.3,
+          "stop_price": 15.22,
+          "expected_hold_days": 10,
+          "pnl": 10.26,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 3.16,
+          "exit_date": "2025-08-15",
+          "exit_price": 3.9,
+          "stop_price": 3.07,
+          "expected_hold_days": 10,
+          "pnl": 23.42,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-11",
+          "entry_price": 27.48,
+          "exit_date": "2025-08-21",
+          "exit_price": 29.56,
+          "stop_price": 26.66,
+          "expected_hold_days": 10,
+          "pnl": 7.57,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 292.49,
+          "exit_date": "2025-08-22",
+          "exit_price": 334.06,
+          "stop_price": 283.71,
+          "expected_hold_days": 17,
+          "pnl": 14.21,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "PETKM.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-05",
+          "entry_price": 17.59,
+          "exit_date": "2025-08-22",
+          "exit_price": 20.82,
+          "stop_price": 17.06,
+          "expected_hold_days": 17,
+          "pnl": 18.36,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "TCELL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-08-07",
+          "entry_price": 93.2,
+          "exit_date": "2025-08-26",
+          "exit_price": 97.96,
+          "stop_price": 90.4,
+          "expected_hold_days": 19,
+          "pnl": 5.11,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "SAHOL.IS",
+          "direction": "SHORT",
+          "entry_date": "2025-08-11",
+          "entry_price": 98.95,
+          "exit_date": "2025-08-28",
+          "exit_price": 95.95,
+          "stop_price": 102.01,
+          "expected_hold_days": 17,
+          "pnl": 3.13,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "S_2y_H13_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "AEFES.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-14",
+          "entry_price": 14.23,
+          "exit_date": "2025-11-26",
+          "exit_price": 15.94,
+          "stop_price": 13.8,
+          "expected_hold_days": 12,
+          "pnl": 12.02,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "FROTO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-14",
+          "entry_price": 85.92,
+          "exit_date": "2025-11-26",
+          "exit_price": 86.19,
+          "stop_price": 83.34,
+          "expected_hold_days": 12,
+          "pnl": 0.32,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H8_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "SASA.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-26",
+          "entry_price": 2.91,
+          "exit_date": "2025-12-15",
+          "exit_price": 2.92,
+          "stop_price": 2.82,
+          "expected_hold_days": 19,
+          "pnl": 0.34,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "SISE.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-26",
+          "entry_price": 36.86,
+          "exit_date": "2025-12-15",
+          "exit_price": 40.36,
+          "stop_price": 35.75,
+          "expected_hold_days": 19,
+          "pnl": 9.5,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "MGROS.IS",
+          "direction": "SHORT",
+          "entry_date": "2025-12-02",
+          "entry_price": 528.0,
+          "exit_date": "2025-12-15",
+          "exit_price": 544.33,
+          "stop_price": 544.33,
+          "expected_hold_days": 17,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "S_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-09",
+          "entry_price": 24.24,
+          "exit_date": "2025-12-26",
+          "exit_price": 23.84,
+          "stop_price": 23.51,
+          "expected_hold_days": 17,
+          "pnl": -1.65,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R5",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-15",
+          "entry_price": 274.25,
+          "exit_date": "2025-12-29",
+          "exit_price": 266.02,
+          "stop_price": 266.02,
+          "expected_hold_days": 18,
+          "pnl": -3.0,
+          "stopped": true,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "EKGYO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-11-26",
+          "entry_price": 20.56,
+          "exit_date": "2026-01-14",
+          "exit_price": 20.9,
+          "stop_price": 19.94,
+          "expected_hold_days": 49,
+          "pnl": 1.65,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H34_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "EREGL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 23.82,
+          "exit_date": "2026-01-20",
+          "exit_price": 25.68,
+          "stop_price": 23.11,
+          "expected_hold_days": 20,
+          "pnl": 7.81,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "THYAO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 268.5,
+          "exit_date": "2026-01-20",
+          "exit_price": 292.0,
+          "stop_price": 260.44,
+          "expected_hold_days": 20,
+          "pnl": 8.75,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "TOASO.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-02",
+          "entry_price": 219.94,
+          "exit_date": "2026-01-20",
+          "exit_price": 264.06,
+          "stop_price": 213.35,
+          "expected_hold_days": 49,
+          "pnl": 20.06,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H34_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "SAHOL.IS",
+          "direction": "LONG",
+          "entry_date": "2025-12-31",
+          "entry_price": 84.25,
+          "exit_date": "2026-01-20",
+          "exit_price": 93.8,
+          "stop_price": 81.72,
+          "expected_hold_days": 20,
+          "pnl": 11.34,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "ENKAI.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-02",
+          "entry_price": 79.28,
+          "exit_date": "2026-02-02",
+          "exit_price": 94.4,
+          "stop_price": 76.9,
+          "expected_hold_days": 31,
+          "pnl": 19.08,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_2y_H21_R34",
+          "status": "closed"
+        },
+        {
+          "symbol": "PGSUS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-30",
+          "entry_price": 203.5,
+          "exit_date": "2026-02-18",
+          "exit_price": 211.0,
+          "stop_price": 197.39,
+          "expected_hold_days": 19,
+          "pnl": 3.69,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H13_R21",
+          "status": "closed"
+        },
+        {
+          "symbol": "TUPRS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-01-02",
+          "entry_price": 179.63,
+          "exit_date": "2026-02-19",
+          "exit_price": 212.77,
+          "stop_price": 174.24,
+          "expected_hold_days": 48,
+          "pnl": 18.45,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L_4y_H34_R13",
+          "status": "closed"
+        },
+        {
+          "symbol": "TUPRS.IS",
+          "direction": "LONG",
+          "entry_date": "2026-02-26",
+          "entry_price": 207.4,
+          "exit_date": "2026-03-17",
+          "exit_price": 251.5,
+          "stop_price": 201.17,
+          "expected_hold_days": 19,
+          "pnl": 21.27,
+          "stopped": false,
+          "overridden": false,
+          "sub_strategy": "L__H13_R13",
+          "status": "closed"
+        }
+      ]
+    }
+  },
+  "last_updated": "2026-04-01 20:43"
+}
