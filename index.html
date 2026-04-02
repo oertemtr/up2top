@@ -3,7 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Up2Top — BIST Trading Signals</title>
+<title>Up2Top — Trade the BIST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <style>
 :root {
@@ -18,7 +20,6 @@
   --accent-red: #ef4444;
   --accent-blue: #3b82f6;
   --accent-yellow: #f59e0b;
-  --accent-purple: #8b5cf6;
   --border: #1f2937;
   --low-risk: #10b981;
   --med-risk: #3b82f6;
@@ -31,167 +32,225 @@ body {
   color: var(--text-primary);
   min-height: 100vh;
 }
-.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+.container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
 
 /* Header */
 .header {
-  padding: 24px 0;
+  padding: 20px 0;
   border-bottom: 1px solid var(--border);
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.logo {
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: -0.5px;
-}
+.logo { font-size: 26px; font-weight: 800; letter-spacing: -1px; }
 .logo span { color: var(--accent-blue); }
-.header-meta {
+.header-meta { font-size: 13px; color: var(--text-muted); }
+
+/* ===== LANDING PAGE ===== */
+.landing { padding: 56px 0 32px; }
+
+.hero-section { text-align: center; margin-bottom: 20px; }
+.hero-tagline {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--accent-blue);
+  margin-bottom: 16px;
+}
+.hero-title {
+  font-size: 52px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+.hero-powered {
   font-size: 13px;
   color: var(--text-muted);
-}
-
-/* Landing Page */
-.landing { padding: 48px 0; }
-.landing-title {
-  font-size: 36px;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 8px;
-}
-.landing-subtitle {
-  text-align: center;
-  color: var(--text-secondary);
-  font-size: 16px;
   margin-bottom: 48px;
-  max-width: 640px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
+}
+.hero-powered span { color: var(--accent-blue); font-weight: 600; }
+
+.risk-question {
+  text-align: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 32px;
+  letter-spacing: -0.5px;
 }
 
 /* Strategy Cards */
 .strategy-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 28px;
   margin-bottom: 48px;
 }
-@media (max-width: 900px) {
-  .strategy-grid { grid-template-columns: 1fr; }
+@media (max-width: 960px) {
+  .strategy-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
+  .hero-title { font-size: 36px; }
 }
 .strategy-card {
   background: var(--bg-card);
-  border-radius: 16px;
-  padding: 28px;
+  border-radius: 20px;
+  padding: 32px;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 2px solid var(--border);
   position: relative;
   overflow: hidden;
 }
 .strategy-card:hover {
   background: var(--bg-card-hover);
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
 }
-.strategy-card.low-risk:hover { border-color: var(--low-risk); }
-.strategy-card.med-risk:hover { border-color: var(--med-risk); }
-.strategy-card.high-risk:hover { border-color: var(--high-risk); }
+.strategy-card.low-risk:hover { border-color: var(--low-risk); box-shadow: 0 16px 48px rgba(16,185,129,0.15); }
+.strategy-card.med-risk:hover { border-color: var(--med-risk); box-shadow: 0 16px 48px rgba(59,130,246,0.15); }
+.strategy-card.high-risk:hover { border-color: var(--high-risk); box-shadow: 0 16px 48px rgba(239,68,68,0.15); }
 
-.risk-badge {
+/* Risk badge — LARGE */
+.risk-badge-large {
   display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 18px;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
-  margin-bottom: 16px;
+  letter-spacing: 1.5px;
+  margin-bottom: 20px;
 }
-.low-risk .risk-badge { background: rgba(16,185,129,0.15); color: var(--low-risk); }
-.med-risk .risk-badge { background: rgba(59,130,246,0.15); color: var(--med-risk); }
-.high-risk .risk-badge { background: rgba(239,68,68,0.15); color: var(--high-risk); }
+.low-risk .risk-badge-large { background: rgba(16,185,129,0.15); color: var(--low-risk); border: 1px solid rgba(16,185,129,0.3); }
+.med-risk .risk-badge-large { background: rgba(59,130,246,0.15); color: var(--med-risk); border: 1px solid rgba(59,130,246,0.3); }
+.high-risk .risk-badge-large { background: rgba(239,68,68,0.15); color: var(--high-risk); border: 1px solid rgba(239,68,68,0.3); }
 
-.card-title { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
+.card-title { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
 .card-description {
   font-size: 14px;
   color: var(--text-secondary);
-  line-height: 1.6;
-  margin-bottom: 20px;
-  min-height: 66px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  min-height: 48px;
 }
 .card-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 .stat-item {
-  background: rgba(0,0,0,0.2);
-  border-radius: 8px;
-  padding: 10px 12px;
+  background: rgba(0,0,0,0.25);
+  border-radius: 10px;
+  padding: 12px 14px;
 }
 .stat-label {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   margin-bottom: 4px;
+  font-weight: 600;
 }
-.stat-value { font-size: 18px; font-weight: 700; }
+.stat-value { font-size: 20px; font-weight: 800; }
 .stat-value.green { color: var(--accent-green); }
 .stat-value.red { color: var(--accent-red); }
 
-.chart-container {
-  height: 160px;
-  margin-top: 16px;
-  position: relative;
-}
+.chart-container { height: 140px; margin-top: 12px; position: relative; }
+
 .select-btn {
   width: 100%;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 14px;
+  border-radius: 12px;
   border: none;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
-  margin-top: 16px;
+  margin-top: 20px;
   color: white;
+  letter-spacing: 0.3px;
 }
 .low-risk .select-btn { background: var(--low-risk); }
 .med-risk .select-btn { background: var(--med-risk); }
 .high-risk .select-btn { background: var(--high-risk); }
 .select-btn:hover { opacity: 0.85; transform: scale(1.02); }
 
-/* Detail Page */
+/* How it works */
+.how-it-works {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  border: 1px solid var(--border);
+}
+.how-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; text-align: center; }
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+@media (max-width: 768px) { .how-grid { grid-template-columns: repeat(2, 1fr); } }
+.how-step { text-align: center; }
+.how-icon { font-size: 28px; margin-bottom: 8px; }
+.how-step-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.how-step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* Disclaimer */
+.disclaimer {
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.disclaimer strong { color: var(--accent-yellow); }
+
+/* ===== DETAIL PAGE ===== */
 .detail-page { display: none; padding: 32px 0; }
 .detail-page.active { display: block; }
 .back-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
+  padding: 10px 18px;
   background: var(--bg-card);
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
   color: var(--text-secondary);
   font-size: 14px;
   cursor: pointer;
   transition: all 0.2s;
   margin-bottom: 24px;
+  font-weight: 500;
 }
 .back-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
 
-.detail-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 32px;
-}
+.detail-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
 .detail-title { font-size: 28px; font-weight: 700; }
+.risk-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
 .stats-bar {
   display: grid;
@@ -199,9 +258,7 @@ body {
   gap: 16px;
   margin-bottom: 32px;
 }
-@media (max-width: 900px) {
-  .stats-bar { grid-template-columns: repeat(3, 1fr); }
-}
+@media (max-width: 900px) { .stats-bar { grid-template-columns: repeat(3, 1fr); } }
 .stats-bar .stat-item { background: var(--bg-card); }
 
 /* Tabs */
@@ -225,10 +282,7 @@ body {
   cursor: pointer;
   transition: all 0.2s;
 }
-.tab-btn.active {
-  background: var(--accent-blue);
-  color: white;
-}
+.tab-btn.active { background: var(--accent-blue); color: white; }
 .tab-btn:hover:not(.active) { color: var(--text-primary); }
 
 /* Trade Tables */
@@ -248,17 +302,12 @@ body {
   font-size: 13px;
   color: var(--text-secondary);
 }
-
 .table-wrap {
   overflow-x: auto;
   border-radius: 12px;
   border: 1px solid var(--border);
 }
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th {
   background: var(--bg-card);
   padding: 12px 16px;
@@ -272,51 +321,28 @@ th {
   position: sticky;
   top: 0;
 }
-td {
-  padding: 10px 16px;
-  border-top: 1px solid var(--border);
-  white-space: nowrap;
-}
+td { padding: 10px 16px; border-top: 1px solid var(--border); white-space: nowrap; }
 tr:hover td { background: rgba(59,130,246,0.05); }
-.dir-long {
-  color: var(--accent-green);
-  font-weight: 600;
-}
-.dir-short {
-  color: var(--accent-red);
-  font-weight: 600;
-}
+.dir-long { color: var(--accent-green); font-weight: 600; }
+.dir-short { color: var(--accent-red); font-weight: 600; }
 .pnl-positive { color: var(--accent-green); font-weight: 600; }
 .pnl-negative { color: var(--accent-red); font-weight: 600; }
 .badge-stopped {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  background: rgba(239,68,68,0.15);
-  color: var(--accent-red);
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600;
+  background: rgba(239,68,68,0.15); color: var(--accent-red);
 }
 .badge-overridden {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  background: rgba(245,158,11,0.15);
-  color: var(--accent-yellow);
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600;
+  background: rgba(245,158,11,0.15); color: var(--accent-yellow);
 }
 .badge-active {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-size: 11px;
-  font-weight: 600;
-  background: rgba(59,130,246,0.15);
-  color: var(--accent-blue);
+  display: inline-block; padding: 2px 8px; border-radius: 4px;
+  font-size: 11px; font-weight: 600;
+  background: rgba(59,130,246,0.15); color: var(--accent-blue);
 }
 
-/* Equity chart on detail */
 .equity-chart-large {
   background: var(--bg-card);
   border-radius: 12px;
@@ -325,36 +351,12 @@ tr:hover td { background: rgba(59,130,246,0.05); }
 }
 .equity-chart-large .chart-area { height: 300px; position: relative; }
 
-/* Footer */
 .footer {
   padding: 24px 0;
   border-top: 1px solid var(--border);
   text-align: center;
   color: var(--text-muted);
-  font-size: 13px;
-}
-
-/* Disclaimer */
-.disclaimer {
-  background: rgba(245,158,11,0.08);
-  border: 1px solid rgba(245,158,11,0.2);
-  border-radius: 10px;
-  padding: 16px 20px;
-  margin: 32px 0;
-  font-size: 13px;
-  color: var(--text-secondary);
-  line-height: 1.6;
-}
-.disclaimer strong { color: var(--accent-yellow); }
-
-/* Loading */
-.loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 400px;
-  font-size: 16px;
-  color: var(--text-secondary);
+  font-size: 12px;
 }
 </style>
 </head>
@@ -363,28 +365,32 @@ tr:hover td { background: rgba(59,130,246,0.05); }
 <div class="container">
   <div class="header">
     <div class="logo">Up2<span>Top</span></div>
-    <div class="header-meta">BIST Trading Signals &middot; Updated: <span id="lastUpdated">—</span></div>
+    <div class="header-meta">Signals updated: <span id="lastUpdated">—</span></div>
   </div>
 
-  <!-- LANDING PAGE -->
+  <!-- ===== LANDING PAGE ===== -->
   <div id="landingPage" class="landing">
-    <h1 class="landing-title">Choose Your Strategy</h1>
-    <p class="landing-subtitle">
-      Three XGBoost-powered portfolios for Borsa Istanbul, each with built-in 3% stop-loss protection per trade.
-      Select a risk profile that matches your style.
-    </p>
+
+    <div class="hero-section">
+      <div class="hero-tagline">Algorithmic Trading Signals</div>
+      <h1 class="hero-title">Trade the BIST</h1>
+      <p class="hero-subtitle">Choose from backtested strategies with built-in risk management</p>
+      <p class="hero-powered">Powered by <span>XGBoost</span> + <span>Markov Regime Switching</span> + <span>Monte Carlo Simulation</span></p>
+    </div>
+
+    <div class="risk-question">How much risk do you want to take?</div>
 
     <div class="strategy-grid">
       <!-- Low Risk -->
       <div class="strategy-card low-risk" onclick="showStrategy('low_risk')">
-        <div class="risk-badge">Low Risk</div>
+        <div class="risk-badge-large">Low Risk</div>
         <div class="card-title">Conservative Long-Only</div>
         <div class="card-description">
-          Zero-stop strategies — only trades that historically never dipped past 3%. Long positions only with stop-loss safety net.
+          Only buy signals from strategies that historically never lost more than 3% on any single trade. Maximum safety.
         </div>
         <div class="card-stats">
           <div class="stat-item">
-            <div class="stat-label">24-Month Return</div>
+            <div class="stat-label">6-Month Return</div>
             <div class="stat-value green" id="lr-return">—</div>
           </div>
           <div class="stat-item">
@@ -406,14 +412,14 @@ tr:hover td { background: rgba(59,130,246,0.05); }
 
       <!-- Medium Risk -->
       <div class="strategy-card med-risk" onclick="showStrategy('medium_risk')">
-        <div class="risk-badge">Medium Risk</div>
+        <div class="risk-badge-large">Medium Risk</div>
         <div class="card-title">Balanced Long-Only</div>
         <div class="card-description">
-          Minimum drawdown portfolio — optimized for lowest average equity drawdown. Long positions only with 3% stop-loss.
+          Buy signals from the minimum-drawdown portfolio. More trades, higher returns, still long-only with 3% stop-loss.
         </div>
         <div class="card-stats">
           <div class="stat-item">
-            <div class="stat-label">24-Month Return</div>
+            <div class="stat-label">6-Month Return</div>
             <div class="stat-value green" id="mr-return">—</div>
           </div>
           <div class="stat-item">
@@ -435,14 +441,14 @@ tr:hover td { background: rgba(59,130,246,0.05); }
 
       <!-- High Risk -->
       <div class="strategy-card high-risk" onclick="showStrategy('high_risk')">
-        <div class="risk-badge">High Risk</div>
+        <div class="risk-badge-large">High Risk</div>
         <div class="card-title">Aggressive Long &amp; Short</div>
         <div class="card-description">
-          Both long and short positions with bidirectional override — opposite signals close existing trades. Higher return, higher volatility.
+          Both buy and short-sell signals. Opposite signals override each other. Highest return potential, highest volatility.
         </div>
         <div class="card-stats">
           <div class="stat-item">
-            <div class="stat-label">24-Month Return</div>
+            <div class="stat-label">6-Month Return</div>
             <div class="stat-value green" id="hr-return">—</div>
           </div>
           <div class="stat-item">
@@ -463,13 +469,39 @@ tr:hover td { background: rgba(59,130,246,0.05); }
       </div>
     </div>
 
+    <div class="how-it-works">
+      <div class="how-title">How It Works</div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="how-icon">&#x1F4CA;</div>
+          <div class="how-step-title">Data Collected</div>
+          <div class="how-step-desc">Daily OHLCV prices for 28 BIST stocks updated after market close</div>
+        </div>
+        <div class="how-step">
+          <div class="how-icon">&#x1F9E0;</div>
+          <div class="how-step-title">Model Predicts</div>
+          <div class="how-step-desc">XGBoost + Markov regime + Monte Carlo generate buy/sell signals</div>
+        </div>
+        <div class="how-step">
+          <div class="how-icon">&#x1F6E1;</div>
+          <div class="how-step-title">Risk Managed</div>
+          <div class="how-step-desc">3% stop-loss per trade automatically limits downside on every position</div>
+        </div>
+        <div class="how-step">
+          <div class="how-icon">&#x1F4F1;</div>
+          <div class="how-step-title">Signals Published</div>
+          <div class="how-step-desc">Active and past trades updated here every evening for the next trading day</div>
+        </div>
+      </div>
+    </div>
+
     <div class="disclaimer">
-      <strong>Disclaimer:</strong> Past performance does not guarantee future results. All statistics are based on out-of-sample backtesting over 24 months.
-      This is not financial advice. Trade at your own risk. The 3% stop-loss applies per trade, not to overall portfolio.
+      <strong>Disclaimer:</strong> Past performance does not guarantee future results. All statistics shown are from out-of-sample backtesting.
+      This is not financial advice. Trade at your own risk. The 3% stop-loss applies per individual trade, not to overall portfolio value.
     </div>
   </div>
 
-  <!-- DETAIL PAGE -->
+  <!-- ===== DETAIL PAGE ===== -->
   <div id="detailPage" class="detail-page">
     <button class="back-btn" onclick="showLanding()">&larr; Back to Strategies</button>
 
@@ -520,17 +552,15 @@ tr:hover td { background: rgba(59,130,246,0.05); }
       <div class="section-title">Active Signals <span class="count" id="active-count">0</span></div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
-              <th>Stop-Loss</th><th>Expected Hold</th><th>Unrealized P&amp;L</th><th>Status</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
+            <th>Stop-Loss</th><th>Expected Hold</th><th>Unrealized P&amp;L</th><th>Status</th>
+          </tr></thead>
           <tbody id="active-tbody"></tbody>
         </table>
       </div>
-      <div id="no-active" style="text-align:center; padding:40px; color:var(--text-muted);">
-        No active trades at the moment. New signals appear when the model runs after market close.
+      <div id="no-active" style="text-align:center; padding:48px; color:var(--text-muted); font-size:15px;">
+        No active trades at the moment.<br>New signals appear after market close each trading day.
       </div>
     </div>
 
@@ -538,13 +568,11 @@ tr:hover td { background: rgba(59,130,246,0.05); }
       <div class="section-title">Past Trades <span class="count" id="past-count">0</span></div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
-              <th>Exit Date</th><th>Exit Price</th><th>Stop-Loss</th>
-              <th>Expected Hold</th><th>P&amp;L</th><th>Notes</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
+            <th>Exit Date</th><th>Exit Price</th><th>Stop-Loss</th>
+            <th>Expected Hold</th><th>P&amp;L</th><th>Notes</th>
+          </tr></thead>
           <tbody id="past-tbody"></tbody>
         </table>
       </div>
@@ -554,13 +582,11 @@ tr:hover td { background: rgba(59,130,246,0.05); }
       <div class="section-title">All Trades <span class="count" id="all-count">0</span></div>
       <div class="table-wrap">
         <table>
-          <thead>
-            <tr>
-              <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
-              <th>Exit Date</th><th>Exit Price</th><th>Stop-Loss</th>
-              <th>Expected Hold</th><th>P&amp;L</th><th>Notes</th>
-            </tr>
-          </thead>
+          <thead><tr>
+            <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
+            <th>Exit Date</th><th>Exit Price</th><th>Stop-Loss</th>
+            <th>Expected Hold</th><th>P&amp;L</th><th>Notes</th>
+          </tr></thead>
           <tbody id="all-tbody"></tbody>
         </table>
       </div>
@@ -568,7 +594,7 @@ tr:hover td { background: rgba(59,130,246,0.05); }
   </div>
 
   <div class="footer">
-    Up2Top &middot; XGBoost + Markov Regime Trading Signals for BIST &middot; Not financial advice
+    Up2Top &middot; Algorithmic Trading Signals for Borsa Istanbul &middot; Not financial advice
   </div>
 </div>
 
@@ -576,7 +602,6 @@ tr:hover td { background: rgba(59,130,246,0.05); }
 let DATA = null;
 let charts = {};
 let detailChart = null;
-let currentStrategy = null;
 
 async function loadData() {
   try {
@@ -586,28 +611,24 @@ async function loadData() {
     populateLanding();
   } catch(e) {
     console.error('Failed to load data:', e);
-    document.getElementById('landingPage').innerHTML = '<div class="loading">Failed to load data. Make sure data/strategies.json exists.</div>';
+    document.getElementById('landingPage').innerHTML = '<div style="text-align:center;padding:80px;color:#6b7280;">Failed to load data. Make sure data/strategies.json exists.</div>';
   }
 }
 
 function populateLanding() {
   const s = DATA.strategies;
-
-  // Low risk
   const lr = s.low_risk.stats;
   document.getElementById('lr-return').textContent = '+' + lr.total_return.toLocaleString() + '%';
   document.getElementById('lr-maxdd').textContent = lr.max_dd + '%';
   document.getElementById('lr-winrate').textContent = lr.win_rate + '%';
   document.getElementById('lr-trades').textContent = lr.trades;
 
-  // Medium risk
   const mr = s.medium_risk.stats;
   document.getElementById('mr-return').textContent = '+' + mr.total_return.toLocaleString() + '%';
   document.getElementById('mr-maxdd').textContent = mr.max_dd + '%';
   document.getElementById('mr-winrate').textContent = mr.win_rate + '%';
   document.getElementById('mr-trades').textContent = mr.trades;
 
-  // High risk
   const hr = s.high_risk.stats;
   document.getElementById('hr-return').textContent = '+' + hr.total_return.toLocaleString() + '%';
   document.getElementById('hr-maxdd').textContent = hr.max_dd + '%';
@@ -623,56 +644,34 @@ function createMiniChart(canvasId, eqData, color) {
   const ctx = document.getElementById(canvasId).getContext('2d');
   const labels = eqData.map(d => d.date);
   const values = eqData.map(d => (d.value - 1) * 100);
-
   if (charts[canvasId]) charts[canvasId].destroy();
   charts[canvasId] = new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,
-      datasets: [{
-        data: values,
-        borderColor: color,
-        backgroundColor: color + '15',
-        fill: true,
-        tension: 0.3,
-        pointRadius: 0,
-        borderWidth: 2
-      }]
+      datasets: [{ data: values, borderColor: color, backgroundColor: color + '15', fill: true, tension: 0.3, pointRadius: 0, borderWidth: 2 }]
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
+      responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false }, tooltip: { enabled: false } },
-      scales: {
-        x: { display: false },
-        y: {
-          display: false,
-          beginAtZero: true
-        }
-      },
+      scales: { x: { display: false }, y: { display: false, beginAtZero: true } },
       interaction: { enabled: false }
     }
   });
 }
 
 function showStrategy(key) {
-  currentStrategy = key;
   const s = DATA.strategies[key];
-
   document.getElementById('landingPage').style.display = 'none';
   document.getElementById('detailPage').classList.add('active');
 
-  // Badge + title
   const badge = document.getElementById('detail-badge');
   const riskMap = { low_risk: 'Low Risk', medium_risk: 'Medium Risk', high_risk: 'High Risk' };
-  const classMap = { low_risk: 'low-risk', medium_risk: 'med-risk', high_risk: 'high-risk' };
   badge.textContent = riskMap[key];
-  badge.className = 'risk-badge';
   badge.style.background = key === 'low_risk' ? 'rgba(16,185,129,0.15)' : key === 'medium_risk' ? 'rgba(59,130,246,0.15)' : 'rgba(239,68,68,0.15)';
   badge.style.color = key === 'low_risk' ? 'var(--low-risk)' : key === 'medium_risk' ? 'var(--med-risk)' : 'var(--high-risk)';
   document.getElementById('detail-title').textContent = s.name + ' — ' + s.subtitle;
 
-  // Stats
   document.getElementById('d-return').textContent = '+' + s.stats.total_return.toLocaleString() + '%';
   document.getElementById('d-maxdd').textContent = s.stats.max_dd + '%';
   document.getElementById('d-winrate').textContent = s.stats.win_rate + '%';
@@ -680,10 +679,8 @@ function showStrategy(key) {
   document.getElementById('d-trades').textContent = s.stats.trades;
   document.getElementById('d-stopped').textContent = s.stats.stopped;
 
-  // Equity chart
   createDetailChart(s.equity_curve, key);
 
-  // Trades
   const today = new Date().toISOString().slice(0, 10);
   const active = s.trades.filter(t => t.status === 'active' || t.exit_date > today);
   const past = s.trades.filter(t => t.status === 'closed' && t.exit_date <= today);
@@ -697,9 +694,10 @@ function showStrategy(key) {
   renderPastTrades(s.trades, 'all-tbody');
 
   document.getElementById('no-active').style.display = active.length ? 'none' : 'block';
-
-  // Reset to active tab
-  switchTab('active');
+  document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
+  document.getElementById('active-trades').style.display = 'block';
+  document.getElementById('past-trades').style.display = 'none';
+  document.getElementById('all-trades').style.display = 'none';
   window.scrollTo(0, 0);
 }
 
@@ -707,56 +705,27 @@ function createDetailChart(eqData, key) {
   const ctx = document.getElementById('detail-chart').getContext('2d');
   const colorMap = { low_risk: '#10b981', medium_risk: '#3b82f6', high_risk: '#ef4444' };
   const color = colorMap[key];
-
   const labels = eqData.map(d => d.date === 'start' ? 'Start' : d.date);
   const values = eqData.map(d => (d.value - 1) * 100);
-
   if (detailChart) detailChart.destroy();
   detailChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,
-      datasets: [{
-        label: 'Return %',
-        data: values,
-        borderColor: color,
-        backgroundColor: color + '20',
-        fill: true,
-        tension: 0.3,
-        pointRadius: 3,
-        pointHoverRadius: 6,
-        borderWidth: 2.5
-      }]
+      datasets: [{ label: 'Return %', data: values, borderColor: color, backgroundColor: color + '20', fill: true, tension: 0.3, pointRadius: 3, pointHoverRadius: 6, borderWidth: 2.5 }]
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
+      responsive: true, maintainAspectRatio: false,
       plugins: {
         legend: { display: false },
         tooltip: {
-          backgroundColor: '#1a2233',
-          titleColor: '#e5e7eb',
-          bodyColor: '#e5e7eb',
-          borderColor: '#374151',
-          borderWidth: 1,
-          callbacks: {
-            label: ctx => 'Return: ' + ctx.parsed.y.toFixed(1) + '%'
-          }
+          backgroundColor: '#1a2233', titleColor: '#e5e7eb', bodyColor: '#e5e7eb', borderColor: '#374151', borderWidth: 1,
+          callbacks: { label: ctx => 'Return: ' + ctx.parsed.y.toFixed(1) + '%' }
         }
       },
       scales: {
-        x: {
-          ticks: { color: '#6b7280', maxTicksLimit: 12, font: { size: 11 } },
-          grid: { color: 'rgba(107,114,128,0.1)' }
-        },
-        y: {
-          ticks: {
-            color: '#6b7280',
-            font: { size: 11 },
-            callback: v => v.toFixed(0) + '%'
-          },
-          grid: { color: 'rgba(107,114,128,0.1)' }
-        }
+        x: { ticks: { color: '#6b7280', maxTicksLimit: 12, font: { size: 11 } }, grid: { color: 'rgba(107,114,128,0.1)' } },
+        y: { ticks: { color: '#6b7280', font: { size: 11 }, callback: v => v.toFixed(0) + '%' }, grid: { color: 'rgba(107,114,128,0.1)' } }
       }
     }
   });
@@ -766,18 +735,16 @@ function renderActiveTrades(trades) {
   const tbody = document.getElementById('active-tbody');
   tbody.innerHTML = '';
   trades.forEach(t => {
-    const dirClass = t.direction === 'LONG' ? 'dir-long' : 'dir-short';
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td><strong>${t.symbol}</strong></td>
-      <td class="${dirClass}">${t.direction}</td>
+      <td class="${t.direction === 'LONG' ? 'dir-long' : 'dir-short'}">${t.direction}</td>
       <td>${t.entry_date}</td>
       <td>${t.entry_price.toFixed(2)}</td>
       <td>${t.stop_price.toFixed(2)}</td>
       <td>${t.expected_hold_days}d</td>
       <td class="${t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
-      <td><span class="badge-active">ACTIVE</span></td>
-    `;
+      <td><span class="badge-active">ACTIVE</span></td>`;
     tbody.appendChild(tr);
   });
 }
@@ -785,17 +752,14 @@ function renderActiveTrades(trades) {
 function renderPastTrades(trades, tbodyId) {
   const tbody = document.getElementById(tbodyId);
   tbody.innerHTML = '';
-  const sorted = [...trades].sort((a, b) => b.exit_date.localeCompare(a.exit_date));
-  sorted.forEach(t => {
-    const dirClass = t.direction === 'LONG' ? 'dir-long' : 'dir-short';
+  [...trades].sort((a, b) => b.exit_date.localeCompare(a.exit_date)).forEach(t => {
     let notes = '';
     if (t.stopped) notes = '<span class="badge-stopped">STOPPED</span>';
     else if (t.overridden) notes = '<span class="badge-overridden">OVERRIDDEN</span>';
-
     const tr = document.createElement('tr');
     tr.innerHTML = `
       <td><strong>${t.symbol}</strong></td>
-      <td class="${dirClass}">${t.direction}</td>
+      <td class="${t.direction === 'LONG' ? 'dir-long' : 'dir-short'}">${t.direction}</td>
       <td>${t.entry_date}</td>
       <td>${t.entry_price.toFixed(2)}</td>
       <td>${t.exit_date}</td>
@@ -803,8 +767,7 @@ function renderPastTrades(trades, tbodyId) {
       <td>${t.stop_price.toFixed(2)}</td>
       <td>${t.expected_hold_days}d</td>
       <td class="${t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
-      <td>${notes}</td>
-    `;
+      <td>${notes}</td>`;
     tbody.appendChild(tr);
   });
 }
@@ -812,7 +775,6 @@ function renderPastTrades(trades, tbodyId) {
 function switchTab(tab) {
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   event.target.classList.add('active');
-
   document.getElementById('active-trades').style.display = tab === 'active' ? 'block' : 'none';
   document.getElementById('past-trades').style.display = tab === 'past' ? 'block' : 'none';
   document.getElementById('all-trades').style.display = tab === 'all' ? 'block' : 'none';
@@ -824,7 +786,6 @@ function showLanding() {
   window.scrollTo(0, 0);
 }
 
-// Init
 loadData();
 </script>
 </body>
