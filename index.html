@@ -661,6 +661,11 @@ function createMiniChart(canvasId, eqData, color) {
 }
 
 function showStrategy(key) {
+  // Navigate to the dedicated strategy detail page
+  window.location.href = `strategy.html?strategy=${key}`;
+  return;
+
+  // Legacy code below — no longer used
   const s = DATA.strategies[key];
   document.getElementById('landingPage').style.display = 'none';
   document.getElementById('detailPage').classList.add('active');

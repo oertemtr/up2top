@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trade the BIST - Trading Signals</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightweight-charts/4.1.1/lightweight-charts.standalone.production.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2233;
+            --text-primary: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            --low-risk: #10b981;
+            --med-risk: #3b82f6;
+            --high-risk: #ef4444;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        .header {
+            background-color: var(--bg-secondary);
+            border-bottom: 1px solid var(--bg-card);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 0 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-blue), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            cursor: pointer;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .logo:hover {
+            opacity: 0.8;
+        }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .strategy-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .risk-badge {
+            padding: 0.375rem 0.875rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .risk-badge.low_risk, .risk-badge.low-risk {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: var(--low-risk);
+            border: 2px solid var(--low-risk);
+        }
+
+        .risk-badge.medium_risk, .risk-badge.med-risk {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: var(--med-risk);
+            border: 2px solid var(--med-risk);
+        }
+
+        .risk-badge.high_risk, .risk-badge.high-risk {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--high-risk);
+            border: 2px solid var(--high-risk);
+        }
+
+        .header-right {
+            flex: 0 0 auto;
+            text-align: right;
+        }
+
+        .update-time {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* Main content */
+        .main {
+            max-width: 1600px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            gap: 1rem;
+            border-bottom: 1px solid var(--bg-card);
+            margin-bottom: 2rem;
+        }
+
+        .tab {
+            padding: 1rem 1.5rem;
+            border: none;
+            background: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.2s;
+            position: relative;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .tab:hover {
+            color: var(--text-primary);
+        }
+
+        .tab.active {
+            color: var(--text-primary);
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-blue);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Signal Cards */
+        .signals-container {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .signal-card {
+            background-color: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .signal-card:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .signal-card.is-latest {
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .signal-card.is-latest.long {
+            animation: pulse-glow-long 2s ease-in-out infinite;
+        }
+
+        .signal-card.is-latest.short {
+            animation: pulse-glow-short 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow-long {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+                border-color: rgba(16, 185, 129, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px 8px rgba(16, 185, 129, 0.2);
+                border-color: rgba(16, 185, 129, 0.6);
+            }
+        }
+
+        @keyframes pulse-glow-short {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+                border-color: rgba(239, 68, 68, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 20px 8px rgba(239, 68, 68, 0.2);
+                border-color: rgba(239, 68, 68, 0.6);
+            }
+        }
+
+        .signal-card.expanded {
+            grid-column: 1 / -1;
+            display: flex;
+            flex-direction: column;
+            padding: 2rem;
+        }
+
+        .signal-symbol {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .signal-direction {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .signal-direction.long {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+        }
+
+        .signal-direction.short {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--accent-red);
+        }
+
+        .signal-entry {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .signal-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .signal-value {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .signal-exit {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .signal-pnl {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            text-align: right;
+        }
+
+        .signal-pnl-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+        }
+
+        .signal-pnl.positive .signal-pnl-value {
+            color: var(--accent-green);
+        }
+
+        .signal-pnl.negative .signal-pnl-value {
+            color: var(--accent-red);
+        }
+
+        .signal-stop {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .signal-status {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            align-items: flex-end;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .status-badge.active {
+            background-color: rgba(59, 130, 246, 0.15);
+            color: var(--accent-blue);
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        .status-badge.closed {
+            background-color: rgba(107, 114, 128, 0.15);
+            color: var(--text-secondary);
+        }
+
+        @keyframes blink {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        /* Expanded panel */
+        .expanded-content {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            max-width: 100%;
+        }
+
+        .chart-panel {
+            background-color: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-container {
+            flex: 1;
+            min-height: 400px;
+            position: relative;
+        }
+
+        #tradingview_chart {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .chart-loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .chart-loading.spinner::after {
+            content: '';
+            display: block;
+            width: 20px;
+            height: 20px;
+            margin-left: 0.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            border-top-color: var(--accent-blue);
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .chart-footer {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* News Panel */
+        .news-panel {
+            background-color: var(--bg-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .news-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .news-button {
+            padding: 0.75rem 1rem;
+            background-color: var(--accent-blue);
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+            transition: all 0.2s;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .news-button:hover {
+            background-color: rgba(59, 130, 246, 0.8);
+            transform: translateY(-2px);
+        }
+
+        .news-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .news-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.2s;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+        }
+
+        .news-link:hover {
+            color: rgba(59, 130, 246, 0.8);
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 4rem;
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--bg-card);
+            color: var(--text-secondary);
+        }
+
+        .footer-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: rgba(59, 130, 246, 0.8);
+        }
+
+        /* Empty state */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            background-color: var(--bg-card);
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .empty-state-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state-text {
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .expanded-content {
+                grid-template-columns: 1fr;
+            }
+
+            .signal-card {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .header-center {
+                justify-content: flex-start;
+            }
+
+            .signal-card {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+
+            .tabs {
+                gap: 0.5rem;
+            }
+
+            .tab {
+                padding: 0.75rem 1rem;
+                font-size: 0.875rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <a href="index.html" class="logo">Up2Top</a>
+        </div>
+        <div class="header-center">
+            <h1 class="strategy-title" id="strategyTitle">Low Risk</h1>
+            <div class="risk-badge" id="riskBadge">Low Risk</div>
+        </div>
+        <div class="header-right">
+            <div class="update-time">Signals updated: <span id="lastUpdated">Loading...</span></div>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <main class="main">
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab active" data-tab="active-signals">Active Signals</button>
+            <button class="tab" data-tab="past-trades">Past Trades</button>
+        </div>
+
+        <!-- Tab contents -->
+        <div id="active-signals" class="tab-content active">
+            <div class="signals-container" id="activeSignalsContainer">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+
+        <div id="past-trades" class="tab-content">
+            <div class="signals-container" id="pastTradesContainer">
+                <!-- Populated by JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="index.html" class="footer-link">← Back to strategies</a>
+    </footer>
+
+    <script>
+        // KAP Company ID mapping
+        const KAP_IDS = {
+            'AEFES.IS': '4028e4a240e8d1830140e90adb7f0055',
+            'AKBNK.IS': '4028e4a240e8d1830140e905edcd0006',
+            'ASELS.IS': '4028e4a240e8d1830140e90c9d470079',
+            'BIMAS.IS': '4028e4a240e8d1830140e90b16a90060',
+            'EKGYO.IS': '4028e4a240e8d1830140e90bc21c006a',
+            'ENKAI.IS': '4028e4a240e8d1830140e90c3b3b0074',
+            'EREGL.IS': '4028e4a240e8d1830140e90c4b1c0075',
+            'FROTO.IS': '4028e4a240e8d1830140e90c1e980072',
+            'GARAN.IS': '4028e4a240e8d1830140e906327c0009',
+            'GUBRF.IS': '4028e4a240e8d1830140e909960e004a',
+            'ISCTR.IS': '4028e4a240e8d1830140e906507b000a',
+            'KCHOL.IS': '4028e4a240e8d1830140e90aa94b0053',
+            'KRDMD.IS': '4028e4a240e8d1830140e90ac3ea0054',
+            'MGROS.IS': '4028e4a240e8d1830140e90ba20a0068',
+            'PETKM.IS': '4028e4a240e8d1830140e909f0820050',
+            'PGSUS.IS': '4028e4a240e8d1830140f4e6f5710244',
+            'SAHOL.IS': '4028e4a240e8d1830140e90a04350051',
+            'SASA.IS': '4028e4a240e8d1830140e909c17a004d',
+            'SISE.IS': '4028e4a240e8d1830140e90a46c80052',
+            'TAVHL.IS': '4028e4a240e8d1830140e90d2c18007f',
+            'TCELL.IS': '4028e4a240e8d1830140e909fb0a004f',
+            'THYAO.IS': '4028e4a240e8d1830140e907aebb0024',
+            'TOASO.IS': '4028e4a240e8d1830140e90bb6a30069',
+            'TTKOM.IS': '4028e4a240e8d1830140e908fa4d003e',
+            'TUPRS.IS': '4028e4a240e8d1830140e908addf0039',
+            'ULKER.IS': '4028e4a240e8d1830140e90bd6380070',
+            'YKBNK.IS': '4028e4a240e8d1830140e90702ab0017',
+        };
+
+        // State
+        let strategyData = null;
+        let currentStrategy = null;
+        let expandedSignal = null;
+        let charts = {}; // Store chart instances
+
+        // Get strategy from URL parameter
+        function getStrategyFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('strategy') || 'low_risk';
+        }
+
+        // Load strategy data
+        async function loadStrategyData() {
+            try {
+                const response = await fetch('data/strategies.json');
+                strategyData = await response.json();
+            } catch (error) {
+                console.error('Error loading strategy data:', error);
+            }
+        }
+
+        // Initialize page
+        async function init() {
+            await loadStrategyData();
+            currentStrategy = getStrategyFromURL();
+
+            if (!strategyData || !strategyData.strategies[currentStrategy]) {
+                console.error('Invalid strategy');
+                return;
+            }
+
+            const strategy = strategyData.strategies[currentStrategy];
+
+            // Update header
+            const riskLabels = { low_risk: 'LOW RISK', medium_risk: 'MEDIUM RISK', high_risk: 'HIGH RISK' };
+            document.getElementById('strategyTitle').textContent = strategy.subtitle || strategy.name;
+            const riskBadge = document.getElementById('riskBadge');
+            riskBadge.textContent = riskLabels[currentStrategy] || strategy.name.toUpperCase();
+            riskBadge.className = `risk-badge ${currentStrategy}`;
+            document.title = `${strategy.name} — Trade the BIST`;
+
+            // Update last updated time
+            if (strategyData.last_updated) {
+                document.getElementById('lastUpdated').textContent = strategyData.last_updated;
+            }
+
+            // Separate active and closed trades
+            const activeTrades = (strategy.trades || []).filter(t => t.status === 'active');
+            const closedTrades = (strategy.trades || []).filter(t => t.status === 'closed');
+
+            // Determine which tab should be active
+            if (activeTrades.length > 0) {
+                renderSignals(activeTrades, 'active-signals', true);
+                renderSignals(closedTrades, 'past-trades', false);
+            } else {
+                renderSignals(closedTrades, 'past-trades', true);
+                // Switch to past trades tab if no active trades
+                if (closedTrades.length > 0) {
+                    switchTab('past-trades');
+                }
+            }
+
+            // Setup tab listeners
+            setupTabListeners();
+        }
+
+        // Render signals
+        function renderSignals(trades, tabId, isActive) {
+            const container = document.getElementById(
+                tabId === 'active-signals' ? 'activeSignalsContainer' : 'pastTradesContainer'
+            );
+
+            if (!trades || trades.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📊</div>
+                        <div class="empty-state-title">No ${tabId === 'active-signals' ? 'Active Signals' : 'Past Trades'}</div>
+                        <div class="empty-state-text">
+                            ${tabId === 'active-signals' ? 'Check back soon for new trading signals.' : 'No completed trades yet.'}
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            // Sort by entry_date descending (newest first)
+            const sortedTrades = [...trades].sort((a, b) => {
+                return new Date(b.entry_date) - new Date(a.entry_date);
+            });
+
+            container.innerHTML = sortedTrades.map((trade, index) => {
+                const isLatest = index === 0 && isActive && sortedTrades.length > 0;
+                const pnlPercent = trade.pnl !== undefined ? trade.pnl.toFixed(2) : ((trade.exit_price - trade.entry_price) / trade.entry_price * 100).toFixed(2);
+                const isPositive = parseFloat(pnlPercent) >= 0;
+                const direction = trade.direction.toUpperCase();
+
+                let exitLabel, exitInfo, exitPrice;
+                if (trade.status === 'active') {
+                    exitLabel = 'Expected Exit';
+                    exitInfo = trade.exit_date || '';
+                    exitPrice = `Current: ${trade.exit_price.toFixed(2)}`;
+                } else {
+                    exitLabel = 'Exit';
+                    exitInfo = trade.exit_date || '';
+                    exitPrice = trade.exit_price.toFixed(2);
+                }
+                const stoppedBadge = trade.stopped ? '<span style="color:var(--accent-red);font-size:0.7rem;margin-left:4px;">STOPPED</span>' : '';
+
+                return `
+                    <div class="signal-card ${isLatest ? 'is-latest ' + direction.toLowerCase() : ''}" data-trade-idx="${index}" data-tab="${tabId}" onclick="toggleExpandSignal(this)">
+                        <div class="signal-symbol">${trade.symbol.replace('.IS','')}</div>
+                        <div>
+                            <div class="signal-direction ${direction.toLowerCase()}">${direction}</div>
+                        </div>
+                        <div class="signal-entry">
+                            <div class="signal-label">Entry</div>
+                            <div class="signal-value">${trade.entry_date} @ ₺${trade.entry_price.toFixed(2)}</div>
+                        </div>
+                        <div class="signal-exit">
+                            <div class="signal-label">${exitLabel}</div>
+                            <div class="signal-value">${exitInfo}${exitPrice ? '<br>₺' + exitPrice.replace('Current: ','Current: ₺') : ''}</div>
+                        </div>
+                        <div class="signal-pnl ${isPositive ? 'positive' : 'negative'}">
+                            <div class="signal-label">P&L${stoppedBadge}</div>
+                            <div class="signal-pnl-value">${isPositive ? '+' : ''}${pnlPercent}%</div>
+                        </div>
+                        <div class="signal-status">
+                            <div class="signal-label">Status</div>
+                            <span class="status-badge ${trade.status}">${trade.status.toUpperCase()}</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Toggle expanded signal
+        function toggleExpandSignal(element) {
+            // Close previously expanded signal
+            if (expandedSignal && expandedSignal !== element) {
+                expandedSignal.classList.remove('expanded');
+                const ec = expandedSignal.querySelector('.expanded-content');
+                if (ec) {
+                    const cid = ec.dataset.chartId;
+                    if (charts[cid]) { charts[cid].remove(); delete charts[cid]; }
+                    ec.remove();
+                }
+            }
+
+            element.classList.toggle('expanded');
+
+            if (element.classList.contains('expanded')) {
+                expandedSignal = element;
+                const trade = getTradeFromCard(element);
+
+                if (trade) {
+                    const expandedContent = createExpandedContent(trade, trade.symbol);
+                    element.appendChild(expandedContent);
+                    initChart(trade.symbol, trade, element);
+                }
+            } else {
+                expandedSignal = null;
+            }
+        }
+
+        // Get trade from current data
+        function getTradeFromCard(element) {
+            const strategy = strategyData.strategies[currentStrategy];
+            const trades = strategy.trades || [];
+            const tabId = element.getAttribute('data-tab');
+            const idx = parseInt(element.getAttribute('data-trade-idx'));
+            // Reconstruct the sorted list used for rendering
+            const isActiveTab = tabId === 'active-signals';
+            const filtered = trades.filter(t => isActiveTab ? t.status === 'active' : t.status !== 'active');
+            const sorted = [...filtered].sort((a, b) => new Date(b.entry_date) - new Date(a.entry_date));
+            return sorted[idx] || null;
+        }
+
+        // Create expanded content panel
+        let chartCounter = 0;
+        function createExpandedContent(trade, symbol) {
+            const kapId = KAP_IDS[symbol];
+            const symbolName = symbol.replace('.IS', '');
+            const chartId = `chart_${++chartCounter}`;
+
+            const div = document.createElement('div');
+            div.className = 'expanded-content';
+            div.onclick = (e) => e.stopPropagation(); // Don't collapse when clicking inside
+            div.innerHTML = `
+                <div class="chart-panel">
+                    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                        <span style="font-weight:600;font-size:1.1rem;">${symbolName} — ${trade.direction}</span>
+                        <span style="font-size:0.75rem;color:var(--text-muted);">
+                            ${isTradeHours() ? '🟢 Live (Yahoo Finance)' : '📊 Historical Data'}
+                        </span>
+                    </div>
+                    <div class="chart-container" id="${chartId}_wrap">
+                        <div class="chart-loading spinner" id="${chartId}_loading">Loading chart data...</div>
+                        <div id="${chartId}" style="display:none;width:100%;height:400px;"></div>
+                    </div>
+                    <div class="chart-footer">
+                        Entry: ₺${trade.entry_price.toFixed(2)} on ${trade.entry_date}
+                        ${trade.status === 'closed' ? ` · Exit: ₺${trade.exit_price.toFixed(2)} on ${trade.exit_date}` : ` · Stop: ₺${trade.stop_price.toFixed(2)}`}
+                    </div>
+                </div>
+                <div class="news-panel">
+                    <div class="news-title">${symbolName} News & Disclosures</div>
+                    <div class="news-links">
+                        ${kapId ? `<a href="https://www.kap.org.tr/tr/sirket-bildirimleri/${kapId}" target="_blank" class="news-button" style="width:100%;">📋 KAP Disclosures</a>` : ''}
+                        <a href="https://www.google.com/search?q=${symbolName}+hisse+haberleri&tbm=nws" target="_blank" class="news-button" style="background-color:var(--accent-green);width:100%;">📰 Google News</a>
+                        <a href="https://www.investing.com/search/?q=${symbolName}" target="_blank" class="news-button" style="background-color:#1a2233;border:1px solid var(--accent-blue);width:100%;">📈 Investing.com</a>
+                    </div>
+                    <div style="margin-top:1rem;padding:1rem;background:var(--bg-card);border-radius:0.5rem;">
+                        <div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:8px;">Trade Details</div>
+                        <div style="font-size:0.85rem;line-height:1.8;">
+                            <div>Direction: <span style="color:${trade.direction === 'LONG' ? 'var(--accent-green)' : 'var(--accent-red)'};font-weight:600;">${trade.direction}</span></div>
+                            <div>Hold: ${trade.expected_hold_days} days</div>
+                            <div>Stop Loss: ₺${trade.stop_price.toFixed(2)} (-3%)</div>
+                            <div>P&L: <span style="color:${trade.pnl >= 0 ? 'var(--accent-green)' : 'var(--accent-red)'};font-weight:700;">${trade.pnl >= 0 ? '+' : ''}${trade.pnl.toFixed(2)}%</span></div>
+                            ${trade.stopped ? '<div style="color:var(--accent-red);">⛔ Stop-loss triggered</div>' : ''}
+                            ${trade.overridden ? '<div style="color:var(--accent-yellow);">⚡ Overridden by opposite signal</div>' : ''}
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            div.dataset.chartId = chartId;
+            return div;
+        }
+
+        // Check if within BIST trading hours
+        function isTradeHours() {
+            const now = new Date();
+            const hour = now.getHours();
+            const day = now.getDay();
+            // BIST trading hours: 10:00-18:00 TRT, Mon-Fri
+            const turkeyTime = new Date(now.toLocaleString('en-US', { timeZone: 'Europe/Istanbul' }));
+            const turkeyHour = turkeyTime.getHours();
+            const turkeyDay = turkeyTime.getDay();
+            return turkeyHour >= 10 && turkeyHour < 18 && turkeyDay >= 1 && turkeyDay <= 5;
+        }
+
+        // Initialize chart
+        async function initChart(symbol, trade, cardElement) {
+            const chartId = cardElement.querySelector('.expanded-content').dataset.chartId;
+            try {
+                const strategy = strategyData.strategies[currentStrategy];
+                let ohlcvData = [];
+
+                // Try embedded OHLCV data first
+                if (strategy.ohlcv && strategy.ohlcv[symbol]) {
+                    ohlcvData = strategy.ohlcv[symbol];
+                }
+
+                // If trading hours or no embedded data, try Yahoo Finance
+                if (ohlcvData.length === 0 || isTradeHours()) {
+                    const yahooData = await fetchYahooFinanceData(symbol);
+                    if (yahooData && yahooData.length > 0) {
+                        ohlcvData = yahooData;
+                    }
+                }
+
+                if (!ohlcvData || ohlcvData.length === 0) {
+                    showChartError(chartId, 'No chart data available. OHLCV data will be added in the next update.');
+                    return;
+                }
+
+                renderChart(chartId, trade, ohlcvData);
+            } catch (error) {
+                console.error('Error loading chart:', error);
+                showChartError(chartId, 'Unable to load chart data');
+            }
+        }
+
+        // Fetch Yahoo Finance data via public chart API
+        async function fetchYahooFinanceData(symbol) {
+            try {
+                // Yahoo Finance v8 chart API
+                const url = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=1mo`;
+                const response = await fetch(url);
+                if (!response.ok) throw new Error(`HTTP ${response.status}`);
+                const data = await response.json();
+                if (!data.chart || !data.chart.result || !data.chart.result[0]) return [];
+                const result = data.chart.result[0];
+                const timestamps = result.timestamp || [];
+                const quote = result.indicators.quote[0];
+                return timestamps.map((ts, i) => ({
+                    date: new Date(ts * 1000).toISOString().split('T')[0],
+                    open: quote.open[i],
+                    high: quote.high[i],
+                    low: quote.low[i],
+                    close: quote.close[i],
+                    volume: quote.volume[i]
+                })).filter(d => d.open !== null && d.close !== null);
+            } catch (error) {
+                console.log(`Yahoo Finance unavailable for ${symbol}:`, error.message);
+                return [];
+            }
+        }
+
+        // Render candlestick chart
+        function renderChart(chartId, trade, ohlcvData) {
+            const chartDiv = document.getElementById(chartId);
+            if (!chartDiv) return;
+            const container = chartDiv.parentElement;
+            const loadingDiv = document.getElementById(`${chartId}_loading`);
+
+            // Sort data by date
+            ohlcvData = ohlcvData.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+            // Prepare candlestick data
+            const candleData = ohlcvData.map(d => ({
+                time: d.date,
+                open: d.open,
+                high: d.high,
+                low: d.low,
+                close: d.close
+            }));
+
+            const volumeData = ohlcvData.map(d => ({
+                time: d.date,
+                value: d.volume,
+                color: d.close >= d.open ? 'rgba(16, 185, 129, 0.3)' : 'rgba(239, 68, 68, 0.3)'
+            }));
+
+            // Hide loading, show chart
+            loadingDiv.style.display = 'none';
+            chartDiv.style.display = 'block';
+
+            // Create chart
+            const chart = LightweightCharts.createChart(chartDiv, {
+                layout: {
+                    background: { color: 'transparent' },
+                    textColor: '#9ca3af'
+                },
+                timeScale: {
+                    timeVisible: false
+                },
+                grid: {
+                    vertLines: { color: 'rgba(255, 255, 255, 0.05)' },
+                    hLines: { color: 'rgba(255, 255, 255, 0.05)' }
+                }
+            });
+
+            // Add candlestick series
+            const candlestickSeries = chart.addCandlestickSeries({
+                upColor: '#10b981',
+                downColor: '#ef4444',
+                borderUpColor: '#10b981',
+                borderDownColor: '#ef4444',
+                wickUpColor: '#10b981',
+                wickDownColor: '#ef4444'
+            });
+
+            candlestickSeries.setData(candleData);
+
+            // Add volume series
+            const volumeSeries = chart.addHistogramSeries({
+                color: 'rgba(59, 130, 246, 0.3)',
+                priceFormat: {
+                    type: 'volume'
+                }
+            });
+
+            volumeSeries.setData(volumeData);
+
+            // Add signal markers (triangles)
+            const markers = [];
+            const isLong = trade.direction === 'LONG';
+
+            // Entry marker: green triangle below low for LONG, red triangle above high for SHORT
+            if (candleData.some(c => c.time === trade.entry_date)) {
+                markers.push({
+                    time: trade.entry_date,
+                    position: isLong ? 'belowBar' : 'aboveBar',
+                    color: isLong ? '#10b981' : '#ef4444',
+                    shape: isLong ? 'arrowUp' : 'arrowDown',
+                    text: `${isLong ? 'BUY' : 'SELL'} @ ₺${trade.entry_price.toFixed(2)}`
+                });
+            }
+
+            // Exit marker for closed trades: opposite side
+            if (trade.status === 'closed' && trade.exit_date && candleData.some(c => c.time === trade.exit_date)) {
+                markers.push({
+                    time: trade.exit_date,
+                    position: isLong ? 'aboveBar' : 'belowBar',
+                    color: '#f59e0b',  // yellow/amber for exit
+                    shape: isLong ? 'arrowDown' : 'arrowUp',
+                    text: `CLOSE @ ₺${trade.exit_price.toFixed(2)}`
+                });
+            }
+
+            // Stop-loss price line
+            if (trade.stop_price) {
+                candlestickSeries.createPriceLine({
+                    price: trade.stop_price,
+                    color: '#ef4444',
+                    lineWidth: 1,
+                    lineStyle: 2,  // dashed
+                    axisLabelVisible: true,
+                    title: 'Stop Loss',
+                });
+            }
+
+            // Sort markers by time (required by lightweight-charts)
+            markers.sort((a, b) => a.time.localeCompare(b.time));
+            if (markers.length > 0) {
+                candlestickSeries.setMarkers(markers);
+            }
+
+            chart.timeScale().fitContent();
+
+            // Store chart instance for cleanup
+            charts[chartId] = chart;
+
+            // Handle resize
+            const resizeObserver = new ResizeObserver(() => {
+                if (chartDiv.offsetParent) {
+                    chart.applyOptions({ width: chartDiv.clientWidth });
+                }
+            });
+            resizeObserver.observe(chartDiv);
+        }
+
+        // Show chart error
+        function showChartError(chartId, message) {
+            const loadingDiv = document.getElementById(`${chartId}_loading`);
+            if (loadingDiv) {
+                loadingDiv.textContent = message;
+                loadingDiv.classList.remove('spinner');
+            }
+        }
+
+        // Setup tab listeners
+        function setupTabListeners() {
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    switchTab(tab.dataset.tab);
+                });
+            });
+        }
+
+        // Switch tab
+        function switchTab(tabName) {
+            // Update active tab button
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+                if (tab.dataset.tab === tabName) {
+                    tab.classList.add('active');
+                }
+            });
+
+            // Update active tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        // Initialize on load
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
