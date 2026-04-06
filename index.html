@@ -605,7 +605,7 @@ let detailChart = null;
 
 async function loadData() {
   try {
-    const resp = await fetch('data/strategies.json');
+    const resp = await fetch('data/strategies.json?t=' + Date.now());
     DATA = await resp.json();
     document.getElementById('lastUpdated').textContent = DATA.last_updated || '—';
     populateLanding();

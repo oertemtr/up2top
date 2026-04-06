@@ -160,7 +160,7 @@ let DATA = null, STRAT_KEY = null, expandedEl = null;
 
 async function init() {
   STRAT_KEY = new URLSearchParams(location.search).get('strategy') || 'low_risk';
-  const res = await fetch('data/strategies.json');
+  const res = await fetch('data/strategies.json?t=' + Date.now());
   DATA = await res.json();
   const s = DATA.strategies[STRAT_KEY];
   if (!s) { document.body.innerHTML = '<h2 style="padding:40px">Strategy not found</h2>'; return; }
