@@ -22729,7 +22729,7 @@
           "pnl": -0.17,
           "stopped": true,
           "overridden": true,
-          "sub_strategy": NaN,
+          "sub_strategy": null,
           "status": "closed"
         },
         {
