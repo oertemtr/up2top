@@ -46,6 +46,61 @@ body {
 .logo span { color: var(--accent-blue); }
 .header-meta { font-size: 13px; color: var(--text-muted); }
 
+/* ===== ACTIVE SIGNAL BANNER ===== */
+.signal-banner {
+  display: none;
+  background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(59,130,246,0.12) 100%);
+  border: 1px solid rgba(16,185,129,0.3);
+  border-radius: 14px;
+  padding: 18px 24px;
+  margin: 20px 0;
+  animation: bannerPulse 3s ease-in-out infinite;
+}
+.signal-banner.has-signals { display: block; }
+@keyframes bannerPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.2); }
+  50% { box-shadow: 0 0 20px 4px rgba(16,185,129,0.15); }
+}
+.banner-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.banner-dot {
+  width: 10px; height: 10px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  animation: blink 1.2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.banner-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent-green);
+}
+.banner-signals {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.banner-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.banner-chip .chip-sym { color: var(--text-primary); }
+.banner-chip .chip-dir { color: var(--accent-green); font-size: 11px; text-transform: uppercase; }
+.banner-chip .chip-strat { color: var(--text-muted); font-size: 11px; }
+
 /* ===== LANDING PAGE ===== */
 .landing { padding: 56px 0 32px; }
 
@@ -144,6 +199,39 @@ body {
   margin-bottom: 24px;
   min-height: 48px;
 }
+
+/* Card signal alert */
+.card-signal-alert {
+  display: none;
+  background: rgba(16,185,129,0.1);
+  border: 1px solid rgba(16,185,129,0.25);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 12px;
+}
+.card-signal-alert.active { display: flex; align-items: center; gap: 8px; }
+.card-signal-dot {
+  width: 8px; height: 8px;
+  background: var(--accent-green);
+  border-radius: 50%;
+  animation: blink 1.2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+.card-signal-text { color: var(--accent-green); font-weight: 600; }
+.card-signal-info { color: var(--text-muted); font-size: 11px; margin-top: 2px; }
+.card-no-signal {
+  display: none;
+  background: rgba(107,114,128,0.08);
+  border: 1px solid rgba(107,114,128,0.15);
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.card-no-signal.active { display: block; }
+
 .card-stats {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -206,6 +294,57 @@ body {
 .how-icon { font-size: 28px; margin-bottom: 8px; }
 .how-step-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
 .how-step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+
+/* Subscribe section */
+.subscribe-section {
+  background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(139,92,246,0.08) 100%);
+  border: 1px solid rgba(59,130,246,0.2);
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 32px;
+  text-align: center;
+}
+.subscribe-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+.subscribe-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
+.subscribe-form {
+  display: flex;
+  gap: 10px;
+  max-width: 460px;
+  margin: 0 auto;
+}
+@media (max-width: 600px) { .subscribe-form { flex-direction: column; } }
+.subscribe-input {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+.subscribe-input:focus { border-color: var(--accent-blue); }
+.subscribe-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  background: var(--accent-blue);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.subscribe-btn:hover { opacity: 0.85; }
+.subscribe-success {
+  display: none;
+  color: var(--accent-green);
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+}
 
 /* Disclaimer */
 .disclaimer {
@@ -299,54 +438,65 @@ body {
   background: var(--bg-card);
   padding: 2px 10px;
   border-radius: 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
   font-size: 13px;
-  color: var(--text-secondary);
 }
-.table-wrap {
-  overflow-x: auto;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-}
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 th {
-  background: var(--bg-card);
-  padding: 12px 16px;
   text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
   font-weight: 600;
-  color: var(--text-secondary);
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  white-space: nowrap;
-  position: sticky;
-  top: 0;
 }
-td { padding: 10px 16px; border-top: 1px solid var(--border); white-space: nowrap; }
-tr:hover td { background: rgba(59,130,246,0.05); }
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(31,41,55,0.5);
+}
+tr:hover td { background: rgba(255,255,255,0.02); }
+.table-wrap { overflow-x: auto; }
 .dir-long { color: var(--accent-green); font-weight: 600; }
 .dir-short { color: var(--accent-red); font-weight: 600; }
 .pnl-positive { color: var(--accent-green); font-weight: 600; }
 .pnl-negative { color: var(--accent-red); font-weight: 600; }
+.badge-active {
+  background: rgba(16,185,129,0.15);
+  color: var(--accent-green);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+}
 .badge-stopped {
-  display: inline-block; padding: 2px 8px; border-radius: 4px;
-  font-size: 11px; font-weight: 600;
-  background: rgba(239,68,68,0.15); color: var(--accent-red);
+  background: rgba(239,68,68,0.15);
+  color: var(--accent-red);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
 }
 .badge-overridden {
-  display: inline-block; padding: 2px 8px; border-radius: 4px;
-  font-size: 11px; font-weight: 600;
-  background: rgba(245,158,11,0.15); color: var(--accent-yellow);
-}
-.badge-active {
-  display: inline-block; padding: 2px 8px; border-radius: 4px;
-  font-size: 11px; font-weight: 600;
-  background: rgba(59,130,246,0.15); color: var(--accent-blue);
+  background: rgba(245,158,11,0.15);
+  color: var(--accent-yellow);
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
 }
 
+/* Equity chart large */
 .equity-chart-large {
   background: var(--bg-card);
-  border-radius: 12px;
+  border-radius: 16px;
   padding: 24px;
+  border: 1px solid var(--border);
   margin-bottom: 32px;
 }
 .equity-chart-large .chart-area { height: 300px; position: relative; }
@@ -365,7 +515,16 @@ tr:hover td { background: rgba(59,130,246,0.05); }
 <div class="container">
   <div class="header">
     <div class="logo">Up2<span>Top</span></div>
-    <div class="header-meta">Signals updated: <span id="lastUpdated">—</span></div>
+    <div class="header-meta">Signals updated: <span id="lastUpdated">&mdash;</span></div>
+  </div>
+
+  <!-- ===== ACTIVE SIGNAL BANNER ===== -->
+  <div id="signalBanner" class="signal-banner">
+    <div class="banner-header">
+      <div class="banner-dot"></div>
+      <div class="banner-title" id="bannerTitle">Active Signals</div>
+    </div>
+    <div class="banner-signals" id="bannerSignals"></div>
   </div>
 
   <!-- ===== LANDING PAGE ===== -->
@@ -388,22 +547,24 @@ tr:hover td { background: rgba(59,130,246,0.05); }
         <div class="card-description">
           Only buy signals from strategies that historically never lost more than 3% on any single trade. Maximum safety.
         </div>
+        <div id="lr-signal-alert" class="card-signal-alert"></div>
+        <div id="lr-no-signal" class="card-no-signal"></div>
         <div class="card-stats">
           <div class="stat-item">
             <div class="stat-label">12-Month Return</div>
-            <div class="stat-value green" id="lr-return">—</div>
+            <div class="stat-value green" id="lr-return">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Max Portfolio Loss</div>
-            <div class="stat-value red" id="lr-maxdd">—</div>
+            <div class="stat-value red" id="lr-maxdd">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Win Rate</div>
-            <div class="stat-value" id="lr-winrate">—</div>
+            <div class="stat-value" id="lr-winrate">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Total Trades</div>
-            <div class="stat-value" id="lr-trades">—</div>
+            <div class="stat-value" id="lr-trades">&mdash;</div>
           </div>
         </div>
         <div class="chart-container"><canvas id="chart-low"></canvas></div>
@@ -417,22 +578,24 @@ tr:hover td { background: rgba(59,130,246,0.05); }
         <div class="card-description">
           Buy signals from the minimum-drawdown portfolio. More trades, higher returns, still long-only with 3% stop-loss.
         </div>
+        <div id="mr-signal-alert" class="card-signal-alert"></div>
+        <div id="mr-no-signal" class="card-no-signal"></div>
         <div class="card-stats">
           <div class="stat-item">
             <div class="stat-label">12-Month Return</div>
-            <div class="stat-value green" id="mr-return">—</div>
+            <div class="stat-value green" id="mr-return">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Max Portfolio Loss</div>
-            <div class="stat-value red" id="mr-maxdd">—</div>
+            <div class="stat-value red" id="mr-maxdd">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Win Rate</div>
-            <div class="stat-value" id="mr-winrate">—</div>
+            <div class="stat-value" id="mr-winrate">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Total Trades</div>
-            <div class="stat-value" id="mr-trades">—</div>
+            <div class="stat-value" id="mr-trades">&mdash;</div>
           </div>
         </div>
         <div class="chart-container"><canvas id="chart-med"></canvas></div>
@@ -442,26 +605,28 @@ tr:hover td { background: rgba(59,130,246,0.05); }
       <!-- High Risk -->
       <div class="strategy-card high-risk" onclick="showStrategy('high_risk')">
         <div class="risk-badge-large">High Risk</div>
-        <div class="card-title">Aggressive Long &amp; Short</div>
+        <div class="card-title">Aggressive Daily-Predict</div>
         <div class="card-description">
-          Both buy and short-sell signals. Opposite signals override each other. Highest return potential, highest volatility.
+          Same strategies but XGBoost predicts every trading day. More signals, higher return potential, higher volatility.
         </div>
+        <div id="hr-signal-alert" class="card-signal-alert"></div>
+        <div id="hr-no-signal" class="card-no-signal"></div>
         <div class="card-stats">
           <div class="stat-item">
             <div class="stat-label">12-Month Return</div>
-            <div class="stat-value green" id="hr-return">—</div>
+            <div class="stat-value green" id="hr-return">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Max Portfolio Loss</div>
-            <div class="stat-value red" id="hr-maxdd">—</div>
+            <div class="stat-value red" id="hr-maxdd">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Win Rate</div>
-            <div class="stat-value" id="hr-winrate">—</div>
+            <div class="stat-value" id="hr-winrate">&mdash;</div>
           </div>
           <div class="stat-item">
             <div class="stat-label">Total Trades</div>
-            <div class="stat-value" id="hr-trades">—</div>
+            <div class="stat-value" id="hr-trades">&mdash;</div>
           </div>
         </div>
         <div class="chart-container"><canvas id="chart-high"></canvas></div>
@@ -480,7 +645,7 @@ tr:hover td { background: rgba(59,130,246,0.05); }
         <div class="how-step">
           <div class="how-icon">&#x1F9E0;</div>
           <div class="how-step-title">Model Predicts</div>
-          <div class="how-step-desc">XGBoost + Markov regime + Monte Carlo generate buy/sell signals</div>
+          <div class="how-step-desc">XGBoost + Markov regime + Monte Carlo generate buy signals</div>
         </div>
         <div class="how-step">
           <div class="how-icon">&#x1F6E1;</div>
@@ -493,6 +658,17 @@ tr:hover td { background: rgba(59,130,246,0.05); }
           <div class="how-step-desc">Active and past trades updated here every evening for the next trading day</div>
         </div>
       </div>
+    </div>
+
+    <!-- Subscribe -->
+    <div class="subscribe-section">
+      <div class="subscribe-title">Get notified when new signals arrive</div>
+      <div class="subscribe-desc">Enter your email to receive alerts when active trade signals are generated</div>
+      <form class="subscribe-form" id="subscribeForm" onsubmit="handleSubscribe(event)">
+        <input type="email" class="subscribe-input" id="subscribeEmail" placeholder="your@email.com" required>
+        <button type="submit" class="subscribe-btn">Subscribe</button>
+      </form>
+      <div class="subscribe-success" id="subscribeSuccess">You're subscribed! You'll receive signal alerts at this email.</div>
     </div>
 
     <div class="disclaimer">
@@ -513,27 +689,27 @@ tr:hover td { background: rgba(59,130,246,0.05); }
     <div class="stats-bar">
       <div class="stat-item">
         <div class="stat-label">Total Return</div>
-        <div class="stat-value green" id="d-return">—</div>
+        <div class="stat-value green" id="d-return">&mdash;</div>
       </div>
       <div class="stat-item">
         <div class="stat-label">Max Drawdown</div>
-        <div class="stat-value red" id="d-maxdd">—</div>
+        <div class="stat-value red" id="d-maxdd">&mdash;</div>
       </div>
       <div class="stat-item">
         <div class="stat-label">Win Rate</div>
-        <div class="stat-value" id="d-winrate">—</div>
+        <div class="stat-value" id="d-winrate">&mdash;</div>
       </div>
       <div class="stat-item">
         <div class="stat-label">Profit Factor</div>
-        <div class="stat-value" id="d-pf">—</div>
+        <div class="stat-value" id="d-pf">&mdash;</div>
       </div>
       <div class="stat-item">
         <div class="stat-label">Total Trades</div>
-        <div class="stat-value" id="d-trades">—</div>
+        <div class="stat-value" id="d-trades">&mdash;</div>
       </div>
       <div class="stat-item">
         <div class="stat-label">Stopped Trades</div>
-        <div class="stat-value" id="d-stopped">—</div>
+        <div class="stat-value" id="d-stopped">&mdash;</div>
       </div>
     </div>
 
@@ -603,16 +779,85 @@ let DATA = null;
 let charts = {};
 let detailChart = null;
 
+// Google Apps Script URL for email subscription (set this after creating the script)
+const SUBSCRIBE_URL = '';
+
 async function loadData() {
   try {
     const resp = await fetch('data/strategies.json?t=' + Date.now());
     DATA = await resp.json();
-    document.getElementById('lastUpdated').textContent = DATA.last_updated || '—';
+    document.getElementById('lastUpdated').textContent = DATA.last_updated || '\u2014';
     populateLanding();
+    populateSignalBanner();
+    populateCardAlerts();
   } catch(e) {
     console.error('Failed to load data:', e);
     document.getElementById('landingPage').innerHTML = '<div style="text-align:center;padding:80px;color:#6b7280;">Failed to load data. Make sure data/strategies.json exists.</div>';
   }
+}
+
+function populateSignalBanner() {
+  const actives = DATA.active_signals || [];
+  const banner = document.getElementById('signalBanner');
+  if (actives.length === 0) return;
+
+  banner.classList.add('has-signals');
+  document.getElementById('bannerTitle').textContent =
+    actives.length + ' Active Signal' + (actives.length > 1 ? 's' : '') + ' Right Now';
+
+  const container = document.getElementById('bannerSignals');
+  container.innerHTML = '';
+  actives.forEach(s => {
+    const chip = document.createElement('div');
+    chip.className = 'banner-chip';
+    chip.innerHTML = `<span class="chip-sym">${s.symbol.replace('.IS','')}</span>
+      <span class="chip-dir">${s.direction}</span>
+      <span class="chip-strat">${s.strategy}</span>`;
+    container.appendChild(chip);
+  });
+}
+
+function populateCardAlerts() {
+  const strategies = DATA.strategies;
+  const keyMap = { 'Low Risk': 'lr', 'Medium Risk': 'mr', 'High Risk': 'hr' };
+  const actives = DATA.active_signals || [];
+
+  // Group active signals by strategy
+  const byStrategy = {};
+  actives.forEach(s => {
+    if (!byStrategy[s.strategy]) byStrategy[s.strategy] = [];
+    byStrategy[s.strategy].push(s);
+  });
+
+  // Also find last signal date per strategy
+  Object.entries(strategies).forEach(([key, strat]) => {
+    const prefix = key === 'low_risk' ? 'lr' : key === 'medium_risk' ? 'mr' : 'hr';
+    const stratName = strat.name;
+    const alertEl = document.getElementById(prefix + '-signal-alert');
+    const noSignalEl = document.getElementById(prefix + '-no-signal');
+    const trades = strat.trades || [];
+
+    // Find most recent trade
+    let lastTrade = null;
+    if (trades.length > 0) {
+      lastTrade = trades.reduce((a, b) => a.entry_date > b.entry_date ? a : b);
+    }
+
+    const stratActives = byStrategy[stratName] || [];
+
+    if (stratActives.length > 0) {
+      const symbols = stratActives.map(s => s.symbol.replace('.IS', '')).join(', ');
+      alertEl.className = 'card-signal-alert active';
+      alertEl.innerHTML = `<div class="card-signal-dot"></div>
+        <div>
+          <div class="card-signal-text">${stratActives.length} active: ${symbols}</div>
+          <div class="card-signal-info">Entry: ${stratActives[0].entry_date}</div>
+        </div>`;
+    } else if (lastTrade) {
+      noSignalEl.className = 'card-no-signal active';
+      noSignalEl.textContent = 'Last signal: ' + lastTrade.entry_date + ' (' + lastTrade.symbol.replace('.IS', '') + ')';
+    }
+  });
 }
 
 function populateLanding() {
@@ -661,49 +906,7 @@ function createMiniChart(canvasId, eqData, color) {
 }
 
 function showStrategy(key) {
-  // Navigate to the dedicated strategy detail page
-  window.location.href = `strategy.html?strategy=${key}`;
-  return;
-
-  // Legacy code below — no longer used
-  const s = DATA.strategies[key];
-  document.getElementById('landingPage').style.display = 'none';
-  document.getElementById('detailPage').classList.add('active');
-
-  const badge = document.getElementById('detail-badge');
-  const riskMap = { low_risk: 'Low Risk', medium_risk: 'Medium Risk', high_risk: 'High Risk' };
-  badge.textContent = riskMap[key];
-  badge.style.background = key === 'low_risk' ? 'rgba(16,185,129,0.15)' : key === 'medium_risk' ? 'rgba(59,130,246,0.15)' : 'rgba(239,68,68,0.15)';
-  badge.style.color = key === 'low_risk' ? 'var(--low-risk)' : key === 'medium_risk' ? 'var(--med-risk)' : 'var(--high-risk)';
-  document.getElementById('detail-title').textContent = s.name + ' — ' + s.subtitle;
-
-  document.getElementById('d-return').textContent = '+' + s.stats.total_return.toLocaleString() + '%';
-  document.getElementById('d-maxdd').textContent = s.stats.max_dd + '%';
-  document.getElementById('d-winrate').textContent = s.stats.win_rate + '%';
-  document.getElementById('d-pf').textContent = s.stats.profit_factor;
-  document.getElementById('d-trades').textContent = s.stats.trades;
-  document.getElementById('d-stopped').textContent = s.stats.stopped;
-
-  createDetailChart(s.equity_curve, key);
-
-  const today = new Date().toISOString().slice(0, 10);
-  const active = s.trades.filter(t => t.status === 'active' || t.exit_date > today);
-  const past = s.trades.filter(t => t.status === 'closed' && t.exit_date <= today);
-
-  document.getElementById('active-count').textContent = active.length;
-  document.getElementById('past-count').textContent = past.length;
-  document.getElementById('all-count').textContent = s.trades.length;
-
-  renderActiveTrades(active);
-  renderPastTrades(past, 'past-tbody');
-  renderPastTrades(s.trades, 'all-tbody');
-
-  document.getElementById('no-active').style.display = active.length ? 'none' : 'block';
-  document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === 0));
-  document.getElementById('active-trades').style.display = 'block';
-  document.getElementById('past-trades').style.display = 'none';
-  document.getElementById('all-trades').style.display = 'none';
-  window.scrollTo(0, 0);
+  window.location.href = 'strategy.html?strategy=' + key;
 }
 
 function createDetailChart(eqData, key) {
@@ -741,15 +944,15 @@ function renderActiveTrades(trades) {
   tbody.innerHTML = '';
   trades.forEach(t => {
     const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><strong>${t.symbol}</strong></td>
-      <td class="${t.direction === 'LONG' ? 'dir-long' : 'dir-short'}">${t.direction}</td>
-      <td>${t.entry_date}</td>
-      <td>${t.entry_price.toFixed(2)}</td>
-      <td>${t.stop_price.toFixed(2)}</td>
-      <td>${t.expected_hold_days}d</td>
-      <td class="${t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
-      <td><span class="badge-active">ACTIVE</span></td>`;
+    tr.innerHTML =
+      '<td><strong>' + t.symbol + '</strong></td>' +
+      '<td class="' + (t.direction === 'LONG' ? 'dir-long' : 'dir-short') + '">' + t.direction + '</td>' +
+      '<td>' + t.entry_date + '</td>' +
+      '<td>' + t.entry_price.toFixed(2) + '</td>' +
+      '<td>' + t.stop_price.toFixed(2) + '</td>' +
+      '<td>' + t.expected_hold_days + 'd</td>' +
+      '<td class="' + (t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative') + '">' + (t.pnl >= 0 ? '+' : '') + t.pnl.toFixed(2) + '%</td>' +
+      '<td><span class="badge-active">ACTIVE</span></td>';
     tbody.appendChild(tr);
   });
 }
@@ -757,28 +960,28 @@ function renderActiveTrades(trades) {
 function renderPastTrades(trades, tbodyId) {
   const tbody = document.getElementById(tbodyId);
   tbody.innerHTML = '';
-  [...trades].sort((a, b) => b.exit_date.localeCompare(a.exit_date)).forEach(t => {
-    let notes = '';
+  trades.slice().sort(function(a, b) { return b.exit_date.localeCompare(a.exit_date); }).forEach(function(t) {
+    var notes = '';
     if (t.stopped) notes = '<span class="badge-stopped">STOPPED</span>';
     else if (t.overridden) notes = '<span class="badge-overridden">OVERRIDDEN</span>';
-    const tr = document.createElement('tr');
-    tr.innerHTML = `
-      <td><strong>${t.symbol}</strong></td>
-      <td class="${t.direction === 'LONG' ? 'dir-long' : 'dir-short'}">${t.direction}</td>
-      <td>${t.entry_date}</td>
-      <td>${t.entry_price.toFixed(2)}</td>
-      <td>${t.exit_date}</td>
-      <td>${t.exit_price.toFixed(2)}</td>
-      <td>${t.stop_price.toFixed(2)}</td>
-      <td>${t.expected_hold_days}d</td>
-      <td class="${t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative'}">${t.pnl >= 0 ? '+' : ''}${t.pnl.toFixed(2)}%</td>
-      <td>${notes}</td>`;
+    var tr = document.createElement('tr');
+    tr.innerHTML =
+      '<td><strong>' + t.symbol + '</strong></td>' +
+      '<td class="' + (t.direction === 'LONG' ? 'dir-long' : 'dir-short') + '">' + t.direction + '</td>' +
+      '<td>' + t.entry_date + '</td>' +
+      '<td>' + t.entry_price.toFixed(2) + '</td>' +
+      '<td>' + t.exit_date + '</td>' +
+      '<td>' + t.exit_price.toFixed(2) + '</td>' +
+      '<td>' + t.stop_price.toFixed(2) + '</td>' +
+      '<td>' + t.expected_hold_days + 'd</td>' +
+      '<td class="' + (t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative') + '">' + (t.pnl >= 0 ? '+' : '') + t.pnl.toFixed(2) + '%</td>' +
+      '<td>' + notes + '</td>';
     tbody.appendChild(tr);
   });
 }
 
 function switchTab(tab) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
   event.target.classList.add('active');
   document.getElementById('active-trades').style.display = tab === 'active' ? 'block' : 'none';
   document.getElementById('past-trades').style.display = tab === 'past' ? 'block' : 'none';
@@ -789,6 +992,30 @@ function showLanding() {
   document.getElementById('landingPage').style.display = 'block';
   document.getElementById('detailPage').classList.remove('active');
   window.scrollTo(0, 0);
+}
+
+function handleSubscribe(e) {
+  e.preventDefault();
+  var email = document.getElementById('subscribeEmail').value;
+  if (!email) return;
+
+  if (SUBSCRIBE_URL) {
+    // Send to Google Apps Script
+    fetch(SUBSCRIBE_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    });
+  }
+
+  // Also open mailto as fallback
+  var subject = encodeURIComponent('Up2Top Signal Subscription');
+  var body = encodeURIComponent('Please add me to the Up2Top signal notifications list.\n\nEmail: ' + email);
+  window.open('mailto:oertemtr@gmail.com?subject=' + subject + '&body=' + body, '_blank');
+
+  document.getElementById('subscribeForm').style.display = 'none';
+  document.getElementById('subscribeSuccess').style.display = 'block';
 }
 
 loadData();
