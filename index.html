@@ -1,1024 +1,929 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Up2Top — Trade the BIST</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<style>
-:root {
-  --bg-primary: #0a0e17;
-  --bg-secondary: #111827;
-  --bg-card: #1a2233;
-  --bg-card-hover: #1e2940;
-  --text-primary: #e5e7eb;
-  --text-secondary: #9ca3af;
-  --text-muted: #6b7280;
-  --accent-green: #10b981;
-  --accent-red: #ef4444;
-  --accent-blue: #3b82f6;
-  --accent-yellow: #f59e0b;
-  --border: #1f2937;
-  --low-risk: #10b981;
-  --med-risk: #3b82f6;
-  --high-risk: #ef4444;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-}
-.container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JSE3YPB5WN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JSE3YPB5WN');
+</script>
+    <meta name="google-site-verification" content="kFGti-yQj10881iIUz2Z_zubMRtacg3RZX0IRWfgL_s" />
+    <title>ExportTurk — Premium Turkish Exports &amp; Services | Hair Transplant, Dental, Education, Trade</title>
+    <meta name="description" content="ExportTurk connects global clients with verified Turkish providers. Goods export — auto parts, hazelnuts, seafood, transformers, copper, petroleum, mining. Services — hair transplant, dental treatment, university placement. Free quote within 24h.">
+    <meta name="keywords" content="Turkish export agent, Turkey sourcing company, import from Turkey, Turkey trade intermediary, Turkish auto parts, hazelnuts Turkey, transformers Turkey, hair transplant Turkey, dental treatment Turkey, study in Turkey, Turkish university placement, Turkey medical tourism, Turkey education services, ExportTurk">
+    <meta name="author" content="ExportTurk">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://exportturk.com/">
 
-/* Header */
-.header {
-  padding: 20px 0;
-  border-bottom: 1px solid var(--border);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logo { font-size: 26px; font-weight: 800; letter-spacing: -1px; }
-.logo span { color: var(--accent-blue); }
-.header-meta { font-size: 13px; color: var(--text-muted); }
+    <!-- Open Graph -->
+    <meta property="og:title" content="ExportTurk — Premium Turkish Exports &amp; Services">
+    <meta property="og:description" content="Verified Turkish providers for goods export and services — hair transplant, dental, education, maternity, plus 7 product lines. One trusted intermediary.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="ExportTurk">
 
-/* ===== ACTIVE SIGNAL BANNER ===== */
-.signal-banner {
-  display: none;
-  background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, rgba(59,130,246,0.12) 100%);
-  border: 1px solid rgba(16,185,129,0.3);
-  border-radius: 14px;
-  padding: 18px 24px;
-  margin: 20px 0;
-  animation: bannerPulse 3s ease-in-out infinite;
-}
-.signal-banner.has-signals { display: block; }
-@keyframes bannerPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16,185,129,0.2); }
-  50% { box-shadow: 0 0 20px 4px rgba(16,185,129,0.15); }
-}
-.banner-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-.banner-dot {
-  width: 10px; height: 10px;
-  background: var(--accent-green);
-  border-radius: 50%;
-  animation: blink 1.2s ease-in-out infinite;
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.2; }
-}
-.banner-title {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--accent-green);
-}
-.banner-signals {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.banner-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(0,0,0,0.3);
-  border-radius: 8px;
-  padding: 6px 12px;
-  font-size: 13px;
-  font-weight: 600;
-}
-.banner-chip .chip-sym { color: var(--text-primary); }
-.banner-chip .chip-dir { color: var(--accent-green); font-size: 11px; text-transform: uppercase; }
-.banner-chip .chip-strat { color: var(--text-muted); font-size: 11px; }
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ExportTurk — Premium Turkish Export Products">
+    <meta name="twitter:description" content="Source premium products directly from verified Turkish manufacturers.">
 
-/* ===== LANDING PAGE ===== */
-.landing { padding: 56px 0 32px; }
+    <!-- Structured Data -->
+    <script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "ExportTurk",
+        "description": "Connecting global importers with verified Turkish manufacturers",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "FethiyeOSB Mahallesi Mavi Cadde",
+            "addressLocality": "Nilüfer",
+            "addressRegion": "Bursa",
+            "postalCode": "16140",
+            "addressCountry": "TR"
+        },
+        "telephone": "+90 532 354 11 29",
+        "email": "info@exportturk.com"
+    }</script>
 
-.hero-section { text-align: center; margin-bottom: 20px; }
-.hero-tagline {
-  font-size: 14px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: var(--accent-blue);
-  margin-bottom: 16px;
-}
-.hero-title {
-  font-size: 52px;
-  font-weight: 900;
-  letter-spacing: -2px;
-  line-height: 1.1;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, #fff 0%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-.hero-subtitle {
-  font-size: 18px;
-  color: var(--text-secondary);
-  margin-bottom: 12px;
-  font-weight: 400;
-}
-.hero-powered {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-bottom: 48px;
-}
-.hero-powered span { color: var(--accent-blue); font-weight: 600; }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: #f8f9fa;
+        }
 
-.risk-question {
-  text-align: center;
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-primary);
-  margin-bottom: 32px;
-  letter-spacing: -0.5px;
-}
+        /* HEADER */
+        header {
+            background: #1a2332;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #c9a84c 0%, #e8d48b 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #1a2332;
+            font-weight: 800;
+        }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            color: #c9a84c;
+            font-size: 22px;
+            font-weight: 700;
+        }
+        .header-contact {
+            color: #a0aec0;
+            font-size: 14px;
+        }
+        .header-contact a {
+            color: #c9a84c;
+            text-decoration: none;
+        }
 
-/* Strategy Cards */
-.strategy-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-bottom: 48px;
-}
-@media (max-width: 960px) {
-  .strategy-grid { grid-template-columns: 1fr; max-width: 480px; margin-left: auto; margin-right: auto; }
-  .hero-title { font-size: 36px; }
-}
-.strategy-card {
-  background: var(--bg-card);
-  border-radius: 20px;
-  padding: 32px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border: 2px solid var(--border);
-  position: relative;
-  overflow: hidden;
-}
-.strategy-card:hover {
-  background: var(--bg-card-hover);
-  transform: translateY(-6px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
-}
-.strategy-card.low-risk:hover { border-color: var(--low-risk); box-shadow: 0 16px 48px rgba(16,185,129,0.15); }
-.strategy-card.med-risk:hover { border-color: var(--med-risk); box-shadow: 0 16px 48px rgba(59,130,246,0.15); }
-.strategy-card.high-risk:hover { border-color: var(--high-risk); box-shadow: 0 16px 48px rgba(239,68,68,0.15); }
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, rgba(26,35,50,0.93) 0%, rgba(15,52,96,0.9) 50%, rgba(26,35,50,0.95) 100%);
+            padding: 100px 40px 80px;
+            text-align: center;
+            color: white;
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 52px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+        .hero h1 span {
+            color: #c9a84c;
+        }
+        .hero p {
+            font-size: 20px;
+            color: #cbd5e0;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: #c9a84c;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #a0aec0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-primary {
+            background: #c9a84c;
+            color: #1a2332;
+            padding: 16px 36px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .btn-primary:hover {
+            background: #d4b85c;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(201,168,76,0.3);
+        }
+        .btn-secondary {
+            border: 2px solid #c9a84c;
+            color: #c9a84c;
+            padding: 14px 36px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            background: transparent;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary:hover {
+            background: rgba(201,168,76,0.1);
+        }
 
-/* Risk badge — LARGE */
-.risk-badge-large {
-  display: inline-block;
-  padding: 8px 20px;
-  border-radius: 25px;
-  font-size: 18px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin-bottom: 20px;
-}
-.low-risk .risk-badge-large { background: rgba(16,185,129,0.15); color: var(--low-risk); border: 1px solid rgba(16,185,129,0.3); }
-.med-risk .risk-badge-large { background: rgba(59,130,246,0.15); color: var(--med-risk); border: 1px solid rgba(59,130,246,0.3); }
-.high-risk .risk-badge-large { background: rgba(239,68,68,0.15); color: var(--high-risk); border: 1px solid rgba(239,68,68,0.3); }
+        /* CATEGORIES */
+        .categories {
+            padding: 80px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .categories h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #1a2332;
+        }
+        .categories .subtitle {
+            text-align: center;
+            color: #718096;
+            font-size: 16px;
+            margin-bottom: 50px;
+        }
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        .cat-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        .cat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+        }
+        .cat-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .cat-gradient {
+            width: 100%;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .cat-body {
+            padding: 24px;
+        }
+        .cat-body h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            color: #1a2332;
+            margin-bottom: 8px;
+        }
+        .cat-body p {
+            color: #718096;
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.6;
+        }
+        .cat-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: #edf2f7;
+            color: #4a5568;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .cat-arrow {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #c9a84c;
+            font-weight: 600;
+            font-size: 14px;
+            margin-top: 16px;
+        }
 
-.card-title { font-size: 22px; font-weight: 700; margin-bottom: 12px; letter-spacing: -0.3px; }
-.card-description {
-  font-size: 14px;
-  color: var(--text-secondary);
-  line-height: 1.7;
-  margin-bottom: 24px;
-  min-height: 48px;
-}
+        /* WHY SECTION */
+        .why-section {
+            background: #1a2332;
+            padding: 80px 40px;
+            color: white;
+        }
+        .why-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .why-card {
+            text-align: center;
+        }
+        .why-icon {
+            font-size: 48px;
+            margin-bottom: 16px;
+        }
+        .why-card h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #c9a84c;
+        }
+        .why-card p {
+            color: #a0aec0;
+            font-size: 14px;
+            line-height: 1.7;
+        }
 
-/* Card signal alert */
-.card-signal-alert {
-  display: none;
-  background: rgba(16,185,129,0.1);
-  border: 1px solid rgba(16,185,129,0.25);
-  border-radius: 10px;
-  padding: 10px 14px;
-  margin-bottom: 16px;
-  font-size: 12px;
-}
-.card-signal-alert.active { display: flex; align-items: center; gap: 8px; }
-.card-signal-dot {
-  width: 8px; height: 8px;
-  background: var(--accent-green);
-  border-radius: 50%;
-  animation: blink 1.2s ease-in-out infinite;
-  flex-shrink: 0;
-}
-.card-signal-text { color: var(--accent-green); font-weight: 600; }
-.card-signal-info { color: var(--text-muted); font-size: 11px; margin-top: 2px; }
-.card-no-signal {
-  display: none;
-  background: rgba(107,114,128,0.08);
-  border: 1px solid rgba(107,114,128,0.15);
-  border-radius: 10px;
-  padding: 10px 14px;
-  margin-bottom: 16px;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-.card-no-signal.active { display: block; }
+        /* CONTACT / CTA */
+        .cta-section {
+            background: linear-gradient(135deg, #c9a84c 0%, #d4b85c 100%);
+            padding: 80px 40px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #1a2332;
+            margin-bottom: 16px;
+        }
+        .cta-section p {
+            color: #2d3748;
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta-btn {
+            background: #1a2332;
+            color: #c9a84c;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .cta-btn:hover {
+            background: #2d3748;
+            transform: translateY(-2px);
+        }
 
-.card-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-.stat-item {
-  background: rgba(0,0,0,0.25);
-  border-radius: 10px;
-  padding: 12px 14px;
-}
-.stat-label {
-  font-size: 10px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-  margin-bottom: 4px;
-  font-weight: 600;
-}
-.stat-value { font-size: 20px; font-weight: 800; }
-.stat-value.green { color: var(--accent-green); }
-.stat-value.red { color: var(--accent-red); }
+        /* FOOTER */
+        footer {
+            background: #0f1722;
+            padding: 40px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+        }
+        footer a {
+            color: #c9a84c;
+            text-decoration: none;
+        }
 
-.chart-container { height: 140px; margin-top: 12px; position: relative; }
-
-.select-btn {
-  width: 100%;
-  padding: 14px;
-  border-radius: 12px;
-  border: none;
-  font-size: 15px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-top: 20px;
-  color: white;
-  letter-spacing: 0.3px;
-}
-.low-risk .select-btn { background: var(--low-risk); }
-.med-risk .select-btn { background: var(--med-risk); }
-.high-risk .select-btn { background: var(--high-risk); }
-.select-btn:hover { opacity: 0.85; transform: scale(1.02); }
-
-/* How it works */
-.how-it-works {
-  background: var(--bg-card);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 32px;
-  border: 1px solid var(--border);
-}
-.how-title { font-size: 18px; font-weight: 700; margin-bottom: 20px; text-align: center; }
-.how-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-@media (max-width: 768px) { .how-grid { grid-template-columns: repeat(2, 1fr); } }
-.how-step { text-align: center; }
-.how-icon { font-size: 28px; margin-bottom: 8px; }
-.how-step-title { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
-.how-step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
-
-/* Subscribe section */
-.subscribe-section {
-  background: linear-gradient(135deg, rgba(59,130,246,0.08) 0%, rgba(139,92,246,0.08) 100%);
-  border: 1px solid rgba(59,130,246,0.2);
-  border-radius: 16px;
-  padding: 32px;
-  margin-bottom: 32px;
-  text-align: center;
-}
-.subscribe-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.subscribe-desc { font-size: 14px; color: var(--text-secondary); margin-bottom: 20px; }
-.subscribe-form {
-  display: flex;
-  gap: 10px;
-  max-width: 460px;
-  margin: 0 auto;
-}
-@media (max-width: 600px) { .subscribe-form { flex-direction: column; } }
-.subscribe-input {
-  flex: 1;
-  padding: 12px 16px;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  font-size: 14px;
-  font-family: inherit;
-  outline: none;
-}
-.subscribe-input:focus { border-color: var(--accent-blue); }
-.subscribe-btn {
-  padding: 12px 24px;
-  border-radius: 10px;
-  border: none;
-  background: var(--accent-blue);
-  color: white;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.2s;
-  white-space: nowrap;
-}
-.subscribe-btn:hover { opacity: 0.85; }
-.subscribe-success {
-  display: none;
-  color: var(--accent-green);
-  font-size: 14px;
-  font-weight: 600;
-  margin-top: 12px;
-}
-
-/* Disclaimer */
-.disclaimer {
-  background: rgba(245,158,11,0.06);
-  border: 1px solid rgba(245,158,11,0.15);
-  border-radius: 12px;
-  padding: 16px 20px;
-  margin: 24px 0;
-  font-size: 12px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-.disclaimer strong { color: var(--accent-yellow); }
-
-/* ===== DETAIL PAGE ===== */
-.detail-page { display: none; padding: 32px 0; }
-.detail-page.active { display: block; }
-.back-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  color: var(--text-secondary);
-  font-size: 14px;
-  cursor: pointer;
-  transition: all 0.2s;
-  margin-bottom: 24px;
-  font-weight: 500;
-}
-.back-btn:hover { background: var(--bg-card-hover); color: var(--text-primary); }
-
-.detail-header { display: flex; align-items: center; gap: 16px; margin-bottom: 32px; }
-.detail-title { font-size: 28px; font-weight: 700; }
-.risk-badge {
-  display: inline-block;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.stats-bar {
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 16px;
-  margin-bottom: 32px;
-}
-@media (max-width: 900px) { .stats-bar { grid-template-columns: repeat(3, 1fr); } }
-.stats-bar .stat-item { background: var(--bg-card); }
-
-/* Tabs */
-.tabs {
-  display: flex;
-  gap: 4px;
-  margin-bottom: 24px;
-  background: var(--bg-card);
-  border-radius: 10px;
-  padding: 4px;
-  width: fit-content;
-}
-.tab-btn {
-  padding: 8px 20px;
-  border-radius: 8px;
-  border: none;
-  background: transparent;
-  color: var(--text-secondary);
-  font-size: 14px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-.tab-btn.active { background: var(--accent-blue); color: white; }
-.tab-btn:hover:not(.active) { color: var(--text-primary); }
-
-/* Trade Tables */
-.trades-section { margin-bottom: 32px; }
-.section-title {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.section-title .count {
-  background: var(--bg-card);
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 12px;
-  color: var(--text-muted);
-}
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 13px;
-}
-th {
-  text-align: left;
-  padding: 10px 12px;
-  border-bottom: 1px solid var(--border);
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-td {
-  padding: 10px 12px;
-  border-bottom: 1px solid rgba(31,41,55,0.5);
-}
-tr:hover td { background: rgba(255,255,255,0.02); }
-.table-wrap { overflow-x: auto; }
-.dir-long { color: var(--accent-green); font-weight: 600; }
-.dir-short { color: var(--accent-red); font-weight: 600; }
-.pnl-positive { color: var(--accent-green); font-weight: 600; }
-.pnl-negative { color: var(--accent-red); font-weight: 600; }
-.badge-active {
-  background: rgba(16,185,129,0.15);
-  color: var(--accent-green);
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 700;
-}
-.badge-stopped {
-  background: rgba(239,68,68,0.15);
-  color: var(--accent-red);
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 700;
-}
-.badge-overridden {
-  background: rgba(245,158,11,0.15);
-  color: var(--accent-yellow);
-  padding: 3px 10px;
-  border-radius: 6px;
-  font-size: 11px;
-  font-weight: 700;
-}
-
-/* Equity chart large */
-.equity-chart-large {
-  background: var(--bg-card);
-  border-radius: 16px;
-  padding: 24px;
-  border: 1px solid var(--border);
-  margin-bottom: 32px;
-}
-.equity-chart-large .chart-area { height: 300px; position: relative; }
-
-.footer {
-  padding: 24px 0;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 12px;
-}
-</style>
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .stat-number { font-size: 32px; }
+            .hero-stats { gap: 24px; }
+            .categories { padding: 50px 20px; }
+            .cat-grid { grid-template-columns: 1fr; }
+            header { flex-direction: column; gap: 12px; text-align: center; }
+        }
+    </style>
 </head>
 <body>
 
-<div class="container">
-  <div class="header">
-    <div class="logo">Up2<span>Top</span></div>
-    <div class="header-meta">Signals updated: <span id="lastUpdated">&mdash;</span></div>
-  </div>
-
-  <!-- ===== ACTIVE SIGNAL BANNER ===== -->
-  <div id="signalBanner" class="signal-banner">
-    <div class="banner-header">
-      <div class="banner-dot"></div>
-      <div class="banner-title" id="bannerTitle">Active Signals</div>
-    </div>
-    <div class="banner-signals" id="bannerSignals"></div>
-  </div>
-
-  <!-- ===== LANDING PAGE ===== -->
-  <div id="landingPage" class="landing">
-
-    <div class="hero-section">
-      <div class="hero-tagline">Algorithmic Trading Signals</div>
-      <h1 class="hero-title">Trade the BIST</h1>
-      <p class="hero-subtitle">Choose from backtested strategies with built-in risk management</p>
-      <p class="hero-powered">Powered by <span>XGBoost</span> + <span>Markov Regime Switching</span> + <span>Monte Carlo Simulation</span></p>
-    </div>
-
-    <div class="risk-question">How much risk do you want to take?</div>
-
-    <div class="strategy-grid">
-      <!-- Low Risk -->
-      <div class="strategy-card low-risk" onclick="showStrategy('low_risk')">
-        <div class="risk-badge-large">Low Risk</div>
-        <div class="card-title">Conservative Long-Only</div>
-        <div class="card-description">
-          Only buy signals from strategies that historically never lost more than 3% on any single trade. Maximum safety.
+    <header>
+        <a class="logo" href="javascript:void(0)" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+            <div class="logo-icon">ET</div>
+            <span class="logo-text">ExportTurk</span>
+        </a>
+        <div class="header-contact">
+            <a href="services.html" style="margin-right:18px;color:#c9a84c;font-weight:600;">Services</a>
+            <a href="mailto:info@exportturk.com">info@exportturk.com</a>
         </div>
-        <div id="lr-signal-alert" class="card-signal-alert"></div>
-        <div id="lr-no-signal" class="card-no-signal"></div>
-        <div class="card-stats">
-          <div class="stat-item">
-            <div class="stat-label">12-Month Return</div>
-            <div class="stat-value green" id="lr-return">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Max Portfolio Loss</div>
-            <div class="stat-value red" id="lr-maxdd">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Win Rate</div>
-            <div class="stat-value" id="lr-winrate">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Total Trades</div>
-            <div class="stat-value" id="lr-trades">&mdash;</div>
-          </div>
+    </header>
+
+    <section class="hero">
+        <h1>Your Trusted Export Partner in<br><span>Türkiye</span></h1>
+        <p>ExportTurk is a Turkish sourcing intermediary that connects international clients with verified Turkish providers — manufacturers for goods export, plus accredited clinics and universities for medical and education services. We handle partner matching, quality verification, negotiations, logistics, and end-to-end coordination — so you can engage with Turkey with confidence.</p>
+
+        <div class="hero-stats">
+            <div class="stat">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Product &amp; Service Lines</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">30+</div>
+                <div class="stat-label">Export Products</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Target Regions</div>
+            </div>
+            <div class="stat">
+                <div class="stat-number">24h</div>
+                <div class="stat-label">Quote Turnaround</div>
+            </div>
         </div>
-        <div class="chart-container"><canvas id="chart-low"></canvas></div>
-        <button class="select-btn">View Signals &rarr;</button>
-      </div>
 
-      <!-- Medium Risk -->
-      <div class="strategy-card med-risk" onclick="showStrategy('medium_risk')">
-        <div class="risk-badge-large">Medium Risk</div>
-        <div class="card-title">Balanced Long-Only</div>
-        <div class="card-description">
-          Buy signals from the minimum-drawdown portfolio. More trades, higher returns, still long-only with 3% stop-loss.
+        <div class="hero-cta">
+            <a href="https://wa.me/905323541129?text=Hi%20ExportTurk%2C%20I%27m%20interested%20in%20your%20products." target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#25D366;color:white;padding:14px 28px;border-radius:8px;font-size:16px;font-weight:600;text-decoration:none;transition:all 0.3s ease;box-shadow:0 4px 12px rgba(37,211,102,0.3);" onmouseover="this.style.background='#1da851';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='#25D366';this.style.transform='translateY(0)'"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>WhatsApp</a>
+            <button class="btn-secondary" onclick="document.getElementById('chat-window').style.display='flex';document.getElementById('chat-input').focus();" style="cursor:pointer;">Talk to Our AI Assistant</button>
+            <a href="#categories" class="btn-primary">Explore Products</a>
         </div>
-        <div id="mr-signal-alert" class="card-signal-alert"></div>
-        <div id="mr-no-signal" class="card-no-signal"></div>
-        <div class="card-stats">
-          <div class="stat-item">
-            <div class="stat-label">12-Month Return</div>
-            <div class="stat-value green" id="mr-return">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Max Portfolio Loss</div>
-            <div class="stat-value red" id="mr-maxdd">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Win Rate</div>
-            <div class="stat-value" id="mr-winrate">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Total Trades</div>
-            <div class="stat-value" id="mr-trades">&mdash;</div>
-          </div>
+    </section>
+
+    <section class="categories" id="categories">
+        <h2>Our Product Lines</h2>
+        <p class="subtitle">Click any category to explore products, market data, and request quotes</p>
+
+        <div class="cat-grid">
+            <a class="cat-card" href="transformers-cables.html">
+                <img class="cat-image" src="https://images.pexels.com/photos/7867328/pexels-photo-7867328.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&dpr=1" alt="Power Transformers & Cables">
+                <div class="cat-body">
+                    <h3>Power Transformers & Cables</h3>
+                    <p>High-voltage transformers, insulated cables, copper conductors, and electrical wiring systems for energy infrastructure.</p>
+                    <div class="cat-tags">
+                        <span class="tag">HS 8504</span>
+                        <span class="tag">HS 8544</span>
+                        <span class="tag">$1.2B exports</span>
+                    </div>
+                    <div class="cat-arrow">View Products →</div>
+                </div>
+            </a>
+
+            <a class="cat-card" href="auto-parts.html">
+                <img class="cat-image" src="https://images.pexels.com/photos/3807799/pexels-photo-3807799.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&dpr=1" alt="Auto Parts">
+                <div class="cat-body">
+                    <h3>Auto Parts & Vehicle Components</h3>
+                    <p>OEM-grade body parts, wheels, axles, brake systems, and drivetrain components from Ford, Toyota & Hyundai production lines.</p>
+                    <div class="cat-tags">
+                        <span class="tag">HS 8708</span>
+                        <span class="tag">$2.7B exports</span>
+                        <span class="tag">#1 sector</span>
+                    </div>
+                    <div class="cat-arrow">View Products →</div>
+                </div>
+            </a>
+
+            <a class="cat-card" href="nuts-biscuits.html">
+                <img class="cat-image" src="https://images.pexels.com/photos/1799307/pexels-photo-1799307.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&dpr=1" alt="Nuts & Biscuits">
+                <div class="cat-body">
+                    <h3>Nuts, Dried Fruits & Biscuits</h3>
+                    <p>World-famous Turkish hazelnuts, pistachios, dried figs, premium biscuits, and confectionery products.</p>
+                    <div class="cat-tags">
+                        <span class="tag">HS 0802</span>
+                        <span class="tag">HS 1905</span>
+                        <span class="tag">Global #1 hazelnut</span>
+                    </div>
+                    <div class="cat-arrow">View Products →</div>
+                </div>
+            </a>
+
+            <a class="cat-card" href="fish-seafood.html">
+                <img class="cat-image" src="https://images.pexels.com/photos/2042591/pexels-photo-2042591.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&dpr=1" alt="Fish & Seafood">
+                <div class="cat-body">
+                    <h3>Fish & Seafood</h3>
+                    <p>Mediterranean sea bass, sea bream, trout, and processed seafood. EU-certified aquaculture and wild catch.</p>
+                    <div class="cat-tags">
+                        <span class="tag">HS 0302</span>
+                        <span class="tag">HS 0304</span>
+                        <span class="tag">EU certified</span>
+                    </div>
+                    <div class="cat-arrow">View Products →</div>
+                </div>
+            </a>
+
+            <a class="cat-card" href="petroleum-aromatics.html">
+                <img class="cat-image" src="https://images.pexels.com/photos/15970032/pexels-photo-15970032.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&dpr=1" alt="Petroleum & Aromatics">
+                <div class="cat-body">
+                    <h3>Petroleum & Aromatics</h3>
+                    <p>Refined petroleum products, aromatic hydrocarbons, and petrochemical solutions from Turkey's strategic refinery network.</p>
+                    <div class="cat-tags">
+                        <span class="tag">HS 2710</span>
+                        <span class="tag">HS 2902</span>
+                        <span class="tag">Strategic hub</span>
+                    </div>
+                    <div class="cat-arrow">View Products →</div>
+                </div>
+            </a>
+
+            <a class="cat-card" href="copper-products.html">
+                <img class="cat-image" src="https://images.pexels.com/photos/10149814/pexels-photo-10149814.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&dpr=1" alt="Copper Products">
+                <div class="cat-body">
+                    <h3>Copper Products</h3>
+                    <p>LME-approved copper cathodes, wire rod, tubes, fittings, and brass alloys for construction and electronics.</p>
+                    <div class="cat-tags">
+                        <span class="tag">HS 7408</span>
+                        <span class="tag">HS 7411</span>
+                        <span class="tag">LME approved</span>
+                    </div>
+                    <div class="cat-arrow">View Products →</div>
+                </div>
+            </a>
+
+            <a class="cat-card" href="mining-metals.html">
+                <img class="cat-image" src="https://images.pexels.com/photos/14213937/pexels-photo-14213937.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&dpr=1" alt="Mining & Metals">
+                <div class="cat-body">
+                    <h3>Mining & Metals</h3>
+                    <p>Zinc ores, ferro-chromium, cobalt carbonates, and specialty metal alloys for steel and battery industries.</p>
+                    <div class="cat-tags">
+                        <span class="tag">HS 2608</span>
+                        <span class="tag">HS 7202</span>
+                        <span class="tag">Battery metals</span>
+                    </div>
+                    <div class="cat-arrow">View Products →</div>
+                </div>
+            </a>
         </div>
-        <div class="chart-container"><canvas id="chart-med"></canvas></div>
-        <button class="select-btn">View Signals &rarr;</button>
-      </div>
+    </section>
 
-      <!-- High Risk -->
-      <div class="strategy-card high-risk" onclick="showStrategy('high_risk')">
-        <div class="risk-badge-large">High Risk</div>
-        <div class="card-title">Aggressive Daily-Predict</div>
-        <div class="card-description">
-          Same strategies but XGBoost predicts every trading day. More signals, higher return potential, higher volatility.
+    <!-- SERVICES SECTION (Health & Education) -->
+    <section class="categories" id="services-section" style="background:#0f1418;color:white;padding:80px 40px;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:36px;text-align:center;margin-bottom:14px;color:white;">Our Service Lines</h2>
+        <p style="text-align:center;color:#a0aec0;font-size:16px;max-width:780px;margin:0 auto 50px;line-height:1.7;">Beyond goods export, ExportTurk also coordinates verified Turkish health and education services for international clients. Same intermediary model, same transparent commercial terms.</p>
+
+        <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;">
+
+            <a href="hair-transplant.html" style="background:linear-gradient(135deg,#1a4d52 0%,#0d7377 100%);border-radius:14px;padding:30px 26px;text-decoration:none;color:white;transition:transform 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div style="font-size:38px;margin-bottom:12px;">💇‍♂️</div>
+                <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:8px;color:white;">Hair Transplant</h3>
+                <p style="font-size:13.5px;opacity:0.92;line-height:1.6;flex:1;">FUE, DHI and Sapphire FUE at JCI-accredited Istanbul clinics. All-inclusive packages.</p>
+                <div style="color:#c9a84c;font-weight:700;font-size:14px;margin-top:14px;">View Hair Transplant →</div>
+            </a>
+
+            <a href="dental-health.html" style="background:linear-gradient(135deg,#1a4d52 0%,#0d7377 100%);border-radius:14px;padding:30px 26px;text-decoration:none;color:white;transition:transform 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div style="font-size:38px;margin-bottom:12px;">🦷</div>
+                <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:8px;color:white;">Dental Health</h3>
+                <p style="font-size:13.5px;opacity:0.92;line-height:1.6;flex:1;">Implants, veneers, Hollywood Smile, All-on-4. CE-certified materials, prosthodontist supervision.</p>
+                <div style="color:#c9a84c;font-weight:700;font-size:14px;margin-top:14px;">View Dental Services →</div>
+            </a>
+
+            <a href="education-services.html" style="background:linear-gradient(135deg,#1a4d52 0%,#0d7377 100%);border-radius:14px;padding:30px 26px;text-decoration:none;color:white;transition:transform 0.3s;display:flex;flex-direction:column;" onmouseover="this.style.transform='translateY(-6px)'" onmouseout="this.style.transform='translateY(0)'">
+                <div style="font-size:38px;margin-bottom:12px;">🎓</div>
+                <h3 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:8px;color:white;">University Placement</h3>
+                <p style="font-size:13.5px;opacity:0.92;line-height:1.6;flex:1;">YÖK-recognised Turkish universities. Bachelor, master, PhD, medical school. Scholarship guidance.</p>
+                <div style="color:#c9a84c;font-weight:700;font-size:14px;margin-top:14px;">View Education Services →</div>
+            </a>
+
         </div>
-        <div id="hr-signal-alert" class="card-signal-alert"></div>
-        <div id="hr-no-signal" class="card-no-signal"></div>
-        <div class="card-stats">
-          <div class="stat-item">
-            <div class="stat-label">12-Month Return</div>
-            <div class="stat-value green" id="hr-return">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Max Portfolio Loss</div>
-            <div class="stat-value red" id="hr-maxdd">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Win Rate</div>
-            <div class="stat-value" id="hr-winrate">&mdash;</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Total Trades</div>
-            <div class="stat-value" id="hr-trades">&mdash;</div>
-          </div>
+
+        <div style="text-align:center;margin-top:40px;">
+            <a href="services.html" style="display:inline-block;background:#c9a84c;color:#1a2332;padding:14px 32px;border-radius:8px;font-weight:700;text-decoration:none;font-size:15px;">View All Services →</a>
         </div>
-        <div class="chart-container"><canvas id="chart-high"></canvas></div>
-        <button class="select-btn">View Signals &rarr;</button>
-      </div>
-    </div>
+    </section>
 
-    <div class="how-it-works">
-      <div class="how-title">How It Works</div>
-      <div class="how-grid">
-        <div class="how-step">
-          <div class="how-icon">&#x1F4CA;</div>
-          <div class="how-step-title">Data Collected</div>
-          <div class="how-step-desc">Daily OHLCV prices for 28 BIST stocks updated after market close</div>
+    <!-- HOW WE WORK - INTERMEDIARY SECTION -->
+    <section style="background:#f1f5f9;padding:80px 40px;">
+        <div style="max-width:1100px;margin:0 auto;text-align:center;">
+            <h2 style="font-family:'Playfair Display',serif;font-size:36px;color:#1a2332;margin-bottom:16px;">How ExportTurk Works</h2>
+            <p style="color:#718096;font-size:17px;max-width:750px;margin:0 auto 50px;line-height:1.7;">We are a <strong>Turkish sourcing intermediary</strong> based in Bursa, Türkiye. We bridge the gap between international clients and Turkish providers — manufacturers, clinics, and universities — who often lack English-language support or international experience. You tell us what you need; we find, verify, negotiate, and coordinate, whether you are importing goods or sourcing a service.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:30px;">
+                <div style="background:white;padding:28px 20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                    <div style="font-size:36px;margin-bottom:12px;">1</div>
+                    <h3 style="font-size:16px;color:#1a2332;margin-bottom:8px;">You Send an Inquiry</h3>
+                    <p style="color:#718096;font-size:13px;line-height:1.6;">Tell us the product, specs, quantity, and destination via our AI chatbot, RFQ form, WhatsApp, or email.</p>
+                </div>
+                <div style="background:white;padding:28px 20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                    <div style="font-size:36px;margin-bottom:12px;">2</div>
+                    <h3 style="font-size:16px;color:#1a2332;margin-bottom:8px;">We Source & Verify</h3>
+                    <p style="color:#718096;font-size:13px;line-height:1.6;">Our team contacts verified Turkish manufacturers, negotiates pricing, and checks quality certifications on your behalf.</p>
+                </div>
+                <div style="background:white;padding:28px 20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                    <div style="font-size:36px;margin-bottom:12px;">3</div>
+                    <h3 style="font-size:16px;color:#1a2332;margin-bottom:8px;">You Get a Quote</h3>
+                    <p style="color:#718096;font-size:13px;line-height:1.6;">Within 24 hours, you receive a detailed quotation with product specs, pricing, lead times, and shipping options.</p>
+                </div>
+                <div style="background:white;padding:28px 20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+                    <div style="font-size:36px;margin-bottom:12px;">4</div>
+                    <h3 style="font-size:16px;color:#1a2332;margin-bottom:8px;">We Handle Logistics</h3>
+                    <p style="color:#718096;font-size:13px;line-height:1.6;">From production oversight to customs documentation and shipping coordination — we manage the entire export process.</p>
+                </div>
+            </div>
         </div>
-        <div class="how-step">
-          <div class="how-icon">&#x1F9E0;</div>
-          <div class="how-step-title">Model Predicts</div>
-          <div class="how-step-desc">XGBoost + Markov regime + Monte Carlo generate buy signals</div>
+    </section>
+
+    <!-- DETAILED PRODUCT RANGE FOR SEO -->
+    <section style="padding:80px 40px;max-width:1200px;margin:0 auto;" id="all-products">
+        <h2 style="font-family:'Playfair Display',serif;font-size:32px;text-align:center;color:#1a2332;margin-bottom:12px;">Products We Export from Turkey</h2>
+        <p style="text-align:center;color:#718096;font-size:15px;margin-bottom:50px;max-width:700px;margin-left:auto;margin-right:auto;">As a Turkish sourcing partner, we supply the following product categories to importers worldwide. Click any category for detailed specifications, certifications, and inquiry. Looking for a service instead? Browse our <a href="services.html" style="color:#0d7377;font-weight:600;">Services</a> page.</p>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:24px;">
+
+            <div style="background:white;padding:24px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border-left:4px solid #2c5282;">
+                <h3 style="font-size:18px;color:#1a2332;margin-bottom:10px;"><a href="transformers-cables.html" style="color:#1a2332;text-decoration:none;">Power Transformers, Cables & Electrical Equipment</a></h3>
+                <p style="color:#718096;font-size:13px;line-height:1.7;">Step-up transformers, step-down transformers, three-phase power transformers, distribution transformers (pole-mounted, pad-mounted), autotransformers, instrument transformers (CT, PT), isolation transformers, dry-type transformers, oil-immersed transformers, cast resin transformers. XLPE insulated power cables, PVC cables, armoured cables, submarine cables, fire-resistant cables, overhead bare conductors (ACSR, AAC, AAAC), copper conductors, aluminum conductors, fiber optic cables. Circuit breakers, switchgear, surge arresters, relay protection panels, gas-insulated switchgear (GIS).</p>
+            </div>
+
+            <div style="background:white;padding:24px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border-left:4px solid #1976d2;">
+                <h3 style="font-size:18px;color:#1a2332;margin-bottom:10px;"><a href="auto-parts.html" style="color:#1a2332;text-decoration:none;">Auto Parts & Vehicle Components</a></h3>
+                <p style="color:#718096;font-size:13px;line-height:1.7;">OEM auto body parts: bumpers, fenders, hoods, doors, side mirrors, windshields, headlights, grilles. Drivetrain: drive axles, differentials, CV joints, propeller shafts, clutch assemblies, transmission parts. Suspension: shock absorbers, struts, control arms, ball joints, tie rods, steering racks, stabilizer bars. Brakes: brake pads, discs, drums, calipers, ABS sensors. Engine: pistons, cylinder heads, turbochargers, fuel injectors, timing belts. Wheels: alloy wheels, steel wheels, wheel bearings, TPMS sensors.</p>
+            </div>
+
+            <div style="background:white;padding:24px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border-left:4px solid #8d6e63;">
+                <h3 style="font-size:18px;color:#1a2332;margin-bottom:10px;"><a href="nuts-biscuits.html" style="color:#1a2332;text-decoration:none;">Hazelnuts, Pistachios, Dried Fruits & Biscuits</a></h3>
+                <p style="color:#718096;font-size:13px;line-height:1.7;">Turkish hazelnuts: raw (in-shell, shelled), roasted, blanched, hazelnut flour, hazelnut paste, hazelnut oil, chopped/diced/sliced, organic hazelnuts. Antep pistachios: in-shell, shelled, roasted, raw kernels, pistachio paste, green peeled. Dried fruits: dried figs (Aydin, Smyrna), dried apricots (Malatya), sultana raisins, sun-dried tomatoes, dried mulberries. Biscuits: petit beurre, digestive, cream-filled wafers, chocolate-coated biscuits, Turkish delight (lokum), halva, baklava, sesame bars.</p>
+            </div>
+
+            <div style="background:white;padding:24px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border-left:4px solid #26a69a;">
+                <h3 style="font-size:18px;color:#1a2332;margin-bottom:10px;"><a href="fish-seafood.html" style="color:#1a2332;text-decoration:none;">Fish & Seafood</a></h3>
+                <p style="color:#718096;font-size:13px;line-height:1.7;">Farmed fish: European sea bass (levrek), gilthead sea bream (çipura), rainbow trout, salmon trout, Atlantic salmon, meagre. Wild catch: anchovy (hamsi), bonito (palamut), bluefish (lüfer), red mullet (barbunya), horse mackerel (istavrit), turbot (kalkan). Processed: frozen fillets, smoked fish, fish fingers, breaded fish, canned tuna, fish meal, fish oil, marinated anchovies. EU approved, HACCP, BRC, IFS, ASC, MSC, Halal, FDA registered.</p>
+            </div>
+
+            <div style="background:white;padding:24px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border-left:4px solid #607d8b;">
+                <h3 style="font-size:18px;color:#1a2332;margin-bottom:10px;"><a href="petroleum-aromatics.html" style="color:#1a2332;text-decoration:none;">Refined Petroleum & Petrochemicals</a></h3>
+                <p style="color:#718096;font-size:13px;line-height:1.7;">Refined products: gasoline (RON 92/95/98), diesel (EN 590), jet fuel (Jet A-1), fuel oil, LPG, naphtha, bitumen, base oils, lubricants. Aromatics: benzene, toluene, xylene (ortho/meta/para), mixed xylenes, styrene monomer, cumene, cyclohexane. Petrochemicals: polyethylene (HDPE, LDPE, LLDPE), polypropylene, PVC resin, PET resin, ethylene glycol, methanol. Specialty: white spirit, petroleum jelly, paraffin wax, carbon black, sulfur.</p>
+            </div>
+
+            <div style="background:white;padding:24px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border-left:4px solid #e65100;">
+                <h3 style="font-size:18px;color:#1a2332;margin-bottom:10px;"><a href="copper-products.html" style="color:#1a2332;text-decoration:none;">Copper Products & Alloys</a></h3>
+                <p style="color:#718096;font-size:13px;line-height:1.7;">Copper cathodes (LME Grade A), electrolytic copper, copper billets, copper ingots. Wire: copper wire rod (8mm), drawing quality wire, enameled copper wire, tinned copper wire, copper bus bars, copper strips/foils. Tubes: ACR copper tubes, plumbing copper pipes, medical gas tubes, copper fittings (elbows, tees, couplings), capillary tubes. Alloys: brass rods, brass sheets, brass valves, bronze products, copper-nickel alloys, beryllium copper.</p>
+            </div>
+
+            <div style="background:white;padding:24px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.05);border-left:4px solid #757575;">
+                <h3 style="font-size:18px;color:#1a2332;margin-bottom:10px;"><a href="mining-metals.html" style="color:#1a2332;text-decoration:none;">Mining & Metals</a></h3>
+                <p style="color:#718096;font-size:13px;line-height:1.7;">Zinc: ores and concentrates, zinc metal (SHG 99.995%), zinc alloys, zinc oxide, zinc dust, hot-dip galvanizing. Ferro-chromium: high carbon (HC FeCr), low carbon (LC FeCr), charge chrome, chrome ore, stainless steel raw materials. Cobalt: cobalt carbonates, cobalt hydroxide, cobalt sulfate, battery-grade cobalt, cobalt metal powder. Other: ferro-manganese, ferro-silicon, silicon metal, feldspar, boron products (borax, boric acid), marble, natural stone, pumice.</p>
+            </div>
+
         </div>
-        <div class="how-step">
-          <div class="how-icon">&#x1F6E1;</div>
-          <div class="how-step-title">Risk Managed</div>
-          <div class="how-step-desc">3% stop-loss per trade automatically limits downside on every position</div>
+    </section>
+
+    <section class="why-section">
+        <h2>Why Source from Turkey?</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <div class="why-icon">🏭</div>
+                <h3>Manufacturing Excellence</h3>
+                <p>500,000+ manufacturers with ISO, CE, HACCP, and EU certifications. OEM partner to global brands.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">💰</div>
+                <h3>Competitive Pricing</h3>
+                <p>20-40% cost advantage over EU manufacturers with equivalent quality standards.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🚢</div>
+                <h3>Strategic Location</h3>
+                <p>Direct shipping routes to Europe, MENA, Africa, and Asia. 5-15 day delivery to most destinations.</p>
+            </div>
+            <div class="why-card">
+                <div class="why-icon">🤝</div>
+                <h3>Verified Suppliers</h3>
+                <p>Every manufacturer in our network is pre-vetted for quality, capacity, and export experience.</p>
+            </div>
         </div>
-        <div class="how-step">
-          <div class="how-icon">&#x1F4F1;</div>
-          <div class="how-step-title">Signals Published</div>
-          <div class="how-step-desc">Active and past trades updated here every evening for the next trading day</div>
+    </section>
+
+    
+    <!-- NICHE PRODUCT SEO SECTION -->
+    <section id="niche-products" style="padding:60px 40px;max-width:1200px;margin:0 auto;background:#f8f9fa;border-radius:16px;margin-bottom:40px;">
+        <h2 style="font-family:'Playfair Display',serif;font-size:28px;text-align:center;color:#1a2332;margin-bottom:12px;">Specific Products We Export from Turkey</h2>
+        <p style="text-align:center;color:#718096;font-size:15px;margin-bottom:40px;max-width:700px;margin-left:auto;margin-right:auto;">Browse our extensive range of specific products available for export from Turkey. Contact us for pricing, MOQ, and delivery schedules.</p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;">
+            <div style="background:white;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);border-left:3px solid #c9a84c;">
+                <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:#1a2332;margin-bottom:10px;">Power Transformers & Cables</h3>
+                <ul style="color:#4a5568;font-size:12.5px;line-height:1.9;padding-left:18px;margin:0;">
+                    <li>250 kVA toroidal core distribution transformer</li><li>630 kVA ONAN cooled distribution transformer</li><li>40 MVA EAF electric arc furnace transformer</li><li>100 MVA transmission transformer 220/33 kV</li><li>Mobile substation transformer on trailer</li><li>11 kV medium voltage XLPE cable</li><li>ACSR overhead conductor 477 MCM Hawk</li><li>Solar PV cable 6mm² TUV certified</li><li>36 kV SF6 gas-insulated switchgear (GIS)</li><li>Ring main unit (RMU) 24 kV compact</li>
+                </ul>
+            </div>
+            <div style="background:white;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);border-left:3px solid #c9a84c;">
+                <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:#1a2332;margin-bottom:10px;">Auto Parts & Vehicle Components</h3>
+                <ul style="color:#4a5568;font-size:12.5px;line-height:1.9;padding-left:18px;margin:0;">
+                    <li>Front bumper assembly with fog lamp brackets</li><li>Headlight assembly LED/halogen replacement</li><li>Turbocharger assembly wastegate type</li><li>Timing belt kit with tensioner and idler</li><li>MacPherson strut assembly front complete</li><li>Brake disc/rotor ventilated 280-340mm</li><li>Alloy wheel forged 18-22 inch</li><li>Alternator 12V 120A-180A output</li><li>Catalytic converter Euro 6 compliant</li><li>Wiring harness main engine loom</li>
+                </ul>
+            </div>
+            <div style="background:white;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);border-left:3px solid #c9a84c;">
+                <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:#1a2332;margin-bottom:10px;">Hazelnuts, Dried Fruits & Confectionery</h3>
+                <ul style="color:#4a5568;font-size:12.5px;line-height:1.9;padding-left:18px;margin:0;">
+                    <li>Raw in-shell hazelnuts Tombul variety (Giresun)</li><li>Hazelnut paste 100% pure for chocolate</li><li>Antep pistachio in-shell roasted salted</li><li>Dried figs Aydın/Nazilli natural sun-dried</li><li>Dried apricots Malatya #1 sulphured/natural</li><li>Golden raisins sultana seedless bulk</li><li>Turkish delight (lokum) rose/pistachio flavor</li><li>Baklava mixed assortment 1kg tray</li><li>Wafer bar hazelnut cream filled</li><li>Halva tahini/pistachio 500g block</li>
+                </ul>
+            </div>
+            <div style="background:white;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);border-left:3px solid #c9a84c;">
+                <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:#1a2332;margin-bottom:10px;">Fish & Seafood Products</h3>
+                <ul style="color:#4a5568;font-size:12.5px;line-height:1.9;padding-left:18px;margin:0;">
+                    <li>Sea bass (Levrek) whole gutted 400-600g</li><li>Sea bream (Çipura) fillet skin-on IQF</li><li>Rainbow trout fillet boneless 250-350g</li><li>Smoked salmon trout sliced vacuum-packed</li><li>Anchovy (Hamsi) whole IQF Mediterranean</li><li>Squid tube and tentacle cleaned frozen</li><li>Shrimp raw peeled deveined 16/20 count</li><li>Fish meal 65% protein animal feed grade</li><li>Canned sardines in olive oil 125g</li><li>Extruded fish feed pellet 3-9mm sea bass</li>
+                </ul>
+            </div>
+            <div style="background:white;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);border-left:3px solid #c9a84c;">
+                <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:#1a2332;margin-bottom:10px;">Petroleum & Petrochemical Products</h3>
+                <ul style="color:#4a5568;font-size:12.5px;line-height:1.9;padding-left:18px;margin:0;">
+                    <li>Diesel fuel EN 590 10ppm ultra-low sulphur</li><li>Jet fuel A-1 aviation kerosene ASTM D1655</li><li>Bitumen 60/70 penetration grade paving</li><li>Base oil SN150/SN500 Group I lubricant</li><li>Toluene 99.5% industrial solvent grade</li><li>Para-xylene 99.7% for PTA/PET production</li><li>Polypropylene PP homopolymer pellets</li><li>HDPE/LDPE/LLDPE polyethylene granules</li><li>Paraffin wax fully refined 58-60°C</li><li>Carbon black N330 rubber grade</li>
+                </ul>
+            </div>
+            <div style="background:white;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);border-left:3px solid #c9a84c;">
+                <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:#1a2332;margin-bottom:10px;">Copper Products & Brass Alloys</h3>
+                <ul style="color:#4a5568;font-size:12.5px;line-height:1.9;padding-left:18px;margin:0;">
+                    <li>Electrolytic copper cathode LME Grade A 99.99%</li><li>Copper wire rod 8mm continuous cast ETP</li><li>Copper tube seamless ACR 1/4"-7/8"</li><li>Copper-nickel tube 90/10 marine condenser</li><li>Brass rod CuZn39Pb3 free cutting 6-80mm</li><li>Phosphor bronze strip CuSn6/CuSn8</li><li>Copper magnet wire polyester class F</li><li>Level wound coil (LWC) copper tube</li><li>Copper sheet/plate 0.5-20mm C11000 ETP</li><li>Aluminum bronze CuAl10Ni5Fe4</li>
+                </ul>
+            </div>
+            <div style="background:white;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);border-left:3px solid #c9a84c;">
+                <h3 style="font-family:'Playfair Display',serif;font-size:17px;color:#1a2332;margin-bottom:10px;">Mining & Metal Products</h3>
+                <ul style="color:#4a5568;font-size:12.5px;line-height:1.9;padding-left:18px;margin:0;">
+                    <li>Zinc ingot SHG 99.995% LME registered</li><li>Ferro-chromium high carbon HC FeCr 60-70% Cr</li><li>Ferro-silicon 75% Si for steelmaking</li><li>Cobalt carbonate CoCO3 46% Co content</li><li>Chromite ore concentrate 46% Cr2O3</li><li>Boron minerals colemanite B2O3 40%</li><li>Feldspar sodium/potassium for ceramic</li><li>Marble block/slab Afyon white</li><li>Silicon metal 553/441 grade</li><li>Graphite electrode UHP for EAF</li>
+                </ul>
+            </div>
         </div>
-      </div>
+    </section>
+
+    <section class="cta-section">
+        <h2>Ready to Import from Turkey?</h2>
+        <p>As your dedicated Turkish export partner, we handle everything — supplier matching, price negotiation, quality inspection, and shipping coordination. Get a free quote within 24 hours.</p>
+        <a href="javascript:void(0)" class="cta-btn" onclick="document.getElementById('chat-window').style.display='flex';document.getElementById('chat-input').focus();window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});">Get Started — Request a Quote</a>
+    </section>
+
+    <footer>
+        <p>© 2026 ExportTurk. All rights reserved. | <a href="mailto:info@exportturk.com">info@exportturk.com</a></p>
+        <p style="margin-top:8px;font-size:12px;color:#4a5568;">Trade data sourced from TURKSTAT and ITC Trade Map. Updated April 2026.</p>
+    </footer>
+
+    <!-- CHAT WIDGET -->
+    <style>
+        .chat-bubble { position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, #c9a84c, #a8893a); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.2); z-index: 10000; font-size: 28px; transition: transform 0.3s ease; }
+        .chat-bubble:hover { transform: scale(1.1); }
+        .chat-window { display: none; position: fixed; bottom: 100px; right: 30px; width: 380px; max-height: 500px; background: white; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,0.15); flex-direction: column; z-index: 10000; overflow: hidden; }
+        .chat-header { background: #1a2332; color: #c9a84c; padding: 16px 20px; font-weight: 600; font-size: 15px; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 16px; min-height: 250px; max-height: 350px; }
+        .message { margin-bottom: 12px; display: flex; }
+        .message.bot { justify-content: flex-start; }
+        .message.user { justify-content: flex-end; }
+        .message-bubble { max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 14px; line-height: 1.5; }
+        .message.bot .message-bubble { background: #f1f5f9; color: #333; border-bottom-left-radius: 4px; }
+        .message.user .message-bubble { background: #c9a84c; color: #1a2332; border-bottom-right-radius: 4px; }
+        .chat-input-area { display: flex; padding: 12px; border-top: 1px solid #e2e8f0; gap: 8px; }
+        .chat-input-area input { flex: 1; border: 1px solid #e2e8f0; border-radius: 8px; padding: 10px 14px; font-size: 14px; outline: none; }
+        .chat-input-area button { background: #c9a84c; color: #1a2332; border: none; border-radius: 8px; padding: 10px 16px; cursor: pointer; font-weight: 600; font-size: 14px; }
+        @media (max-width: 768px) { .chat-window { width: calc(100% - 24px); right: 12px; bottom: 90px; } }
+    </style>
+
+    <div class="chat-bubble" id="chat-toggle">💬</div>
+    <div class="chat-window" id="chat-window">
+        <div class="chat-header" style="display:flex;justify-content:space-between;align-items:center;">ExportTurk AI Assistant<span onclick="document.getElementById('chat-window').style.display='none'" style="cursor:pointer;font-size:20px;color:#a0aec0;padding:0 4px;">&times;</span></div>
+        <div class="chat-messages" id="chat-messages"></div>
+        <div class="chat-input-area">
+            <input type="text" id="chat-input" placeholder="Type your message...">
+            <button id="chat-send">Send</button>
+        </div>
     </div>
 
-    <!-- Subscribe -->
-    <div class="subscribe-section">
-      <div class="subscribe-title">Get notified when new signals arrive</div>
-      <div class="subscribe-desc">Enter your email to receive alerts when active trade signals are generated</div>
-      <form class="subscribe-form" id="subscribeForm" onsubmit="handleSubscribe(event)">
-        <input type="email" class="subscribe-input" id="subscribeEmail" placeholder="your@email.com" required>
-        <button type="submit" class="subscribe-btn">Subscribe</button>
-      </form>
-      <div class="subscribe-success" id="subscribeSuccess">You're subscribed! You'll receive signal alerts at this email.</div>
-    </div>
+    <script>
+    // Chat widget
+    const chatToggle = document.getElementById('chat-toggle');
+    const chatWindow = document.getElementById('chat-window');
+    const chatSend = document.getElementById('chat-send');
+    const chatInput = document.getElementById('chat-input');
+    const chatMessages = document.getElementById('chat-messages');
+    let chatOpened = false;
 
-    <div class="disclaimer">
-      <strong>Disclaimer:</strong> Past performance does not guarantee future results. All statistics shown are from out-of-sample backtesting.
-      This is not financial advice. Trade at your own risk. The 3% stop-loss applies per individual trade, not to overall portfolio value.
-    </div>
-  </div>
-
-  <!-- ===== DETAIL PAGE ===== -->
-  <div id="detailPage" class="detail-page">
-    <button class="back-btn" onclick="showLanding()">&larr; Back to Strategies</button>
-
-    <div class="detail-header">
-      <span class="risk-badge" id="detail-badge"></span>
-      <h2 class="detail-title" id="detail-title"></h2>
-    </div>
-
-    <div class="stats-bar">
-      <div class="stat-item">
-        <div class="stat-label">Total Return</div>
-        <div class="stat-value green" id="d-return">&mdash;</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-label">Max Drawdown</div>
-        <div class="stat-value red" id="d-maxdd">&mdash;</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-label">Win Rate</div>
-        <div class="stat-value" id="d-winrate">&mdash;</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-label">Profit Factor</div>
-        <div class="stat-value" id="d-pf">&mdash;</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-label">Total Trades</div>
-        <div class="stat-value" id="d-trades">&mdash;</div>
-      </div>
-      <div class="stat-item">
-        <div class="stat-label">Stopped Trades</div>
-        <div class="stat-value" id="d-stopped">&mdash;</div>
-      </div>
-    </div>
-
-    <div class="equity-chart-large">
-      <div class="section-title">Equity Curve (Compounded Returns)</div>
-      <div class="chart-area"><canvas id="detail-chart"></canvas></div>
-    </div>
-
-    <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab('active')">Active Trades</button>
-      <button class="tab-btn" onclick="switchTab('past')">Past Trades</button>
-      <button class="tab-btn" onclick="switchTab('all')">All Trades</button>
-    </div>
-
-    <div id="active-trades" class="trades-section">
-      <div class="section-title">Active Signals <span class="count" id="active-count">0</span></div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr>
-            <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
-            <th>Stop-Loss</th><th>Expected Hold</th><th>Unrealized P&amp;L</th><th>Status</th>
-          </tr></thead>
-          <tbody id="active-tbody"></tbody>
-        </table>
-      </div>
-      <div id="no-active" style="text-align:center; padding:48px; color:var(--text-muted); font-size:15px;">
-        No active trades at the moment.<br>New signals appear after market close each trading day.
-      </div>
-    </div>
-
-    <div id="past-trades" class="trades-section" style="display:none;">
-      <div class="section-title">Past Trades <span class="count" id="past-count">0</span></div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr>
-            <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
-            <th>Exit Date</th><th>Exit Price</th><th>Stop-Loss</th>
-            <th>Expected Hold</th><th>P&amp;L</th><th>Notes</th>
-          </tr></thead>
-          <tbody id="past-tbody"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div id="all-trades" class="trades-section" style="display:none;">
-      <div class="section-title">All Trades <span class="count" id="all-count">0</span></div>
-      <div class="table-wrap">
-        <table>
-          <thead><tr>
-            <th>Symbol</th><th>Direction</th><th>Entry Date</th><th>Entry Price</th>
-            <th>Exit Date</th><th>Exit Price</th><th>Stop-Loss</th>
-            <th>Expected Hold</th><th>P&amp;L</th><th>Notes</th>
-          </tr></thead>
-          <tbody id="all-tbody"></tbody>
-        </table>
-      </div>
-    </div>
-  </div>
-
-  <div class="footer">
-    Up2Top &middot; Algorithmic Trading Signals for Borsa Istanbul &middot; Not financial advice
-  </div>
-</div>
-
-<script>
-let DATA = null;
-let charts = {};
-let detailChart = null;
-
-// Google Apps Script URL for email subscription (set this after creating the script)
-const SUBSCRIBE_URL = '';
-
-async function loadData() {
-  try {
-    const resp = await fetch('data/strategies.json?t=' + Date.now());
-    DATA = await resp.json();
-    document.getElementById('lastUpdated').textContent = DATA.last_updated || '\u2014';
-    populateLanding();
-    populateSignalBanner();
-    populateCardAlerts();
-  } catch(e) {
-    console.error('Failed to load data:', e);
-    document.getElementById('landingPage').innerHTML = '<div style="text-align:center;padding:80px;color:#6b7280;">Failed to load data. Make sure data/strategies.json exists.</div>';
-  }
-}
-
-function populateSignalBanner() {
-  const actives = DATA.active_signals || [];
-  const banner = document.getElementById('signalBanner');
-  if (actives.length === 0) return;
-
-  banner.classList.add('has-signals');
-  document.getElementById('bannerTitle').textContent =
-    actives.length + ' Active Signal' + (actives.length > 1 ? 's' : '') + ' Right Now';
-
-  const container = document.getElementById('bannerSignals');
-  container.innerHTML = '';
-  actives.forEach(s => {
-    const chip = document.createElement('div');
-    chip.className = 'banner-chip';
-    chip.innerHTML = `<span class="chip-sym">${s.symbol.replace('.IS','')}</span>
-      <span class="chip-dir">${s.direction}</span>
-      <span class="chip-strat">${s.strategy}</span>`;
-    container.appendChild(chip);
-  });
-}
-
-function populateCardAlerts() {
-  const strategies = DATA.strategies;
-  const keyMap = { 'Low Risk': 'lr', 'Medium Risk': 'mr', 'High Risk': 'hr' };
-  const actives = DATA.active_signals || [];
-
-  // Group active signals by strategy
-  const byStrategy = {};
-  actives.forEach(s => {
-    if (!byStrategy[s.strategy]) byStrategy[s.strategy] = [];
-    byStrategy[s.strategy].push(s);
-  });
-
-  // Also find last signal date per strategy
-  Object.entries(strategies).forEach(([key, strat]) => {
-    const prefix = key === 'low_risk' ? 'lr' : key === 'medium_risk' ? 'mr' : 'hr';
-    const stratName = strat.name;
-    const alertEl = document.getElementById(prefix + '-signal-alert');
-    const noSignalEl = document.getElementById(prefix + '-no-signal');
-    const trades = strat.trades || [];
-
-    // Find most recent trade
-    let lastTrade = null;
-    if (trades.length > 0) {
-      lastTrade = trades.reduce((a, b) => a.entry_date > b.entry_date ? a : b);
-    }
-
-    const stratActives = byStrategy[stratName] || [];
-
-    if (stratActives.length > 0) {
-      const symbols = stratActives.map(s => s.symbol.replace('.IS', '')).join(', ');
-      alertEl.className = 'card-signal-alert active';
-      alertEl.innerHTML = `<div class="card-signal-dot"></div>
-        <div>
-          <div class="card-signal-text">${stratActives.length} active: ${symbols}</div>
-          <div class="card-signal-info">Entry: ${stratActives[0].entry_date}</div>
-        </div>`;
-    } else if (lastTrade) {
-      noSignalEl.className = 'card-no-signal active';
-      noSignalEl.textContent = 'Last signal: ' + lastTrade.entry_date + ' (' + lastTrade.symbol.replace('.IS', '') + ')';
-    }
-  });
-}
-
-function populateLanding() {
-  const s = DATA.strategies;
-  const lr = s.low_risk.stats;
-  document.getElementById('lr-return').textContent = '+' + lr.total_return.toLocaleString() + '%';
-  document.getElementById('lr-maxdd').textContent = lr.max_dd + '%';
-  document.getElementById('lr-winrate').textContent = lr.win_rate + '%';
-  document.getElementById('lr-trades').textContent = lr.trades;
-
-  const mr = s.medium_risk.stats;
-  document.getElementById('mr-return').textContent = '+' + mr.total_return.toLocaleString() + '%';
-  document.getElementById('mr-maxdd').textContent = mr.max_dd + '%';
-  document.getElementById('mr-winrate').textContent = mr.win_rate + '%';
-  document.getElementById('mr-trades').textContent = mr.trades;
-
-  const hr = s.high_risk.stats;
-  document.getElementById('hr-return').textContent = '+' + hr.total_return.toLocaleString() + '%';
-  document.getElementById('hr-maxdd').textContent = hr.max_dd + '%';
-  document.getElementById('hr-winrate').textContent = hr.win_rate + '%';
-  document.getElementById('hr-trades').textContent = hr.trades;
-
-  createMiniChart('chart-low', s.low_risk.equity_curve, '#10b981');
-  createMiniChart('chart-med', s.medium_risk.equity_curve, '#3b82f6');
-  createMiniChart('chart-high', s.high_risk.equity_curve, '#ef4444');
-}
-
-function createMiniChart(canvasId, eqData, color) {
-  const ctx = document.getElementById(canvasId).getContext('2d');
-  const labels = eqData.map(d => d.date);
-  const values = eqData.map(d => (d.value - 1) * 100);
-  if (charts[canvasId]) charts[canvasId].destroy();
-  charts[canvasId] = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [{ data: values, borderColor: color, backgroundColor: color + '15', fill: true, tension: 0.3, pointRadius: 0, borderWidth: 2 }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false }, tooltip: { enabled: false } },
-      scales: { x: { display: false }, y: { display: false, beginAtZero: true } },
-      interaction: { enabled: false }
-    }
-  });
-}
-
-function showStrategy(key) {
-  window.location.href = 'strategy.html?strategy=' + key;
-}
-
-function createDetailChart(eqData, key) {
-  const ctx = document.getElementById('detail-chart').getContext('2d');
-  const colorMap = { low_risk: '#10b981', medium_risk: '#3b82f6', high_risk: '#ef4444' };
-  const color = colorMap[key];
-  const labels = eqData.map(d => d.date === 'start' ? 'Start' : d.date);
-  const values = eqData.map(d => (d.value - 1) * 100);
-  if (detailChart) detailChart.destroy();
-  detailChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [{ label: 'Return %', data: values, borderColor: color, backgroundColor: color + '20', fill: true, tension: 0.3, pointRadius: 3, pointHoverRadius: 6, borderWidth: 2.5 }]
-    },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#1a2233', titleColor: '#e5e7eb', bodyColor: '#e5e7eb', borderColor: '#374151', borderWidth: 1,
-          callbacks: { label: ctx => 'Return: ' + ctx.parsed.y.toFixed(1) + '%' }
+    chatToggle.addEventListener('click', () => {
+        chatWindow.style.display = chatWindow.style.display === 'none' ? 'flex' : 'none';
+        if (!chatOpened) {
+            addBotMsg('Welcome to ExportTurk! We connect global importers with verified Turkish manufacturers across 7 product lines: <strong>power equipment, auto parts, food, seafood, petroleum, copper, and mining metals</strong>.<br><br>What product are you looking for?');
+            chatOpened = true;
         }
-      },
-      scales: {
-        x: { ticks: { color: '#6b7280', maxTicksLimit: 12, font: { size: 11 } }, grid: { color: 'rgba(107,114,128,0.1)' } },
-        y: { ticks: { color: '#6b7280', font: { size: 11 }, callback: v => v.toFixed(0) + '%' }, grid: { color: 'rgba(107,114,128,0.1)' } }
-      }
-    }
-  });
-}
-
-function renderActiveTrades(trades) {
-  const tbody = document.getElementById('active-tbody');
-  tbody.innerHTML = '';
-  trades.forEach(t => {
-    const tr = document.createElement('tr');
-    tr.innerHTML =
-      '<td><strong>' + t.symbol + '</strong></td>' +
-      '<td class="' + (t.direction === 'LONG' ? 'dir-long' : 'dir-short') + '">' + t.direction + '</td>' +
-      '<td>' + t.entry_date + '</td>' +
-      '<td>' + t.entry_price.toFixed(2) + '</td>' +
-      '<td>' + t.stop_price.toFixed(2) + '</td>' +
-      '<td>' + t.expected_hold_days + 'd</td>' +
-      '<td class="' + (t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative') + '">' + (t.pnl >= 0 ? '+' : '') + t.pnl.toFixed(2) + '%</td>' +
-      '<td><span class="badge-active">ACTIVE</span></td>';
-    tbody.appendChild(tr);
-  });
-}
-
-function renderPastTrades(trades, tbodyId) {
-  const tbody = document.getElementById(tbodyId);
-  tbody.innerHTML = '';
-  trades.slice().sort(function(a, b) { return b.exit_date.localeCompare(a.exit_date); }).forEach(function(t) {
-    var notes = '';
-    if (t.stopped) notes = '<span class="badge-stopped">STOPPED</span>';
-    else if (t.overridden) notes = '<span class="badge-overridden">OVERRIDDEN</span>';
-    var tr = document.createElement('tr');
-    tr.innerHTML =
-      '<td><strong>' + t.symbol + '</strong></td>' +
-      '<td class="' + (t.direction === 'LONG' ? 'dir-long' : 'dir-short') + '">' + t.direction + '</td>' +
-      '<td>' + t.entry_date + '</td>' +
-      '<td>' + t.entry_price.toFixed(2) + '</td>' +
-      '<td>' + t.exit_date + '</td>' +
-      '<td>' + t.exit_price.toFixed(2) + '</td>' +
-      '<td>' + t.stop_price.toFixed(2) + '</td>' +
-      '<td>' + t.expected_hold_days + 'd</td>' +
-      '<td class="' + (t.pnl >= 0 ? 'pnl-positive' : 'pnl-negative') + '">' + (t.pnl >= 0 ? '+' : '') + t.pnl.toFixed(2) + '%</td>' +
-      '<td>' + notes + '</td>';
-    tbody.appendChild(tr);
-  });
-}
-
-function switchTab(tab) {
-  document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
-  event.target.classList.add('active');
-  document.getElementById('active-trades').style.display = tab === 'active' ? 'block' : 'none';
-  document.getElementById('past-trades').style.display = tab === 'past' ? 'block' : 'none';
-  document.getElementById('all-trades').style.display = tab === 'all' ? 'block' : 'none';
-}
-
-function showLanding() {
-  document.getElementById('landingPage').style.display = 'block';
-  document.getElementById('detailPage').classList.remove('active');
-  window.scrollTo(0, 0);
-}
-
-function handleSubscribe(e) {
-  e.preventDefault();
-  var email = document.getElementById('subscribeEmail').value;
-  if (!email) return;
-
-  if (SUBSCRIBE_URL) {
-    // Send to Google Apps Script
-    fetch(SUBSCRIBE_URL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email: email })
     });
-  }
 
-  // Also open mailto as fallback
-  var subject = encodeURIComponent('Up2Top Signal Subscription');
-  var body = encodeURIComponent('Please add me to the Up2Top signal notifications list.\n\nEmail: ' + email);
-  window.open('mailto:oertemtr@gmail.com?subject=' + subject + '&body=' + body, '_blank');
+    chatSend.addEventListener('click', sendMsg);
+    chatInput.addEventListener('keypress', (e) => { if (e.key === 'Enter') sendMsg(); });
 
-  document.getElementById('subscribeForm').style.display = 'none';
-  document.getElementById('subscribeSuccess').style.display = 'block';
-}
+    function addBotMsg(text) {
+        const div = document.createElement('div');
+        div.className = 'message bot';
+        div.innerHTML = '<div class="message-bubble">' + text + '</div>';
+        chatMessages.appendChild(div);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
 
-loadData();
-</script>
+    function sendMsg() {
+        const msg = chatInput.value.trim();
+        if (!msg) return;
+        const div = document.createElement('div');
+        div.className = 'message user';
+        div.innerHTML = '<div class="message-bubble">' + msg + '</div>';
+        chatMessages.appendChild(div);
+        chatInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+        setTimeout(() => { addBotMsg(getResponse(msg)); }, 600);
+    }
+
+    let chatState = { step: 'initial', product: '', specs: '', quantity: '', country: '', email: '' };
+
+    function getResponse(msg) {
+        const lower = msg.toLowerCase().trim();
+
+        if (lower.match(/[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/)) {
+            chatState.email = msg.trim();
+            chatState.step = 'done';
+            return buildSummary();
+        }
+
+        const greetings = ['hi','hello','hey','good morning','good afternoon','merhaba','selam','bonjour','hola'];
+        if (greetings.some(g => lower === g || lower.startsWith(g + ' ') || lower.startsWith(g + '!'))) {
+            if (chatState.step === 'initial') return 'Hello! Welcome to ExportTurk. We specialize in connecting importers with Turkish manufacturers. What product category are you interested in?<br><br><strong>Power Equipment</strong> | <strong>Auto Parts</strong> | <strong>Nuts & Food</strong> | <strong>Seafood</strong> | <strong>Petroleum</strong> | <strong>Copper</strong> | <strong>Mining & Metals</strong>';
+        }
+
+        const helpWords = ['help','what can you','how does','not sure'];
+        if (helpWords.some(h => lower.includes(h))) {
+            return 'I can help you source any Turkish export product! Just tell me:<br>1. What <strong>product</strong> you need<br>2. Your <strong>specifications</strong><br>3. <strong>Quantity</strong><br>4. <strong>Destination country</strong><br>5. Your <strong>email</strong><br><br>Our team will send you a quote within 24 hours!';
+        }
+
+        if (chatState.step === 'done') {
+            if (lower.includes('new') || lower.includes('another')) {
+                chatState = { step: 'initial', product: '', specs: '', quantity: '', country: '', email: chatState.email };
+                return 'Sure! What product are you interested in?';
+            }
+            return 'Your inquiry has been noted! Our team will contact you shortly. Type <strong>new inquiry</strong> for another product, or reach us via <a href="https://wa.me/905323541129" target="_blank" style="color:#25D366;font-weight:bold;">WhatsApp</a> or email <strong>info@exportturk.com</strong>.';
+        }
+
+        switch(chatState.step) {
+            case 'initial':
+                chatState.product = msg;
+                chatState.step = 'specs';
+                return 'Excellent! Could you share the <strong>specifications</strong> you need? (size, grade, certifications, packaging, etc.) Type <strong>other</strong> if unsure.';
+            case 'specs':
+                chatState.specs = msg;
+                chatState.step = 'quantity';
+                return 'Got it. What <strong>quantity</strong> are you looking for? (e.g., "500 units/month", "20 tons", "2 containers") Type <strong>other</strong> if unsure.';
+            case 'quantity':
+                chatState.quantity = msg;
+                chatState.step = 'country';
+                return 'Which <strong>country/region</strong> should we ship to? Type <strong>other</strong> if unsure.';
+            case 'country':
+                chatState.country = msg;
+                chatState.step = 'email';
+                return 'Last step! Please share your <strong>email address</strong> so our team can send you a quotation for ' + chatState.country + ' within 24 hours.';
+            case 'email':
+                chatState.email = msg;
+                chatState.step = 'done';
+                return buildSummary();
+            default:
+                chatState.step = 'initial';
+                return 'What product are you looking for?';
+        }
+    }
+
+    
+
+    function sendInquiryEmail() {
+        var form = document.createElement('form');
+        form.method = 'POST';
+        form.action = 'https://formsubmit.co/69b53c158db9d43da53fbec96388447c';
+        form.target = '_blank';
+        form.style.display = 'none';
+
+        var fields = {
+            '_subject': 'New AI Chatbot Inquiry - ExportTurk (' + (chatState.product || 'General') + ')',
+            '_cc': 'tamer.gundogan@gmail.com',
+            '_captcha': 'false',
+            '_template': 'table',
+            '_autoresponse': 'Thank you for your inquiry! Our ExportTurk team will contact you within 24 hours.',
+            'Product': chatState.product || 'Not specified',
+            'Specifications': chatState.specs || 'Not specified',
+            'Quantity': chatState.quantity || 'Not specified',
+            'Destination Country': chatState.country || 'Not specified',
+            'Customer Email': chatState.email || 'Not provided',
+            'Source': 'AI Chatbot',
+            'Page': window.location.href
+        };
+
+        for (var key in fields) {
+            var input = document.createElement('input');
+            input.type = 'hidden';
+            input.name = key;
+            input.value = fields[key];
+            form.appendChild(input);
+        }
+
+        document.body.appendChild(form);
+        
+        // Submit via hidden iframe to avoid page redirect
+        var iframe = document.createElement('iframe');
+        iframe.name = 'submit-iframe';
+        iframe.style.display = 'none';
+        document.body.appendChild(iframe);
+        form.target = 'submit-iframe';
+        form.submit();
+        
+        // Clean up after 3 seconds
+        setTimeout(function() {
+            document.body.removeChild(form);
+            document.body.removeChild(iframe);
+        }, 3000);
+    }
+
+    function buildSummary() {
+        sendInquiryEmail();
+        return 'Your inquiry summary:<br><br><div style="background:#f1f5f9;padding:12px;border-radius:8px;margin:8px 0;"><strong>Product:</strong> ' + (chatState.product||'TBD') + '<br><strong>Specs:</strong> ' + (chatState.specs||'TBD') + '<br><strong>Quantity:</strong> ' + (chatState.quantity||'TBD') + '<br><strong>Destination:</strong> ' + (chatState.country||'TBD') + '<br><strong>Email:</strong> ' + chatState.email + '</div><br>Our trade specialist will contact you within <strong>24 hours</strong>. You can also reach us via <a href="https://wa.me/905323541129?text=' + encodeURIComponent('Hi ExportTurk, I need: ' + (chatState.product||'products') + '. Specs: ' + (chatState.specs||'TBD') + '. Qty: ' + (chatState.quantity||'TBD') + '. Ship to: ' + (chatState.country||'TBD')) + '" target="_blank" style="color:#25D366;font-weight:bold;">WhatsApp</a> or email <strong>info@exportturk.com</strong>.';
+    }
+
+    // Auto-open chat if not opened yet when chat window is displayed via button
+    const observer = new MutationObserver(() => {
+        if (chatWindow.style.display === 'flex' && !chatOpened) {
+            addBotMsg('Welcome to ExportTurk! What product are you looking for? We cover <strong>power equipment, auto parts, food, seafood, petroleum, copper, and mining metals</strong>.');
+            chatOpened = true;
+        }
+    });
+    observer.observe(chatWindow, { attributes: true, attributeFilter: ['style'] });
+    </script>
+
+    <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || !targetId) return;
+            const target = document.querySelector(targetId);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    </script>
+    <!-- ExportTurk AI Assistant v2 (overrides inline chat) -->
+    <script src="chatbot-v2.js" defer></script>
+
 </body>
 </html>
